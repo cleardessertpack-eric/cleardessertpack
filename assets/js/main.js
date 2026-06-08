@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "Estimated quantity: " + (data.get("quantity") || "") + "\n" +
         "Message: " + (data.get("message") || "")
       );
-      window.location.href = "mailto:info@cleardessertpack.com?subject=" + subject + "&body=" + body;
+      window.location.href = "mailto:cleardessertpack@gmail.com?subject=" + subject + "&body=" + body;
     });
   });
 });
