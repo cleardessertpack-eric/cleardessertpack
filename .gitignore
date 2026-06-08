@@ -1,0 +1,8 @@
+node_modules/
+old_next_code/
+*.log
+out.txt
+out_layout.txt
+git-test.txt
+website_package_v2/
+replace_contacts.py

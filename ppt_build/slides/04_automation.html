@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html { background: #ffffff; }
+body {
+  width: 720pt; height: 405pt; margin: 0; padding: 24pt 40pt 48pt 40pt;
+  background: #F4F6F6; font-family: Arial, sans-serif;
+  display: flex; flex-direction: column; box-sizing: border-box; color: #2D2D2D;
+}
+.header { border-bottom: 2pt solid #F96D00; margin-bottom: 15pt; padding-bottom: 5pt; }
+h1 { font-size: 24pt; margin: 0; color: #2D2D2D; }
+.content { display: flex; flex-direction: row; justify-content: space-between; flex: 1; }
+.col { width: 48%; display: flex; flex-direction: column; }
+.card {
+  background: #ffffff; border-top: 4pt solid #2D2D2D;
+  padding: 10pt 15pt; margin-bottom: 10pt; border-radius: 4pt;
+}
+.card-orange { border-top-color: #F96D00; }
+h3 { margin: 0 0 5pt 0; font-size: 15pt; color: #2D2D2D; }
+ul { font-size: 12pt; line-height: 1.4; padding-left: 15pt; margin: 0; }
+.quote-box {
+  background: #f9f9f9; padding: 8pt; border-left: 3pt solid #AAB7B8; margin: 0;
+}
+.quote-text {
+  font-size: 11pt; font-style: italic; margin: 0;
+}
+</style>
+</head>
+<body>
+  <div class="header">
+    <h1>客户服务与响应自动化 (FAQ配置)</h1>
+  </div>
+  <div class="content">
+    <div class="col">
+      <div class="card card-orange">
+        <h3>配置目标与策略</h3>
+        <ul>
+          <li><b>建立专业形象:</b> 提供标准化、英文地道的首轮响应</li>
+          <li><b>获取联系方式:</b> 引导客户留下 WhatsApp 或 Email 以发送详细报价表 (FOB价 + 运费)</li>
+          <li><b>流失挽回:</b> 设置 5 分钟未回复自动触发机制</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>价格响应话术 (示例)</h3>
+        <div class="quote-box">
+          <p class="quote-text">
+            "Hey! Thanks for asking. For [quantity] pcs, the current FOB reference price is around 2.5-2.8 USD... Could you share your WhatsApp or Email? I will send you the full quote sheet directly in 2 minutes."
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <h3>多场景话术覆盖</h3>
+        <ul>
+          <li><b>美国市场专属:</b> "We ship to the US every week. WhatsApp works great in the US..."</li>
+          <li><b>只有WeChat客户:</b> 灵活引导添加 WeChat ID 获取最优价格。</li>
+          <li><b>隐私敏感型客户:</b> 强调 "Your privacy matters... no spam", 仅需邮箱即可。</li>
+          <li><b>急单/大单客户:</b> 针对 1000+ pcs 强调真正的出厂价，1分钟出报价单，加速转化。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

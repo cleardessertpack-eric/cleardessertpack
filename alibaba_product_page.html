@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A+ Structured Detail Page - Premium Dessert Box</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        html { scroll-behavior: smooth; }
+        .ali-orange { background-color: #FF6A00; }
+        .ali-orange-text { color: #FF6A00; }
+        .ali-bg-light { background-color: #f7f8fa; }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Mock Alibaba Header / Nav -->
+    <div class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center text-sm font-medium text-gray-600">
+            <div class="flex space-x-6">
+                <a href="#overview" class="hover:text-orange-500 transition">Overview</a>
+                <a href="#advantages" class="hover:text-orange-500 transition">Advantages</a>
+                <a href="#specs" class="hover:text-orange-500 transition">Specifications</a>
+                <a href="#customization" class="hover:text-orange-500 transition">Customization</a>
+                <a href="#factory" class="hover:text-orange-500 transition">Factory</a>
+                <a href="#faq" class="hover:text-orange-500 transition">FAQ</a>
+            </div>
+            <button class="ali-orange text-white px-5 py-2 rounded-full font-bold hover:bg-orange-600 transition shadow-md">
+                Send Inquiry
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="max-w-6xl mx-auto mt-6 bg-white shadow-lg overflow-hidden">
+
+        <!-- Module 1: Hero Banner -->
+        <section id="overview" class="relative h-[500px] flex items-center justify-center bg-gray-900 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1571115177098-24c42d654761?auto=format&fit=crop&q=80&w=1600" alt="Dessert in Box" class="absolute inset-0 w-full h-full object-cover opacity-60">
+            <div class="relative z-10 text-center text-white px-4">
+                <span class="bg-orange-500 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block">Best Seller</span>
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">Premium Transparent Dessert Boxes</h1>
+                <p class="text-lg md:text-2xl mb-8 font-light drop-shadow-md">Perfect for Tiramisu, Cakes & Mousse | Elevate Your Bakery Brand</p>
+                <div class="flex flex-wrap justify-center gap-4 text-sm font-medium">
+                    <span class="bg-black/50 backdrop-blur-md px-4 py-2 rounded-lg border border-white/20">🍃 100% Food-Grade</span>
+                    <span class="bg-black/50 backdrop-blur-md px-4 py-2 rounded-lg border border-white/20">🏭 Factory Direct Price</span>
+                    <span class="bg-black/50 backdrop-blur-md px-4 py-2 rounded-lg border border-white/20">📦 Low MOQ Custom</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Module 2: Core Advantages -->
+        <section id="advantages" class="py-16 px-8 ali-bg-light">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-900">Why Choose Our Packaging?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition text-center border border-gray-100">
+                    <div class="text-4xl mb-4">✨</div>
+                    <h3 class="text-xl font-bold mb-2">Crystal Clear</h3>
+                    <p class="text-gray-500 text-sm">Glass-like transparency to showcase your delicious desserts flawlessly. Perfect for social media.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition text-center border border-gray-100">
+                    <div class="text-4xl mb-4">💧</div>
+                    <h3 class="text-xl font-bold mb-2">Leak-Proof Seal</h3>
+                    <p class="text-gray-500 text-sm">Secure snap-on lid prevents spills and keeps food fresh during transit and delivery.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition text-center border border-gray-100">
+                    <div class="text-4xl mb-4">💪</div>
+                    <h3 class="text-xl font-bold mb-2">Thickened & Durable</h3>
+                    <p class="text-gray-500 text-sm">Premium 1mm thick PS/PET material, stackable without crushing your cakes.</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition text-center border border-gray-100">
+                    <div class="text-4xl mb-4">♻️</div>
+                    <h3 class="text-xl font-bold mb-2">Eco-Friendly</h3>
+                    <p class="text-gray-500 text-sm">Made from 100% recyclable, BPA-free, odor-free materials. Safe for direct food contact.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Module 3: Specifications -->
+        <section id="specs" class="py-16 px-8 bg-white">
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="w-full md:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&q=80&w=800" alt="Product Specs" class="rounded-xl shadow-lg border border-gray-100">
+                </div>
+                <div class="w-full md:w-1/2">
+                    <h2 class="text-3xl font-bold mb-6 text-gray-900">Product Specifications</h2>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full text-left text-sm border-collapse border border-gray-200">
+                            <tbody class="divide-y divide-gray-200">
+                                <tr class="bg-gray-50">
+                                    <th class="px-4 py-3 font-semibold text-gray-700 w-1/3">Product Name</th>
+                                    <td class="px-4 py-3 text-gray-600">Transparent Dessert / Tiramisu Box</td>
+                                </tr>
+                                <tr>
+                                    <th class="px-4 py-3 font-semibold text-gray-700">Material</th>
+                                    <td class="px-4 py-3 text-gray-600">Food Grade PS / PET (BPA-Free)</td>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <th class="px-4 py-3 font-semibold text-gray-700">Thickness</th>
+                                    <td class="px-4 py-3 text-gray-600">1.0 mm (Sturdy & Stackable)</td>
+                                </tr>
+                                <tr>
+                                    <th class="px-4 py-3 font-semibold text-gray-700">Available Sizes</th>
+                                    <td class="px-4 py-3 text-gray-600">150ml / 250ml / 300ml / 400ml</td>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <th class="px-4 py-3 font-semibold text-gray-700">Temp Resistance</th>
+                                    <td class="px-4 py-3 text-gray-600">-20°C to 60°C (Freezer Safe)</td>
+                                </tr>
+                                <tr>
+                                    <th class="px-4 py-3 font-semibold text-gray-700">Certifications</th>
+                                    <td class="px-4 py-3 text-gray-600 font-medium text-green-600">FDA, SGS, ISO9001</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Module 4: Detail Close-ups -->
+        <section class="py-16 px-8 ali-bg-light">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-900">Uncompromising Details</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
+                    <div class="h-48 bg-gray-200 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1621236378699-8597faf6a176?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-bold text-lg mb-2">Tight Buckle Design</h4>
+                        <p class="text-gray-500 text-sm">Smooth edges with a secure snap-on lid. Easy to open but prevents leaking and fogging.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
+                    <div class="h-48 bg-gray-200 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1559564106-96a6058e5781?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-bold text-lg mb-2">High Transparency</h4>
+                        <p class="text-gray-500 text-sm">Zero fogging in refrigerators. Provides a premium presentation that boosts your sales.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100">
+                    <div class="h-48 bg-gray-200 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1605807646983-377bc5a76493?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-bold text-lg mb-2">Direct Food Contact Safe</h4>
+                        <p class="text-gray-500 text-sm">Non-toxic, odorless, and strictly compliant with international food safety standards.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Module 6: Customization -->
+        <section id="customization" class="py-16 px-8 bg-white border-b border-gray-100">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">We Bring Your Brand to Life</h2>
+                <p class="text-gray-500 max-w-2xl mx-auto">Stand out from the competition with our flexible OEM/ODM services tailored for bakeries and brands of all sizes.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div class="text-center p-6 border border-gray-200 rounded-xl hover:border-orange-500 transition">
+                    <div class="w-16 h-16 bg-orange-100 text-orange-500 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">🏷️</div>
+                    <h4 class="font-bold mb-2">Custom Stickers</h4>
+                    <p class="text-xs text-gray-500 mb-4">Lowest cost, high impact. Perfect for startups.</p>
+                    <span class="text-orange-500 font-bold text-sm bg-orange-50 px-3 py-1 rounded-full">MOQ: 1,000 pcs</span>
+                </div>
+                <div class="text-center p-6 border border-gray-200 rounded-xl hover:border-orange-500 transition relative transform md:-translate-y-4 shadow-lg border-orange-200">
+                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full">Most Popular</div>
+                    <div class="w-16 h-16 bg-orange-100 text-orange-500 rounded-full flex items-center justify-center text-2xl mx-auto mb-4 mt-2">🎗️</div>
+                    <h4 class="font-bold mb-2">Paper Sleeves</h4>
+                    <p class="text-xs text-gray-500 mb-4">Add a premium touch with wrap-around printed sleeves.</p>
+                    <span class="text-orange-500 font-bold text-sm bg-orange-50 px-3 py-1 rounded-full">MOQ: 5,000 pcs</span>
+                </div>
+                <div class="text-center p-6 border border-gray-200 rounded-xl hover:border-orange-500 transition">
+                    <div class="w-16 h-16 bg-orange-100 text-orange-500 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">🔱</div>
+                    <h4 class="font-bold mb-2">Logo Embossing</h4>
+                    <p class="text-xs text-gray-500 mb-4">Engrave your logo directly on the plastic box lid.</p>
+                    <span class="text-orange-500 font-bold text-sm bg-orange-50 px-3 py-1 rounded-full">MOQ: 20,000 pcs</span>
+                </div>
+            </div>
+            
+            <div class="bg-gray-50 rounded-xl p-8 flex flex-col md:flex-row items-center justify-between">
+                <div class="mb-4 md:mb-0">
+                    <h4 class="font-bold text-lg">Customization Workflow:</h4>
+                    <div class="flex text-sm text-gray-600 mt-2 space-x-2 items-center flex-wrap">
+                        <span>Send Inquiry</span> <span class="text-orange-500">➔</span>
+                        <span>Share Logo</span> <span class="text-orange-500">➔</span>
+                        <span class="font-bold text-gray-800">Get Free Mockup</span> <span class="text-orange-500">➔</span>
+                        <span>Production</span> <span class="text-orange-500">➔</span>
+                        <span>Delivery</span>
+                    </div>
+                </div>
+                <button class="ali-orange text-white px-6 py-3 rounded-lg font-bold hover:bg-orange-600 transition shadow-md whitespace-nowrap">
+                    Request Free Mockup
+                </button>
+            </div>
+        </section>
+
+        <!-- Module 7: Factory Strength -->
+        <section id="factory" class="py-16 px-8 bg-gray-900 text-white">
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="w-full md:w-1/2">
+                    <h2 class="text-3xl font-bold mb-4">Your Reliable Packaging Partner in China</h2>
+                    <p class="text-gray-400 mb-8">We control the entire supply chain to ensure top-notch quality and unbeatable factory-direct prices.</p>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <span class="text-green-400 mr-3">✓</span>
+                            <span><strong>10,000+ sqm Dust-Free Workshop:</strong> Ensuring maximum food hygiene.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-400 mr-3">✓</span>
+                            <span><strong>Fully Automated Lines:</strong> Daily capacity of 1,000,000 pcs for fast delivery.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-400 mr-3">✓</span>
+                            <span><strong>Global Certifications:</strong> ISO9001, FDA, SGS, CE certified.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="w-full md:w-1/2 grid grid-cols-2 gap-4">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=400" class="rounded-lg shadow-md h-40 w-full object-cover" alt="Factory Line">
+                    <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=400" class="rounded-lg shadow-md h-40 w-full object-cover" alt="Warehouse">
+                </div>
+            </div>
+        </section>
+
+        <!-- Module 9: FAQ -->
+        <section id="faq" class="py-16 px-8 ali-bg-light">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-900">Frequently Asked Questions</h2>
+            <div class="max-w-3xl mx-auto space-y-4">
+                
+                <details class="bg-white p-4 rounded-lg shadow-sm border border-gray-200 group cursor-pointer" open>
+                    <summary class="font-semibold text-lg flex justify-between items-center outline-none">
+                        Can I get free samples before placing a bulk order?
+                        <span class="text-gray-400 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <p class="text-gray-600 mt-4 text-sm leading-relaxed border-t border-gray-100 pt-4">
+                        Yes! We offer free stock samples to check our quality. You only need to cover the international shipping freight, which takes about 3-5 days via DHL/FedEx.
+                    </p>
+                </details>
+
+                <details class="bg-white p-4 rounded-lg shadow-sm border border-gray-200 group cursor-pointer">
+                    <summary class="font-semibold text-lg flex justify-between items-center outline-none">
+                        What is your MOQ (Minimum Order Quantity)?
+                        <span class="text-gray-400 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <p class="text-gray-600 mt-4 text-sm leading-relaxed border-t border-gray-100 pt-4">
+                        For standard clear boxes in stock, the MOQ is only 1 carton (e.g., 1000 pcs depending on the size). For custom logo printing or bespoke packaging, the MOQ starts at 5,000 pcs.
+                    </p>
+                </details>
+
+                <details class="bg-white p-4 rounded-lg shadow-sm border border-gray-200 group cursor-pointer">
+                    <summary class="font-semibold text-lg flex justify-between items-center outline-none">
+                        How long is the production lead time?
+                        <span class="text-gray-400 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <p class="text-gray-600 mt-4 text-sm leading-relaxed border-t border-gray-100 pt-4">
+                        Usually, it takes 3-5 days for in-stock items. For customized orders, production takes about 10-15 working days after the design mockup is confirmed.
+                    </p>
+                </details>
+
+                <details class="bg-white p-4 rounded-lg shadow-sm border border-gray-200 group cursor-pointer">
+                    <summary class="font-semibold text-lg flex justify-between items-center outline-none">
+                        Are these boxes microwave or freezer safe?
+                        <span class="text-gray-400 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <p class="text-gray-600 mt-4 text-sm leading-relaxed border-t border-gray-100 pt-4">
+                        Our boxes are perfect for refrigerators and freezers (can withstand temperatures down to -20°C without cracking). However, plastic materials like PET/PS are NOT microwave safe.
+                    </p>
+                </details>
+
+            </div>
+        </section>
+        
+        <!-- Footer CTA -->
+        <div class="bg-orange-500 py-12 text-center text-white px-4">
+            <h2 class="text-3xl font-bold mb-4">Ready to upgrade your dessert packaging?</h2>
+            <p class="mb-8 opacity-90 max-w-xl mx-auto">Contact our sales team now to get the latest catalog, factory-direct price list, and a free 3D mockup of your custom design.</p>
+            <button class="bg-white text-orange-500 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition shadow-xl inline-flex items-center">
+                ✉️ Send Inquiry Now
+            </button>
+        </div>
+
+    </div>
+
+    <!-- Padding for bottom -->
+    <div class="h-12 bg-gray-100"></div>
+
+</body>
+</html>

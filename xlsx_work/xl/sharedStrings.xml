@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sst xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" count="40" uniqueCount="40">
+  <si><t>序号</t></si>
+  <si><t>商品名称</t></si>
+  <si><t>关键词1</t></si>
+  <si><t>关键词2</t></si>
+  <si><t>关键词3</t></si>
+  <si><t>主图URL</t></si>
+  <si><t>视频URL</t></si>
+  <si><t>产地</t></si>
+  <si><t>品牌</t></si>
+  <si><t>型号</t></si>
+  <si><t>材质</t></si>
+  <si><t>应用</t></si>
+  <si><t>特性</t></si>
+  <si><t>最小起订量</t></si>
+  <si><t>FOB单价</t></si>
+  <si><t>交期</t></si>
+  <si><t>包装重量kg</t></si>
+  <si><t>包装尺寸cm</t></si>
+  <si><t>详细描述</t></si>
+  <si><t>详情图URL</t></si>
+  <si><t>1</t></si>
+  <si><t>智能无线蓝牙耳机 Pro</t></si>
+  <si><t>Bluetooth Earphones</t></si>
+  <si><t>Wireless Headset</t></si>
+  <si><t>Noise Cancelling</t></si>
+  <si><t>https://example.com/main.jpg</t></si>
+  <si><t>https://example.com/video.mp4</t></si>
+  <si><t>中国广东</t></si>
+  <si><t>ACCIO-TECH</t></si>
+  <si><t>AT-2026</t></si>
+  <si><t>ABS+Silicon</t></si>
+  <si><t>运动, 办公, 通话</t></si>
+  <si><t>防水, 长续航, 触控</t></si>
+  <si><t>100</t></si>
+  <si><t>15.50</t></si>
+  <si><t>15天</t></si>
+  <si><t>0.25</t></si>
+  <si><t>10*10*5</t></si>
+  <si><t>这是一款高性能的智能无线蓝牙耳机，具备主动降噪功能，佩戴舒适。</t></si>
+  <si><t>https://example.com/detail.jpg</t></si>
+</sst>

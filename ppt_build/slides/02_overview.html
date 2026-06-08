@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html { background: #ffffff; }
+body {
+  width: 720pt; height: 405pt; margin: 0; padding: 24pt 40pt 48pt 40pt;
+  background: #F4F6F6; font-family: Arial, sans-serif;
+  display: flex; flex-direction: column; box-sizing: border-box;
+  color: #2D2D2D;
+}
+.header {
+  border-bottom: 2pt solid #F96D00;
+  margin-bottom: 10pt; padding-bottom: 5pt;
+}
+h1 { font-size: 24pt; margin: 0; color: #2D2D2D; }
+.content {
+  display: flex; flex-direction: row; justify-content: space-between; flex: 1;
+}
+.col-left {
+  width: 42%; display: flex; flex-direction: column; justify-content: flex-start;
+}
+.col-right {
+  width: 53%; display: flex; flex-direction: column; justify-content: flex-start;
+}
+.kpi-box {
+  background: #ffffff; border-left: 6pt solid #2D2D2D;
+  padding: 10pt; margin-bottom: 10pt; border-radius: 4pt;
+}
+.kpi-title { font-size: 14pt; color: #7F8C8D; margin: 0 0 5pt 0; }
+.kpi-value { font-size: 20pt; font-weight: bold; margin: 0; color: #F96D00; }
+.kpi-sub { margin: 5pt 0 0 0; font-size: 11pt; color: #7F8C8D; }
+.finding-box {
+  background: #ffffff; padding: 10pt; border-radius: 4pt; margin-top: 5pt;
+}
+.finding-title { font-size: 14pt; font-weight: bold; margin: 0 0 5pt 0; }
+ul { margin: 0; padding-left: 15pt; font-size: 12pt; line-height: 1.4; }
+</style>
+</head>
+<body>
+  <div class="header">
+    <h1>本周数据概览 (平台流量表现)</h1>
+  </div>
+  <div class="content">
+    <div class="col-left">
+      <div class="kpi-box">
+        <p class="kpi-title">中国制造网 (MIC) 近7天曝光</p>
+        <p class="kpi-value">2,054</p>
+        <p class="kpi-sub">访问量: 44 &nbsp;|&nbsp; 询盘: 3</p>
+      </div>
+      <div class="kpi-box" style="border-left-color: #F96D00;">
+        <p class="kpi-title">阿里国际站 (Alibaba) 曝光趋势</p>
+        <p class="kpi-value">~2,000</p>
+        <p class="kpi-sub">日均曝光维持在 250-400 之间</p>
+      </div>
+      <div class="finding-box">
+        <p class="finding-title">核心发现:</p>
+        <ul>
+          <li>MIC流量高于同行平均，持平Top10</li>
+          <li>阿里日均访客数相对平稳</li>
+          <li>流量转化率仍有提升空间</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-right">
+      <div id="chart-mic" class="placeholder" style="width: 100%; height: 130pt; background: #fff; margin-bottom: 10pt; border-radius: 4pt;"></div>
+      <div id="table-ali" class="placeholder" style="width: 100%; height: 130pt; background: #fff; border-radius: 4pt;"></div>
+    </div>
+  </div>
+</body>
+</html>
