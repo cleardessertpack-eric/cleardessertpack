@@ -39,7 +39,7 @@ img{max-width:100%;display:block;height:auto}
 }
 .nav-wrap{height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px}
 .brand{display:flex;align-items:center;gap:12px;font-weight:900;color:var(--coffee);white-space:nowrap}
-.brand img{width:210px;max-height:54px;object-fit:contain}
+.brand img{width:250px;max-height:64px;object-fit:contain}
 .brand-fallback{display:none}
 .nav{display:flex;gap:20px;align-items:center;font-size:14px;font-weight:900}
 .nav a{opacity:.84}
