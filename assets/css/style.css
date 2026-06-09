@@ -53,6 +53,8 @@ img{max-width:100%;display:block;height:auto}
 }
 .btn:hover{transform:translateY(-1px)}
 .btn.secondary{background:#fff;color:var(--coffee);border:1px solid var(--line);box-shadow:none}
+.btn.outline{background:#fff;color:var(--coffee);border:1px solid var(--coffee);box-shadow:none}
+.btn.outline:hover{background:var(--cream);transform:translateY(-1px)}
 .btn.light{background:#fff;color:var(--coffee);box-shadow:none}
 .menu-toggle{display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:14px;background:#fff;font-weight:900}
 .hero{padding:74px 0 58px;overflow:hidden}
