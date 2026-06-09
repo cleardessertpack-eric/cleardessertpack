@@ -196,3 +196,63 @@ textarea{min-height:96px;resize:vertical}
   .trust-grid,.grid-2,.grid-3,.grid-4,.grid-5,.process,.footer-grid,.checkbox-grid{grid-template-columns:1fr}
   .cta{padding:28px 22px}
 }
+
+/* WhatsApp Integrations */
+.wa-btn {
+  background-color: #25d366 !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.18) !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 900;
+  transition: all 0.2s ease-in-out;
+}
+.wa-btn:hover {
+  background-color: #128c7e !important;
+  transform: translateY(-1px);
+}
+.wa-btn svg {
+  fill: #fff !important;
+}
+
+/* Floating WhatsApp Button */
+.wa-floating {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  background-color: #25d366;
+  color: #fff !important;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  font-weight: bold;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+.wa-floating:hover {
+  background-color: #128c7e;
+  transform: scale(1.05);
+}
+.wa-floating svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+/* On Mobile, ensure floating button doesn't block submit buttons */
+@media (max-width: 720px) {
+  .wa-floating {
+    bottom: 16px;
+    right: 16px;
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+}
