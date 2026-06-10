@@ -25,6 +25,7 @@
       <nav class="nav">
         <a class="" href="index.html">Home</a>
         <a class="" href="products.html">Products</a>
+        <a class="" href="clear-dessert-box-sizes.html">Box Sizes</a>
         <a class="" href="custom-branding.html">Custom Branding</a>
         <a class="" href="packaging-kits.html">Packaging Kits</a>
         <a class="" href="applications.html">Applications</a>
@@ -159,5 +160,38 @@
     Chat on WhatsApp
   </a>
   <script src="assets/js/main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const sku = urlParams.get('sku');
+      const product = urlParams.get('product');
+
+      if (sku) {
+        const messageField = document.querySelector('textarea[name="message"]');
+        if (messageField) {
+          messageField.value = `Hi, I am interested in SKU: ${sku.toUpperCase()}. Please send me pricing, MOQ, and sample details.`;
+        }
+        const productSelect = document.querySelector('select[name="product"]');
+        if (productSelect) {
+          for (let option of productSelect.options) {
+            if (option.text.toLowerCase().includes("box") || option.text.toLowerCase().includes("container")) {
+              option.selected = true;
+              break;
+            }
+          }
+        }
+      } else if (product) {
+        const productSelect = document.querySelector('select[name="product"]');
+        if (productSelect) {
+          for (let option of productSelect.options) {
+            if (option.value.toLowerCase().includes(product.toLowerCase()) || option.text.toLowerCase().includes(product.toLowerCase())) {
+              option.selected = true;
+              break;
+            }
+          }
+        }
+      }
+    });
+  </script>
 </body>
 </html>
