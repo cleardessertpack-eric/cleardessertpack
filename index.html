@@ -278,6 +278,59 @@
       .form-card{padding:22px}.form-foot{align-items:stretch;flex-direction:column}.form-foot .btn{width:100%}
       .footer-col:last-child{grid-column:auto}.footer-bottom{flex-direction:column}
     }
+
+    /* Dense commerce layout: compact desktop rhythm and 5-column SKU grid */
+    @media (min-width:1181px){
+      :root{--max:1280px}
+      .topbar-inner{min-height:34px}
+      .nav{height:68px}
+      .brand-logo{width:194px;max-height:52px}
+      .nav-links{gap:24px;font-size:.86rem}
+      .btn{min-height:46px;padding:0 19px}
+      .hero-grid{min-height:545px;gap:42px;padding:42px 0}
+      .hero h1{font-size:clamp(3.25rem,4.55vw,4.35rem);max-width:650px;margin:14px 0 16px}
+      .hero-lead{font-size:1.02rem;max-width:590px;margin-bottom:22px}
+      .hero-actions{margin-bottom:23px}
+      .hero-visual{min-height:440px}
+      .hero-photo{width:445px;aspect-ratio:1/1.02;border-radius:26px}
+      .float-top{right:2px;top:35px}.float-bottom{left:0;bottom:42px}
+      .trust-item{padding:18px 22px}.trust-item b{font-size:1.02rem}
+      .section{padding:64px 0}
+      .section-head{margin-bottom:30px}.section-head h2{font-size:2.55rem;margin-top:8px}.section-head p{font-size:.98rem}
+      .product-grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+      .product-image{height:178px}
+      .product-body{padding:15px}
+      .product-body h3{font-size:.98rem;line-height:1.22}
+      .product-body p{min-height:58px;margin-bottom:13px;font-size:.8rem;line-height:1.5}
+      .product-meta{padding-top:11px;font-size:.72rem;gap:8px}
+      .tag{top:11px;left:11px;padding:5px 8px;font-size:.63rem}
+      .buyer-grid{gap:48px}.buyer-main{aspect-ratio:4/4.1}.buyer-copy h2{font-size:2.75rem}
+      .applications .application-card img{height:190px}
+      .custom-grid{gap:42px}.custom-copy h2{font-size:2.7rem}.custom-board{min-height:415px;padding:28px}
+      .process-grid{gap:14px}.step{min-height:185px;padding:23px}.step-icon{margin-bottom:22px}
+      .factory-photo{min-height:420px}.quality-card{padding:29px}
+      .faq-wrap{max-width:980px}summary{padding:18px 4px}
+      .inquiry-grid{gap:44px}.form-card{padding:25px}
+      footer{padding-top:52px}
+    }
+
+    @media (min-width:981px) and (max-width:1180px){
+      .product-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+      .product-image{height:190px}
+    }
+
+    @media (min-width:641px) and (max-width:980px){
+      .product-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+    }
+
+    @media (max-width:640px){
+      .section{padding:54px 0}
+      .product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+      .product-image{height:150px}
+      .product-body{padding:13px}
+      .product-body h3{font-size:.9rem}.product-body p{font-size:.76rem}
+      .product-meta{align-items:flex-start;flex-direction:column;gap:5px;font-size:.7rem}
+    }
   </style>
 
   <script type="application/ld+json">
@@ -382,36 +435,18 @@
         </div>
 
         <div class="product-grid">
-          <article class="product-card">
-            <div class="product-image"><span class="tag">Best seller</span><img src="assets/img/custom/branded-tiramisu-paper-sleeve-lifestyle.png" alt="Rectangular clear tiramisu box with branded paper sleeve" loading="lazy" /></div>
-            <div class="product-body"><h3>Rectangular Tiramisu Box</h3><p>Clean, stackable presentation for single-serve and premium layered desserts.</p><div class="product-meta"><span>Multiple capacities</span><a class="arrow-link" href="#inquiry">Enquire →</a></div></div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-image"><span class="tag">Retail display</span><img src="assets/img/hero/clear-dessert-pack-custom-tiramisu-packaging-hero.png" alt="Square clear dessert box with layered tiramisu" loading="lazy" /></div>
-            <div class="product-body"><h3>Square Dessert Cup</h3><p>Modern geometry with strong visual impact for chilled desserts and tasting portions.</p><div class="product-meta"><span>Lid options available</span><a class="arrow-link" href="#inquiry">Enquire →</a></div></div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-image"><span class="tag">Catering</span><img src="assets/img/custom/branded-dessert-gift-set.png" alt="Mini clear dessert packaging set for catering" loading="lazy" /></div>
-            <div class="product-body"><h3>Mini Tiramisu Cups</h3><p>Compact formats for events, tasting menus, airline catering and dessert assortments.</p><div class="product-meta"><span>Bulk pack formats</span><a class="arrow-link" href="#inquiry">Enquire →</a></div></div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-image"><span class="tag">Family size</span><img src="assets/img/applications/wedding-tiramisu-cocoa-stencil-main.png" alt="Large tiramisu tray for wedding and catering desserts" loading="lazy" /></div>
-            <div class="product-body"><h3>Family & Sharing Tray</h3><p>Higher-capacity packaging for supermarkets, catering and take-home dessert ranges.</p><div class="product-meta"><span>Custom depths</span><a class="arrow-link" href="#inquiry">Enquire →</a></div></div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-image"><span class="tag">Premium finish</span><img src="assets/img/custom/custom-ribbon-clear-dessert-box.jpg" alt="Clear dessert box with premium custom ribbon" loading="lazy" /></div>
-            <div class="product-body"><h3>Dome-Lid Dessert Cup</h3><p>Extra headspace for toppings, cream swirls, fruit and decorative finishes.</p><div class="product-meta"><span>High-visibility lid</span><a class="arrow-link" href="#inquiry">Enquire →</a></div></div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-image"><span class="tag">Private label</span><img src="assets/img/custom/custom-paper-bag-ecommerce-main.png" alt="Branded dessert packaging paper bag, labels and sleeves" loading="lazy" /></div>
-            <div class="product-body"><h3>Sleeves, Labels & Inserts</h3><p>Complete the presentation with brand-ready paper sleeves, stickers and inserts.</p><div class="product-meta"><span>Artwork support</span><a class="arrow-link" href="#inquiry">Enquire →</a></div></div>
-          </article>
+          <article class="product-card"><div class="product-image"><span class="tag">Best seller</span><img src="assets/img/products/hk-28188-large-clear-tiramisu-box-4000ml.webp" alt="HK-28188 large clear tiramisu box 4000ml" loading="lazy" /></div><div class="product-body"><h3>HK-28188 Large Tiramisu Box</h3><p>4000ml PS tray for wedding desserts, sharing tiramisu and catering orders.</p><div class="product-meta"><span>28 × 18 × 8 cm</span><a class="arrow-link" href="#inquiry">Quote →</a></div></div></article>
+          <article class="product-card"><div class="product-image"><span class="tag">Family size</span><img src="assets/img/products/hk-21157-clear-tiramisu-container-1800ml.webp" alt="HK-21157 clear tiramisu container 1800ml" loading="lazy" /></div><div class="product-body"><h3>HK-21157 Tiramisu Container</h3><p>1800ml clear PS format for family-size desserts and bakery takeaway.</p><div class="product-meta"><span>21 × 15 × 7 cm</span><a class="arrow-link" href="#inquiry">Quote →</a></div></div></article>
+          <article class="product-card"><div class="product-image"><span class="tag">PET material</span><img src="assets/img/products/e1300-clear-pet-dessert-box-1300ml.webp" alt="E1300 clear PET dessert box 1300ml" loading="lazy" /></div><div class="product-body"><h3>E1300 Clear PET Dessert Box</h3><p>1300ml retail-ready container for standard tiramisu and chilled desserts.</p><div class="product-meta"><span>18 × 13 × 6.4 cm</span><a class="arrow-link" href="#inquiry">Quote →</a></div></div></article>
+          <article class="product-card"><div class="product-image"><span class="tag">Round</span><img src="assets/img/products/ssm-016-clear-round-dessert-container-600ml.webp" alt="SSM-016 round clear dessert container 600ml" loading="lazy" /></div><div class="product-body"><h3>SSM-016 Round Container</h3><p>600ml PS container for mousse, mini cakes and premium round tiramisu.</p><div class="product-meta"><span>Ø12.2 × 5.5 cm</span><a class="arrow-link" href="#inquiry">Quote →</a></div></div></article>
+          <article class="product-card"><div class="product-image"><span class="tag">Single serve</span><img src="assets/img/products/ssm-004-clear-square-box-450ml.webp" alt="SSM-004 clear square dessert box 450ml" loading="lazy" /></div><div class="product-body"><h3>SSM-004 Clear Square Box</h3><p>450ml compact box for single-serve tiramisu and tasting portions.</p><div class="product-meta"><span>9.5 × 9.5 × 6.3 cm</span><a class="arrow-link" href="#inquiry">Quote →</a></div></div></article>
+          <article class="product-card"><div class="product-image"><span class="tag">Catering</span><img src="assets/img/products/hk-034-large-clear-tiramisu-box-4500ml.webp" alt="HK-034 large clear tiramisu tray 4500ml" loading="lazy" /></div><div class="product-body"><h3>HK-034 Catering Tiramisu Tray</h3><p>4500ml long PS tray for catering, events and large sharing desserts.</p><div class="product-meta"><span>37 × 20 × 7.2 cm</span><a class="arrow-link" href="#inquiry">Quote →</a></div></div></article>
+          <article class="product-card"><div class="product-image"><span class="tag">Medium</span><img src="assets/img/products/sm-040-clear-tiramisu-box-1250ml.webp" alt="SM-040 clear tiramisu box 1250ml" loading="lazy" /></div><div class="product-body"><h3>SM-040 Tiramisu Box</h3><p>1250ml medium format with clear presentation for bakery display.</p><div class="product-meta"><span>20 × 13.6 × 5.5 cm</span><a class="arrow-link" href="#inquiry">Quote →</a></div></div></article>
+          <article class="product-card"><div class="product-image"><span class="tag">Wholesale</span><img src="assets/img/products/ssm-045-clear-dessert-container-600ml.webp" alt="SSM-045 clear dessert container 600ml" loading="lazy" /></div><div class="product-body"><h3>SSM-045 Dessert Container</h3><p>600ml rectangular PS box for mousse cake and standard portions.</p><div class="product-meta"><span>16 × 13 × 4.8 cm</span><a class="arrow-link" href="#inquiry">Quote →</a></div></div></article>
+          <article class="product-card"><div class="product-image"><span class="tag">Compact</span><img src="assets/img/products/ssm-002-clear-rectangular-box-300ml.webp" alt="SSM-002 clear rectangular dessert box 300ml" loading="lazy" /></div><div class="product-body"><h3>SSM-002 Rectangular Box</h3><p>300ml small dessert box for individual portions and sampler ranges.</p><div class="product-meta"><span>11.8 × 6 × 5.1 cm</span><a class="arrow-link" href="#inquiry">Quote →</a></div></div></article>
+          <article class="product-card"><div class="product-image"><span class="tag">Tall format</span><img src="assets/img/products/ssm-012-clear-rectangular-box-400ml.webp" alt="SSM-012 clear rectangular dessert box 400ml" loading="lazy" /></div><div class="product-body"><h3>SSM-012 Tall Dessert Box</h3><p>400ml tall rectangular format for layered tiramisu presentation.</p><div class="product-meta"><span>11.8 × 6 × 7 cm</span><a class="arrow-link" href="#inquiry">Quote →</a></div></div></article>
         </div>
+        <div style="display:flex;justify-content:center;margin-top:26px"><a class="btn btn-secondary" href="products.html">View All Sizes & Specifications →</a></div>
       </div>
     </section>
 
