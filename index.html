@@ -1,485 +1,606 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
-  <!-- End Google Tag Manager -->
-  <!-- Google Analytics (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXX');
-  </script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Clear Dessert Packaging & Custom Branding Supplier | Clear Dessert Pack</title>
-  <meta name="description" content="Clear Dessert Pack supplies clear dessert boxes, custom logo stickers, paper sleeves, paper bags, ribbons and acrylic cocoa stencils for tiramisu and bakery brands." />
-  <link rel="canonical" href="https://www.cleardessertpack.com/" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tiramisu Box Manufacturer & Wholesale Packaging | ClearDessertPack</title>
+  <meta name="description" content="Factory-direct clear tiramisu boxes, dessert cups and custom food packaging for US and UK importers, bakeries, distributors and foodservice brands." />
+  <link rel="canonical" href="https://cleardessertpack.com/" />
+  <meta name="theme-color" content="#e83b3f" />
+  <meta property="og:title" content="Tiramisu Box Manufacturer & Wholesale Packaging" />
+  <meta property="og:description" content="Clear, stackable and customisable tiramisu packaging for wholesale buyers in the United States and United Kingdom." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://cleardessertpack.com/" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=1600&q=85" />
   <link rel="icon" href="assets/img/brand/favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <script src="assets/js/analytics.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --ink:#13212d;
+      --ink-soft:#4f5c66;
+      --red:#e83b3f;
+      --red-dark:#c9252a;
+      --navy:#0f2637;
+      --cream:#fbf7f1;
+      --sand:#efe5d8;
+      --line:#e7e4df;
+      --white:#fff;
+      --green:#2b7a63;
+      --shadow:0 18px 50px rgba(15,38,55,.11);
+      --radius:22px;
+      --max:1180px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--ink);
+      background:#fff;
+      font-family:"DM Sans",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+    }
+    img{display:block;max-width:100%}
+    a{text-decoration:none;color:inherit}
+    button,input,select,textarea{font:inherit}
+    .container{width:min(var(--max),calc(100% - 40px));margin-inline:auto}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:8px;
+      font-weight:700;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;
+      color:var(--red);
+    }
+    .eyebrow::before{content:"";width:26px;height:2px;background:currentColor;border-radius:9px}
+    .section{padding:92px 0}
+    .section-head{max-width:760px;margin:0 auto 42px;text-align:center}
+    .section-head h2{margin:10px 0 12px;font:800 clamp(2rem,4vw,3.25rem)/1.1 "Manrope",sans-serif;letter-spacing:-.035em}
+    .section-head p{margin:0;color:var(--ink-soft);font-size:1.05rem}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      min-height:50px;padding:0 22px;border-radius:10px;border:1px solid transparent;
+      font-weight:800;font-size:.94rem;cursor:pointer;transition:.22s ease;
+    }
+    .btn-primary{background:var(--red);color:#fff;box-shadow:0 12px 26px rgba(232,59,63,.23)}
+    .btn-primary:hover{background:var(--red-dark);transform:translateY(-2px)}
+    .btn-secondary{background:#fff;border-color:#d8dfe4;color:var(--ink)}
+    .btn-secondary:hover{border-color:var(--ink);transform:translateY(-2px)}
+    .btn-light{background:#fff;color:var(--red)}
+    .btn-light:hover{background:#fff7f7;transform:translateY(-2px)}
+    .icon{width:20px;height:20px;display:inline-block}
+
+    /* Header */
+    .topbar{background:var(--navy);color:#fff;font-size:.83rem}
+    .topbar-inner{min-height:38px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .topbar strong{color:#ffd7d8}
+    .topbar-links{display:flex;gap:18px;opacity:.9}
+    header{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid rgba(19,33,45,.08)}
+    .nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+    .brand{display:flex;align-items:center;gap:11px;font:800 1.24rem/1 "Manrope",sans-serif;letter-spacing:-.03em}
+    .brand-mark{width:39px;height:39px;border-radius:12px;background:var(--red);display:grid;place-items:center;color:#fff;box-shadow:0 8px 18px rgba(232,59,63,.22)}
+    .brand small{display:block;font:600 .63rem/1.2 "DM Sans",sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#78838b;margin-top:5px}
+    .brand-logo{width:218px;max-height:58px;object-fit:contain}
+    .nav-links{display:flex;align-items:center;gap:28px;font-weight:700;font-size:.9rem}
+    .nav-links a{position:relative}
+    .nav-links a::after{content:"";position:absolute;left:0;right:100%;bottom:-8px;height:2px;background:var(--red);transition:.2s}
+    .nav-links a:hover::after{right:0}
+    .nav-actions{display:flex;align-items:center;gap:10px}
+    .menu-btn{display:none;width:44px;height:44px;border:1px solid var(--line);background:#fff;border-radius:10px}
+
+    /* Hero */
+    .hero{position:relative;overflow:hidden;background:linear-gradient(115deg,#fff 0 48%,#f7ece6 48% 100%)}
+    .hero::before{content:"";position:absolute;inset:auto auto -220px -150px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(232,59,63,.11),transparent 68%)}
+    .hero-grid{min-height:690px;display:grid;grid-template-columns:1.02fr .98fr;align-items:center;gap:64px;padding:70px 0}
+    .hero-copy{position:relative;z-index:2}
+    .hero h1{margin:18px 0 20px;font:800 clamp(3rem,6.2vw,5.65rem)/.98 "Manrope",sans-serif;letter-spacing:-.062em;max-width:720px}
+    .hero h1 span{color:var(--red)}
+    .hero-lead{font-size:1.14rem;color:var(--ink-soft);max-width:650px;margin:0 0 28px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:30px}
+    .hero-points{display:flex;flex-wrap:wrap;gap:15px 22px;color:#33434e;font-weight:700;font-size:.9rem}
+    .hero-points span{display:inline-flex;align-items:center;gap:8px}
+    .check{width:19px;height:19px;border-radius:50%;display:grid;place-items:center;background:#e5f4ef;color:var(--green);font-size:.72rem}
+
+    .hero-visual{position:relative;min-height:520px;display:flex;align-items:center;justify-content:center}
+    .hero-photo{
+      width:min(100%,520px);aspect-ratio:1/1.04;border-radius:34px;overflow:hidden;position:relative;
+      box-shadow:0 35px 80px rgba(15,38,55,.22);background:#d9c8b9;
+      transform:rotate(1.5deg);
+    }
+    .hero-photo img{width:100%;height:100%;object-fit:cover}
+    .hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 52%,rgba(15,38,55,.34));pointer-events:none}
+    .floating-card{position:absolute;background:rgba(255,255,255,.96);border:1px solid rgba(255,255,255,.9);box-shadow:var(--shadow);border-radius:16px;padding:16px 18px;backdrop-filter:blur(10px)}
+    .floating-card strong{display:block;font:800 1rem "Manrope",sans-serif}
+    .floating-card span{font-size:.78rem;color:var(--ink-soft)}
+    .float-top{right:-12px;top:46px}
+    .float-bottom{left:-25px;bottom:64px;display:flex;align-items:center;gap:12px}
+    .sample-dot{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,#fbe2d0,#e83b3f);display:grid;place-items:center;color:#fff;font-weight:800}
+    .clear-lid{position:absolute;inset:58px 42px auto auto;width:78%;height:62%;border:2px solid rgba(255,255,255,.65);border-radius:30px;transform:rotate(-4deg);box-shadow:inset 0 0 0 7px rgba(255,255,255,.1);pointer-events:none}
+
+    /* Trust strip */
+    .trust-strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff}
+    .trust-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+    .trust-item{padding:24px 28px;border-right:1px solid var(--line)}
+    .trust-item:last-child{border-right:0}
+    .trust-item b{display:block;font:800 1.15rem "Manrope",sans-serif}
+    .trust-item span{font-size:.85rem;color:var(--ink-soft)}
+
+    /* Products */
+    .products{background:var(--cream)}
+    .product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .product-card{background:#fff;border:1px solid #ece7df;border-radius:18px;overflow:hidden;transition:.25s ease;position:relative}
+    .product-card:hover{transform:translateY(-7px);box-shadow:var(--shadow);border-color:transparent}
+    .product-image{height:260px;position:relative;overflow:hidden;background:#f0ebe5}
+    .product-image img{width:100%;height:100%;object-fit:cover;transition:.4s ease}
+    .product-card:hover .product-image img{transform:scale(1.035)}
+    .product-image::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 58%,rgba(15,38,55,.22))}
+    .tag{position:absolute;top:16px;left:16px;z-index:2;background:rgba(255,255,255,.94);border:1px solid rgba(255,255,255,.8);border-radius:999px;padding:7px 11px;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em}
+    .product-body{padding:21px}
+    .product-body h3{margin:0 0 8px;font:800 1.2rem "Manrope",sans-serif}
+    .product-body p{margin:0 0 18px;color:var(--ink-soft);font-size:.91rem}
+    .product-meta{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:15px;font-size:.82rem;color:#67747d}
+    .arrow-link{display:inline-flex;align-items:center;gap:7px;color:var(--red);font-weight:800}
+
+    /* Buyer section */
+    .buyer-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:72px;align-items:center}
+    .buyer-media{position:relative}
+    .buyer-main{border-radius:24px;overflow:hidden;aspect-ratio:4/4.55;box-shadow:var(--shadow)}
+    .buyer-main img{width:100%;height:100%;object-fit:cover}
+    .buyer-mini{position:absolute;right:-25px;bottom:34px;width:46%;border:8px solid #fff;border-radius:20px;overflow:hidden;box-shadow:var(--shadow)}
+    .buyer-mini img{width:100%;aspect-ratio:1.1/1;object-fit:cover}
+    .buyer-copy h2{font:800 clamp(2.2rem,4.6vw,3.65rem)/1.08 "Manrope",sans-serif;letter-spacing:-.045em;margin:12px 0 18px}
+    .buyer-copy>p{color:var(--ink-soft);font-size:1.05rem;margin-bottom:26px}
+    .benefits{display:grid;gap:12px;margin:0 0 30px;padding:0;list-style:none}
+    .benefits li{display:grid;grid-template-columns:43px 1fr;gap:13px;align-items:start;padding:14px 0;border-bottom:1px solid var(--line)}
+    .benefits li:last-child{border-bottom:0}
+    .benefit-number{width:40px;height:40px;border-radius:50%;border:1px solid #d9dfe3;display:grid;place-items:center;font:800 1rem "Manrope",sans-serif}
+    .benefits b{display:block;margin-bottom:3px;font:800 1rem "Manrope",sans-serif}
+    .benefits span{color:var(--ink-soft);font-size:.9rem}
+
+    /* Application */
+    .applications{background:#f4f5f6}
+    .application-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .application-card{background:#fff;border-radius:18px;overflow:hidden;border:1px solid #e4e7e9}
+    .application-card img{width:100%;height:230px;object-fit:cover}
+    .application-card div{padding:22px}
+    .application-card h3{margin:0 0 8px;font:800 1.12rem "Manrope",sans-serif}
+    .application-card p{margin:0;color:var(--ink-soft);font-size:.9rem}
+
+    /* Customization */
+    .custom-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+    .custom-copy h2{font:800 clamp(2.15rem,4.7vw,3.5rem)/1.1 "Manrope",sans-serif;letter-spacing:-.045em;margin:12px 0 18px}
+    .custom-copy p{color:var(--ink-soft);font-size:1.02rem}
+    .custom-list{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:26px 0 30px}
+    .custom-chip{border:1px solid var(--line);border-radius:14px;padding:14px;background:#fff;font-weight:800;font-size:.9rem}
+    .custom-board{background:var(--navy);border-radius:28px;padding:34px;min-height:500px;color:#fff;position:relative;overflow:hidden}
+    .custom-board::before{content:"";position:absolute;right:-90px;top:-90px;width:280px;height:280px;border-radius:50%;background:rgba(232,59,63,.22)}
+    .custom-board::after{content:"";position:absolute;left:-90px;bottom:-120px;width:320px;height:320px;border-radius:50%;border:48px solid rgba(255,255,255,.05)}
+    .board-title{position:relative;z-index:2;font:800 1.45rem "Manrope",sans-serif;margin-bottom:24px}
+    .pack-mockup{position:relative;z-index:2;margin:25px auto 18px;width:72%;aspect-ratio:1.2/1;background:linear-gradient(145deg,rgba(255,255,255,.32),rgba(255,255,255,.1));border:2px solid rgba(255,255,255,.58);border-radius:28px 28px 18px 18px;box-shadow:inset 0 0 0 8px rgba(255,255,255,.06),0 30px 60px rgba(0,0,0,.25)}
+    .pack-mockup::before{content:"TIRAMISU";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font:800 1.4rem "Manrope",sans-serif;letter-spacing:.15em;color:#fff;border:2px solid #fff;padding:10px 16px}
+    .pack-mockup::after{content:"";position:absolute;left:8%;right:8%;top:13%;height:16px;border-radius:50%;border-top:2px solid rgba(255,255,255,.55)}
+    .swatches{position:relative;z-index:2;display:flex;justify-content:center;gap:12px;margin-top:25px}
+    .swatch{width:36px;height:36px;border-radius:50%;border:4px solid rgba(255,255,255,.35)}
+    .swatch:nth-child(1){background:#e83b3f}.swatch:nth-child(2){background:#f2c14e}.swatch:nth-child(3){background:#80b1a1}.swatch:nth-child(4){background:#f4e8d6}
+
+    /* Process */
+    .process{background:var(--cream)}
+    .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:step}
+    .step{background:#fff;border:1px solid #e9e3da;border-radius:18px;padding:28px;position:relative;min-height:220px}
+    .step::before{counter-increment:step;content:"0" counter(step);font:800 2.5rem "Manrope",sans-serif;color:#f0d7d5;position:absolute;right:22px;top:16px}
+    .step-icon{width:48px;height:48px;border-radius:14px;background:#fff0f0;color:var(--red);display:grid;place-items:center;margin-bottom:28px;font-size:1.25rem}
+    .step h3{margin:0 0 8px;font:800 1.05rem "Manrope",sans-serif}
+    .step p{margin:0;color:var(--ink-soft);font-size:.88rem}
+
+    /* Factory */
+    .factory-wrap{display:grid;grid-template-columns:1.16fr .84fr;gap:26px}
+    .factory-photo{position:relative;border-radius:24px;overflow:hidden;min-height:490px}
+    .factory-photo img{width:100%;height:100%;object-fit:cover}
+    .factory-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 38%,rgba(15,38,55,.78))}
+    .factory-caption{position:absolute;z-index:2;left:34px;right:34px;bottom:32px;color:#fff}
+    .factory-caption h3{font:800 2rem "Manrope",sans-serif;margin:0 0 8px}
+    .factory-caption p{margin:0;max-width:620px;color:rgba(255,255,255,.84)}
+    .quality-card{background:var(--navy);color:#fff;border-radius:24px;padding:34px;display:flex;flex-direction:column;justify-content:space-between}
+    .quality-card h3{font:800 2rem/1.15 "Manrope",sans-serif;margin:0 0 14px}
+    .quality-card p{color:rgba(255,255,255,.75)}
+    .quality-list{display:grid;gap:13px;margin:24px 0}
+    .quality-list span{display:flex;align-items:center;gap:10px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.13);font-weight:700}
+    .quality-list span:last-child{border-bottom:0}
+
+    /* FAQ */
+    .faq-wrap{max-width:900px;margin:auto}
+    details{border-bottom:1px solid var(--line);padding:0}
+    summary{list-style:none;cursor:pointer;padding:23px 4px;display:flex;justify-content:space-between;align-items:center;gap:20px;font:800 1rem "Manrope",sans-serif}
+    summary::-webkit-details-marker{display:none}
+    summary::after{content:"+";font-size:1.5rem;color:var(--red);font-weight:500}
+    details[open] summary::after{content:"–"}
+    details p{margin:0;padding:0 42px 22px 4px;color:var(--ink-soft)}
+
+    /* Inquiry */
+    .inquiry{background:linear-gradient(125deg,var(--navy),#183b51);color:#fff;position:relative;overflow:hidden}
+    .inquiry::before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;border:80px solid rgba(255,255,255,.035);right:-160px;top:-180px}
+    .inquiry-grid{position:relative;z-index:2;display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:start}
+    .inquiry-copy h2{font:800 clamp(2.35rem,5vw,4rem)/1.04 "Manrope",sans-serif;letter-spacing:-.05em;margin:14px 0 18px}
+    .inquiry-copy p{color:rgba(255,255,255,.75);font-size:1.05rem}
+    .contact-notes{display:grid;gap:12px;margin-top:30px}
+    .contact-notes span{display:flex;align-items:center;gap:10px;font-weight:700}
+    .form-card{background:#fff;color:var(--ink);border-radius:22px;padding:30px;box-shadow:0 30px 70px rgba(0,0,0,.22)}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .field{display:grid;gap:7px}
+    .field.full{grid-column:1/-1}
+    label{font-size:.8rem;font-weight:800;color:#4a5964}
+    input,select,textarea{width:100%;border:1px solid #dfe4e7;border-radius:10px;background:#fff;padding:13px 14px;outline:none;transition:.2s;color:var(--ink)}
+    input:focus,select:focus,textarea:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(232,59,63,.1)}
+    textarea{min-height:108px;resize:vertical}
+    .form-foot{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:18px}
+    .form-foot small{color:#74818a;max-width:330px}
+    .success{display:none;margin-top:14px;padding:12px 14px;border-radius:10px;background:#e9f6f1;color:#246853;font-weight:700;font-size:.9rem}
+
+    /* Footer */
+    footer{background:#0b1821;color:#fff;padding:64px 0 26px}
+    .footer-grid{display:grid;grid-template-columns:1.25fr repeat(3,1fr);gap:48px;padding-bottom:42px}
+    .footer-brand p{color:rgba(255,255,255,.62);max-width:340px}
+    .footer-col h4{font:800 .92rem "Manrope",sans-serif;margin:2px 0 16px}
+    .footer-col a{display:block;color:rgba(255,255,255,.66);font-size:.87rem;margin:10px 0}
+    .footer-col a:hover{color:#fff}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:22px;display:flex;justify-content:space-between;gap:20px;color:rgba(255,255,255,.5);font-size:.8rem}
+
+    .back-top{position:fixed;right:22px;bottom:22px;width:44px;height:44px;border:0;border-radius:50%;background:var(--red);color:#fff;box-shadow:0 12px 28px rgba(232,59,63,.28);cursor:pointer;opacity:0;pointer-events:none;transition:.2s;z-index:40}
+    .back-top.show{opacity:1;pointer-events:auto}
+
+    @media (max-width:980px){
+      .nav-links{display:none;position:absolute;top:76px;left:20px;right:20px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow);border-radius:14px;padding:18px;flex-direction:column;align-items:flex-start}
+      .nav-links.open{display:flex}
+      .nav-actions .btn{display:none}.menu-btn{display:block}
+      .hero{background:linear-gradient(180deg,#fff 0 55%,#f7ece6 55% 100%)}
+      .hero-grid,.buyer-grid,.custom-grid,.factory-wrap,.inquiry-grid{grid-template-columns:1fr}
+      .hero-grid{padding-top:50px;gap:30px}.hero-visual{min-height:auto;padding:0 20px 30px}.hero-photo{max-width:650px}
+      .product-grid,.application-grid{grid-template-columns:repeat(2,1fr)}
+      .trust-grid{grid-template-columns:repeat(2,1fr)}.trust-item:nth-child(2){border-right:0}.trust-item:nth-child(-n+2){border-bottom:1px solid var(--line)}
+      .process-grid{grid-template-columns:repeat(2,1fr)}
+      .buyer-main{aspect-ratio:16/10}.buyer-mini{width:34%;right:18px}
+      .footer-grid{grid-template-columns:1.4fr 1fr 1fr}.footer-col:last-child{grid-column:2/4}
+    }
+    @media (max-width:640px){
+      .container{width:min(100% - 28px,var(--max))}.section{padding:68px 0}
+      .topbar-links{display:none}.topbar-inner{justify-content:center;text-align:center}
+      .nav{height:68px}.nav-links{top:68px}.brand{font-size:1.08rem}.brand small{display:none}
+      .hero-grid{min-height:auto;padding:44px 0}.hero h1{font-size:clamp(2.7rem,14vw,4.1rem)}
+      .hero-actions .btn{width:100%}.hero-points{display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:.82rem}
+      .float-top{right:4px;top:22px}.float-bottom{left:-3px;bottom:28px}.clear-lid{display:none}
+      .trust-grid,.product-grid,.application-grid,.process-grid,.form-grid,.custom-list,.footer-grid{grid-template-columns:1fr}
+      .trust-item,.trust-item:nth-child(2){border-right:0;border-bottom:1px solid var(--line)}.trust-item:last-child{border-bottom:0}
+      .product-image{height:245px}.buyer-mini{display:none}
+      .custom-board{padding:24px;min-height:420px}.pack-mockup{width:88%}
+      .factory-photo{min-height:430px}.quality-card{min-height:460px}
+      .form-card{padding:22px}.form-foot{align-items:stretch;flex-direction:column}.form-foot .btn{width:100%}
+      .footer-col:last-child{grid-column:auto}.footer-bottom{flex-direction:column}
+    }
+  </style>
+
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Clear Dessert Pack",
-    "alternateName": "Hangzhou Huikai Packaging Co., Ltd.",
-    "url": "https://www.cleardessertpack.com/",
-    "logo": "https://www.cleardessertpack.com/assets/img/brand/clear-dessert-pack-logo.webp",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "sales",
-      "email": "sales@cleardessertpack.com",
-      "telephone": "+86 18358130956"
-    },
-    "description": "High-end manufacturer of transparent food-grade PS/PET dessert containers, custom printed packaging sleeves, logo stickers, and acrylic cocoa stencils."
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"ClearDessertPack",
+    "url":"https://cleardessertpack.com/",
+    "description":"Manufacturer and wholesale supplier of clear tiramisu boxes and dessert packaging for international B2B buyers.",
+    "areaServed":["United States","United Kingdom"],
+    "knowsAbout":["Tiramisu boxes","Dessert cups","Food packaging","Custom packaging","Wholesale packaging"]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"What is the minimum order quantity for tiramisu boxes?","acceptedAnswer":{"@type":"Answer","text":"MOQ depends on the model, material and customisation. Standard clear boxes generally have a lower MOQ than fully customised packaging. Contact us with your size and volume for a confirmed quotation."}},
+      {"@type":"Question","name":"Can you produce custom sizes and branded packaging?","acceptedAnswer":{"@type":"Answer","text":"Yes. Custom dimensions, colours, printed sleeves, labels and logo solutions can be evaluated for wholesale projects."}},
+      {"@type":"Question","name":"Do you ship to the United States and United Kingdom?","acceptedAnswer":{"@type":"Answer","text":"Yes. Export packing and shipping support are available for US and UK buyers. Available Incoterms and freight options depend on order volume and destination."}},
+      {"@type":"Question","name":"Can I request samples before placing a bulk order?","acceptedAnswer":{"@type":"Answer","text":"Yes. Samples can be arranged so buyers can review clarity, fit, lid performance and presentation before confirming a production order."}}
+    ]
   }
   </script>
 </head>
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
   <div class="topbar">
-    <div class="container">
-      <span>Clear dessert packaging + custom branding accessories</span>
-      <span>Boxes · Stickers · Paper sleeves · Paper bags · Ribbons · Cocoa stencils</span>
+    <div class="container topbar-inner">
+      <div><strong>Factory-direct packaging</strong> for US & UK wholesale buyers</div>
+      <div class="topbar-links"><span>Sample support</span><span>OEM / ODM</span><span>Export-ready packing</span></div>
     </div>
   </div>
 
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a class="brand" href="index.html">
-        <img src="assets/img/brand/clear-dessert-pack-logo.webp" alt="Clear Dessert Pack logo"  />
+  <header>
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="ClearDessertPack home">
+        <img class="brand-logo" src="assets/img/brand/clear-dessert-pack-logo.png" alt="Clear Dessert Pack logo" width="218" height="58" />
       </a>
-      <nav class="nav">
-        <a class="nav-item active" href="index.html">Home</a>
-        
-        <div class="nav-dropdown">
-          <a class="nav-item" href="products.html">Products <span style="font-size: 10px; margin-left: 2px;">▼</span></a>
-          <div class="dropdown-content">
-            <a href="products.html">All Products</a>
-            <a href="clear-dessert-box-sizes.html">Box Sizes & Specs</a>
-            <a href="packaging-kits.html">Packaging Kits</a>
-          </div>
-        </div>
-        
-        <a class="nav-item" href="custom-branding.html">Custom Branding</a>
-        
-        <div class="nav-dropdown">
-          <a class="nav-item" href="factory.html">Our Factory <span style="font-size: 10px; margin-left: 2px;">▼</span></a>
-          <div class="dropdown-content">
-            <a href="factory.html">Manufacturing Power</a>
-            <a href="applications.html">Application Scenes</a>
-          </div>
-        </div>
-        
-        <a class="nav-item" href="resources.html">Resources</a>
-        <a class="nav-item" href="contact.html">Contact</a>
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="products.html">Products</a>
+        <a href="custom-branding.html">Custom Branding</a>
+        <a href="packaging-kits.html">Packaging Kits</a>
+        <a href="factory.html">Factory</a>
+        <a href="contact.html">Contact</a>
       </nav>
-      <div class="header-actions">
-        <a class="btn secondary" href="contact.html">Get Quote</a>
-        <button class="menu-toggle" aria-label="Open menu">☰</button>
+      <div class="nav-actions">
+        <a class="btn btn-secondary" href="products.html">View Products</a>
+        <a class="btn btn-primary" href="#inquiry">Get a Quote</a>
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
       </div>
     </div>
   </header>
 
-  
-<main>
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <span class="eyebrow">Clear Dessert Packaging & Custom Branding</span>
-        <h1>Custom packaging systems for tiramisu, bakery and wedding dessert brands.</h1>
-        <p class="hero-text">We supply clear dessert boxes, custom logo stickers, paper sleeves, paper bags, branded ribbons and acrylic cocoa stencils for bakeries, dessert brands, wedding caterers and foodservice distributors.</p>
-        <div class="hero-actions">
-          <a class="btn" href="custom-branding.html">View Custom Branding</a>
-          <a class="btn wa-btn" href="https://wa.me/8618358130956?text=Hi%2C%20I%E2%80%99m%20interested%20in%20Clear%20Dessert%20Pack.%20I%20would%20like%20to%20know%20more%20about%20clear%20dessert%20boxes%20and%20custom%20branding%20options." target="_blank">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 16px; height: 16px; fill: currentColor; margin-right: 6px; vertical-align: middle;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-93.8-25.7l-6.7-4-69.8 18.3 18.7-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
-            Get Quote on WhatsApp
-          </a>
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Tiramisu box manufacturer</span>
+          <h1>Clear packaging that makes every <span>dessert sell.</span></h1>
+          <p class="hero-lead">Wholesale tiramisu boxes, dessert cups and custom food packaging engineered for presentation, stacking and reliable delivery to the United States and United Kingdom.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#inquiry">Request Wholesale Quote
+              <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="btn btn-secondary" href="products.html">Explore Tiramisu Boxes</a>
+          </div>
+          <div class="hero-points">
+            <span><i class="check">✓</i> Clear food-contact material options</span>
+            <span><i class="check">✓</i> Private label support</span>
+            <span><i class="check">✓</i> US & UK export experience</span>
+            <span><i class="check">✓</i> Samples before bulk order</span>
+          </div>
         </div>
-        <div class="trust-grid">
-          <div class="trust-item">Clear Boxes<span>PET / PS dessert containers</span></div>
-          <div class="trust-item">Custom Branding<span>Labels, sleeves and bags</span></div>
-          <div class="trust-item">Cocoa Stencils<span>Birthday / wedding / logo</span></div>
-          <div class="trust-item">B2B Supply<span>Bulk packing and export</span></div>
-        </div>
-      </div>
-      <div class="hero-card">
-        <img src="assets/img/hero/clear-dessert-pack-custom-tiramisu-packaging-hero.webp" alt="Custom clear tiramisu packaging with branded paper sleeve"  />
-        <div class="caption">
-          <b>Clear Dessert Pack Custom Branding System</b>
-          <span>Clear box + paper sleeve + branded logo presentation for tiramisu brands.</span>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <section class="products-section">
-    <div class="container">
-      <div class="section-head">
-        <span class="eyebrow">Core Offering</span>
-        <h2>Complete Dessert Packaging Solutions</h2>
-        <p>Explore clear dessert boxes, custom branding accessories and acrylic cocoa stencils for tiramisu brands, bakeries and wedding dessert suppliers.</p>
-        <p style="font-size: 14px; font-weight: 700; color: var(--caramel); margin-top: 10px; margin-bottom: 0; letter-spacing: 0.5px;">Samples available | Custom branding support | B2B wholesale supply</p>
-      </div>
-      <div class="grid-3">
-        <article class="card" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
-          <div>
-            <div class="card-img"><img src="assets/img/custom/branded-tiramisu-paper-sleeve-lifestyle.webp" alt="Clear tiramisu box with custom branded paper sleeve"  loading="lazy" /></div>
-            <span class="tag">Core Product</span>
-            <h3 style="margin-top: 8px;">Clear Dessert Boxes</h3>
-            <p>Transparent containers for tiramisu, mousse cake, cheesecake, bakery takeaway and chilled dessert display.</p>
+        <div class="hero-visual" aria-label="Tiramisu packaging presentation">
+          <div class="hero-photo">
+            <img src="assets/img/hero/clear-dessert-pack-custom-tiramisu-packaging-hero.png" alt="Clear tiramisu box with custom branded paper sleeve" width="1200" height="1250" fetchpriority="high" />
+            <div class="clear-lid"></div>
           </div>
-          <div class="card-actions" style="display: flex; gap: 8px; margin-top: 20px;">
-            <a href="contact.html?product=box" class="btn" style="flex: 1; padding: 12px 8px; font-size: 13px; text-align: center; justify-content: center;">Request Box Quote</a>
-            <a href="products.html" class="btn outline" style="flex: 1; padding: 12px 8px; font-size: 13px; text-align: center; justify-content: center;">View Details</a>
-          </div>
-        </article>
-        <article class="card" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
-          <div>
-            <div class="card-img"><img src="assets/img/custom/custom-paper-bag-ecommerce-main.webp" alt="Custom paper bag for dessert packaging"  loading="lazy" /></div>
-            <span class="tag">Custom Service</span>
-            <h3 style="margin-top: 8px;">Custom Branding Accessories</h3>
-            <p>Logo stickers, paper bags, ribbons, paper sleeves and insert cards to upgrade brand presentation.</p>
-          </div>
-          <div class="card-actions" style="display: flex; gap: 8px; margin-top: 20px;">
-            <a href="contact.html?product=branding" class="btn" style="flex: 1; padding: 12px 8px; font-size: 13px; text-align: center; justify-content: center;">Request Custom Quote</a>
-            <a href="custom-branding.html" class="btn outline" style="flex: 1; padding: 12px 8px; font-size: 13px; text-align: center; justify-content: center;">Explore Options</a>
-          </div>
-        </article>
-        <article class="card" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
-          <div>
-            <div class="card-img"><img src="assets/img/applications/wedding-tiramisu-cocoa-stencil-main.webp" alt="Custom acrylic cocoa stencil for wedding tiramisu"  loading="lazy" /></div>
-            <span class="tag">Unique Add-on</span>
-            <h3 style="margin-top: 8px;">Acrylic Cocoa Stencils</h3>
-            <p>Create logo, Happy Birthday or Just Married patterns on tiramisu using cocoa, matcha or sugar powder.</p>
-          </div>
-          <div class="card-actions" style="display: flex; gap: 8px; margin-top: 20px;">
-            <a href="contact.html?product=stencil" class="btn" style="flex: 1; padding: 12px 8px; font-size: 13px; text-align: center; justify-content: center;">Ask for Stencil Quote</a>
-            <a href="products.html#stencils" class="btn outline" style="flex: 1; padding: 12px 8px; font-size: 13px; text-align: center; justify-content: center;">Learn More</a>
-          </div>
-        </article>
-      </div>
-
-      <!-- B2B Procurement Total CTA -->
-      <div class="total-cta" style="margin-top: 48px; text-align: center; background: var(--cream2); padding: 36px; border-radius: var(--radius); border: 1px solid var(--line); box-shadow: var(--shadow2);">
-        <p style="font-size: 20px; font-weight: 800; color: var(--coffee); margin-top: 0; margin-bottom: 22px;">Need a complete packaging solution for your dessert brand?</p>
-        <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
-          <a href="contact.html" class="btn">Get Custom Packaging Quote</a>
-          <a href="packaging-kits.html" class="btn outline">View Packaging Kits</a>
+          <div class="floating-card float-top"><strong>Retail-ready clarity</strong><span>Designed to display layers beautifully</span></div>
+          <div class="floating-card float-bottom"><span class="sample-dot">S</span><div><strong>Sample service</strong><span>Check fit, finish & lid security</span></div></div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="products-section" style="background: linear-gradient(180deg, var(--white), var(--cream)); border-top: 1px solid var(--line);">
-    <div class="container">
-      <div class="section-head">
-        <span class="eyebrow">Product Options</span>
-        <h2>Popular Clear Dessert Box Sizes</h2>
-        <p>Choose from multiple PS / PET clear dessert box sizes for tiramisu, mousse cake, cheesecake, bakery takeaway and catering dessert trays.</p>
+    <section class="trust-strip" aria-label="Business capabilities">
+      <div class="container trust-grid">
+        <div class="trust-item"><b>Factory Direct</b><span>Manufacturer pricing and production support</span></div>
+        <div class="trust-item"><b>Customisable</b><span>Sizes, sleeves, labels, colours and branding</span></div>
+        <div class="trust-item"><b>Wholesale Ready</b><span>Carton optimisation and export packing</span></div>
+        <div class="trust-item"><b>Buyer Focused</b><span>For importers, distributors, bakeries and brands</span></div>
       </div>
-      <div class="grid-4">
-        <!-- SKU 1 -->
-        <article class="product-card" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
-          <div>
-            <div class="product-media" style="background: #ffffff; display: flex; align-items: center; justify-content: center; padding: 12px; height: 210px; border-bottom: 1px solid var(--line);">
-              <img src="assets/img/products/hk-28188-large-clear-tiramisu-box-4000ml.webp" alt="HK-28188 large clear tiramisu box 4000ml size 28 x 18 x 8 cm" style="max-width: 100%; max-height: 100%; object-fit: contain;"  loading="lazy"  />
-            </div>
-            <div class="product-body" style="padding: 20px;">
-              <span class="tag" style="background: var(--mint); color: var(--coffee); font-weight: 900; margin-bottom: 8px;">PS Material</span>
-              <h3 style="font-size: 18px; margin: 0 0 10px; color: var(--coffee); font-weight: 900;">HK-28188 Large Clear Tiramisu Box</h3>
-              <ul class="specs" style="list-style: none; padding: 0; margin: 0 0 16px; font-size: 14px; line-height: 1.6; color: var(--muted);">
-                <li style="margin-bottom: 4px; padding-left: 14px; position: relative;">
-                  <span style="position: absolute; left: 0; color: var(--caramel);">•</span>
-                  <strong>Size:</strong> 28 × 18 × 8 cm
-                </li>
-                <li style="margin-bottom: 4px; padding-left: 14px; position: relative;">
-                  <span style="position: absolute; left: 0; color: var(--caramel);">•</span>
-                  <strong>Volume:</strong> 4000 ml
-                </li>
-                <li style="margin-bottom: 4px; padding-left: 14px; position: relative;">
-                  <span style="position: absolute; left: 0; color: var(--caramel);">•</span>
-                  <strong>QTY/CTN:</strong> 28 pcs/ctn
-                </li>
-                <li style="margin-bottom: 4px; padding-left: 14px; position: relative;">
-                  <span style="position: absolute; left: 0; color: var(--caramel);">•</span>
-                  <strong>Best for:</strong> wedding desserts, party tiramisu and catering trays
-                </li>
-              </ul>
-            </div>
+    </section>
+
+    <section class="section products" id="products">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Product collection</span>
+          <h2>Tiramisu packaging built for shelf appeal and smooth operations.</h2>
+          <p>Choose proven clear formats for bakeries, café chains, foodservice distributors, supermarkets and private-label dessert brands.</p>
+        </div>
+
+        <div class="product-grid">
+          <article class="product-card">
+            <div class="product-image"><span class="tag">Best seller</span><img src="assets/img/custom/branded-tiramisu-paper-sleeve-lifestyle.png" alt="Rectangular clear tiramisu box with branded paper sleeve" loading="lazy" /></div>
+            <div class="product-body"><h3>Rectangular Tiramisu Box</h3><p>Clean, stackable presentation for single-serve and premium layered desserts.</p><div class="product-meta"><span>Multiple capacities</span><a class="arrow-link" href="#inquiry">Enquire →</a></div></div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image"><span class="tag">Retail display</span><img src="assets/img/hero/clear-dessert-pack-custom-tiramisu-packaging-hero.png" alt="Square clear dessert box with layered tiramisu" loading="lazy" /></div>
+            <div class="product-body"><h3>Square Dessert Cup</h3><p>Modern geometry with strong visual impact for chilled desserts and tasting portions.</p><div class="product-meta"><span>Lid options available</span><a class="arrow-link" href="#inquiry">Enquire →</a></div></div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image"><span class="tag">Catering</span><img src="assets/img/custom/branded-dessert-gift-set.png" alt="Mini clear dessert packaging set for catering" loading="lazy" /></div>
+            <div class="product-body"><h3>Mini Tiramisu Cups</h3><p>Compact formats for events, tasting menus, airline catering and dessert assortments.</p><div class="product-meta"><span>Bulk pack formats</span><a class="arrow-link" href="#inquiry">Enquire →</a></div></div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image"><span class="tag">Family size</span><img src="assets/img/applications/wedding-tiramisu-cocoa-stencil-main.png" alt="Large tiramisu tray for wedding and catering desserts" loading="lazy" /></div>
+            <div class="product-body"><h3>Family & Sharing Tray</h3><p>Higher-capacity packaging for supermarkets, catering and take-home dessert ranges.</p><div class="product-meta"><span>Custom depths</span><a class="arrow-link" href="#inquiry">Enquire →</a></div></div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image"><span class="tag">Premium finish</span><img src="assets/img/custom/custom-ribbon-clear-dessert-box.jpg" alt="Clear dessert box with premium custom ribbon" loading="lazy" /></div>
+            <div class="product-body"><h3>Dome-Lid Dessert Cup</h3><p>Extra headspace for toppings, cream swirls, fruit and decorative finishes.</p><div class="product-meta"><span>High-visibility lid</span><a class="arrow-link" href="#inquiry">Enquire →</a></div></div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image"><span class="tag">Private label</span><img src="assets/img/custom/custom-paper-bag-ecommerce-main.png" alt="Branded dessert packaging paper bag, labels and sleeves" loading="lazy" /></div>
+            <div class="product-body"><h3>Sleeves, Labels & Inserts</h3><p>Complete the presentation with brand-ready paper sleeves, stickers and inserts.</p><div class="product-meta"><span>Artwork support</span><a class="arrow-link" href="#inquiry">Enquire →</a></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="solutions">
+      <div class="container buyer-grid">
+        <div class="buyer-media">
+          <div class="buyer-main"><img src="https://images.unsplash.com/photo-1556909212-d5b604d0c90d?auto=format&fit=crop&w=1100&q=86" alt="Dessert packaging used in a professional bakery" loading="lazy" /></div>
+          <div class="buyer-mini"><img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=600&q=84" alt="Colourful retail desserts" loading="lazy" /></div>
+        </div>
+        <div class="buyer-copy">
+          <span class="eyebrow">Made for serious buyers</span>
+          <h2>Packaging that protects margin, presentation and repeat orders.</h2>
+          <p>We combine the conversion-led clarity of consumer packaging with the practical details wholesale buyers need: secure fit, predictable packing, customisation and responsive export support.</p>
+          <ol class="benefits">
+            <li><span class="benefit-number">1</span><div><b>Show the product, not the plastic.</b><span>High-clarity formats keep tiramisu layers and toppings visually dominant.</span></div></li>
+            <li><span class="benefit-number">2</span><div><b>Reduce handling problems.</b><span>Stackable designs and matched lids help streamline packing, storage and delivery.</span></div></li>
+            <li><span class="benefit-number">3</span><div><b>Build a recognisable range.</b><span>Use coordinated sizes, labels and sleeves across retail and foodservice channels.</span></div></li>
+          </ol>
+          <a class="btn btn-primary" href="#inquiry">Discuss Your Packaging Project</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section applications">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Products in action</span>
+          <h2>Designed for the way US and UK customers buy desserts.</h2>
+          <p>From artisan bakeries to national distributors, the packaging system adapts to different channels and presentation standards.</p>
+        </div>
+        <div class="application-grid">
+          <article class="application-card"><img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=900&q=84" alt="Dessert retail display" loading="lazy"><div><h3>Retail & Supermarket</h3><p>Clear, shelf-ready formats for grab-and-go chilled dessert displays.</p></div></article>
+          <article class="application-card"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=84" alt="Independent bakery workspace" loading="lazy"><div><h3>Bakeries & Café Chains</h3><p>Consistent packaging for daily production, takeaway and seasonal ranges.</p></div></article>
+          <article class="application-card"><img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=900&q=84" alt="Foodservice and catering dessert service" loading="lazy"><div><h3>Foodservice & Distribution</h3><p>Bulk cartons, practical case quantities and dependable replenishment planning.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="custom">
+      <div class="container custom-grid">
+        <div class="custom-copy">
+          <span class="eyebrow">Custom packaging</span>
+          <h2>Turn a standard tiramisu box into your branded selling system.</h2>
+          <p>Start with a proven container format or develop a tailored solution around your portion size, channel and visual identity.</p>
+          <div class="custom-list">
+            <div class="custom-chip">Custom size & capacity</div>
+            <div class="custom-chip">Logo labels & sleeves</div>
+            <div class="custom-chip">Colour-matched accessories</div>
+            <div class="custom-chip">Carton & case optimisation</div>
+            <div class="custom-chip">Barcode-ready artwork</div>
+            <div class="custom-chip">Sample & fit testing</div>
           </div>
-          <div style="padding: 0 20px 20px; display: flex; gap: 8px;">
-            <a href="clear-dessert-box-sizes.html#hk-28188" class="btn outline" style="flex: 1; padding: 10px 4px; font-size: 12px; text-align: center; justify-content: center; min-height: 38px;">View Size Details</a>
-            <a href="contact.html?sku=HK-28188" class="btn" style="flex: 1; padding: 10px 4px; font-size: 12px; text-align: center; justify-content: center; min-height: 38px; box-shadow: none;">Request Quote</a>
-          </div>
-        </article>
+          <a class="btn btn-primary" href="#inquiry">Start a Custom Project</a>
+        </div>
+        <div class="custom-board" aria-label="Custom tiramisu packaging concept">
+          <div class="board-title">Private-label concept preview</div>
+          <div class="pack-mockup"></div>
+          <div class="swatches" aria-label="Example colour options"><span class="swatch"></span><span class="swatch"></span><span class="swatch"></span><span class="swatch"></span></div>
+        </div>
+      </div>
+    </section>
 
-        <!-- SKU 2 -->
-        <article class="product-card" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
-          <div>
-            <div class="product-media" style="background: #ffffff; display: flex; align-items: center; justify-content: center; padding: 12px; height: 210px; border-bottom: 1px solid var(--line);">
-              <img src="assets/img/products/hk-21157-clear-tiramisu-container-1800ml.webp" alt="HK-21157 clear tiramisu container 1800ml size 21 x 15 x 7 cm" style="max-width: 100%; max-height: 100%; object-fit: contain;"  loading="lazy"  />
+    <section class="section process">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Simple buying process</span>
+          <h2>From packaging brief to production order.</h2>
+          <p>A straightforward workflow designed for international wholesale buyers.</p>
+        </div>
+        <div class="process-grid">
+          <article class="step"><div class="step-icon">✦</div><h3>Share Requirements</h3><p>Send your target size, dessert type, order volume, destination and branding needs.</p></article>
+          <article class="step"><div class="step-icon">▣</div><h3>Confirm Product & Quote</h3><p>We match suitable models, confirm specifications and prepare commercial terms.</p></article>
+          <article class="step"><div class="step-icon">✓</div><h3>Review Samples</h3><p>Evaluate clarity, lid fit, stacking and presentation before bulk production.</p></article>
+          <article class="step"><div class="step-icon">→</div><h3>Produce & Ship</h3><p>Production, inspection, export packing and shipping coordination follow approval.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="factory">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Manufacturing & quality</span>
+          <h2>A supplier page should prove more than it promises.</h2>
+          <p>Use this section for your real workshop, moulding, forming, trimming, inspection, packing and warehouse photography.</p>
+        </div>
+        <div class="factory-wrap">
+          <div class="factory-photo">
+            <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1400&q=84" alt="Modern manufacturing and inspection environment" loading="lazy" />
+            <div class="factory-caption"><h3>Production visibility for B2B buyers</h3><p>Replace this image with your real production line to strengthen buyer trust and improve enquiry conversion.</p></div>
+          </div>
+          <aside class="quality-card">
+            <div>
+              <span class="eyebrow" style="color:#ff9fa2">Buyer assurance</span>
+              <h3>Quality checkpoints that matter in daily use.</h3>
+              <p>Final specifications should be confirmed for each model and order.</p>
+              <div class="quality-list">
+                <span>✓ Material and clarity review</span>
+                <span>✓ Lid fit and closure check</span>
+                <span>✓ Dimensions and weight control</span>
+                <span>✓ Carton packing inspection</span>
+                <span>✓ Pre-shipment photo records</span>
+              </div>
             </div>
-            <div class="product-body" style="padding: 20px;">
-              <span class="tag" style="background: var(--mint); color: var(--coffee); font-weight: 900; margin-bottom: 8px;">PS Material</span>
-              <h3 style="font-size: 18px; margin: 0 0 10px; color: var(--coffee); font-weight: 900;">HK-21157 Clear Tiramisu Container</h3>
-              <ul class="specs" style="list-style: none; padding: 0; margin: 0 0 16px; font-size: 14px; line-height: 1.6; color: var(--muted);">
-                <li style="margin-bottom: 4px; padding-left: 14px; position: relative;">
-                  <span style="position: absolute; left: 0; color: var(--caramel);">•</span>
-                  <strong>Size:</strong> 21 × 15 × 7 cm
-                </li>
-                <li style="margin-bottom: 4px; padding-left: 14px; position: relative;">
-                  <span style="position: absolute; left: 0; color: var(--caramel);">•</span>
-                  <strong>Volume:</strong> 1800 ml
-                </li>
-                <li style="margin-bottom: 4px; padding-left: 14px; position: relative;">
-                  <span style="position: absolute; left: 0; color: var(--caramel);">•</span>
-                  <strong>QTY/CTN:</strong> 72 pcs/ctn
-                </li>
-                <li style="margin-bottom: 4px; padding-left: 14px; position: relative;">
-                  <span style="position: absolute; left: 0; color: var(--caramel);">•</span>
-                  <strong>Best for:</strong> large tiramisu boxes and family-size desserts
-                </li>
-              </ul>
-            </div>
+            <a class="btn btn-light" href="#inquiry">Request Factory Information</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">FAQ</span>
+          <h2>Questions wholesale buyers ask before ordering.</h2>
+        </div>
+        <div class="faq-wrap">
+          <details open><summary>What is the MOQ for clear tiramisu boxes?</summary><p>MOQ varies by model, material, colour and customisation. Standard clear stock designs generally have lower entry quantities than custom moulds or printed packaging. Send the required capacity and annual volume for a confirmed MOQ.</p></details>
+          <details><summary>Can you make custom sizes or capacities?</summary><p>Yes. We can assess custom dimensions, portion capacities, lid profiles and branding components. Tooling feasibility, development time and MOQ depend on the requested structure.</p></details>
+          <details><summary>Can I receive samples in the US or UK?</summary><p>Yes. Standard samples can be arranged for evaluation. Freight cost, sample lead time and available models are confirmed before dispatch.</p></details>
+          <details><summary>What custom branding options are available?</summary><p>Common options include printed paper sleeves, pressure-sensitive labels, inserts, colour-matched components and customised cartons. Direct printing feasibility depends on material and order volume.</p></details>
+          <details><summary>What information is needed for a quotation?</summary><p>Please provide the target box size or dessert portion, lid style, material preference, quantity, destination postcode, branding needs and preferred Incoterm where known.</p></details>
+          <details><summary>How do you support US and UK importers?</summary><p>We can provide export packing details, carton dimensions, product specifications and commercial documentation for order review. Compliance documents and test requirements should be agreed for the selected material and destination market.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section inquiry" id="inquiry">
+      <div class="container inquiry-grid">
+        <div class="inquiry-copy">
+          <span class="eyebrow" style="color:#ff9fa2">Get a wholesale quote</span>
+          <h2>Tell us what you need to pack.</h2>
+          <p>Share your dessert size, target quantity and destination. We will help shortlist a suitable box and prepare the next-step information for your purchasing team.</p>
+          <div class="contact-notes">
+            <span>✓ Response target: within one business day</span>
+            <span>✓ Sample and customisation support</span>
+            <span>✓ US / UK export quotation</span>
           </div>
-          <div style="padding: 0 20px 20px; display: flex; gap: 8px;">
-            <a href="clear-dessert-box-sizes.html#hk-21157" class="btn outline" style="flex: 1; padding: 10px 4px; font-size: 12px; text-align: center; justify-content: center; min-height: 38px;">View Size Details</a>
-            <a href="contact.html?sku=HK-21157" class="btn" style="flex: 1; padding: 10px 4px; font-size: 12px; text-align: center; justify-content: center; min-height: 38px; box-shadow: none;">Request Quote</a>
+        </div>
+
+        <form class="form-card" id="quoteForm" data-inquiry-form>
+          <div class="form-grid">
+            <div class="field"><label for="name">Your name *</label><input id="name" name="name" required autocomplete="name" placeholder="Name" /></div>
+            <div class="field"><label for="company">Company *</label><input id="company" name="company" required autocomplete="organization" placeholder="Company name" /></div>
+            <div class="field"><label for="email">Business email / WhatsApp *</label><input id="email" name="contact" required autocomplete="email" placeholder="name@company.com or WhatsApp" /></div>
+            <div class="field"><label for="market">Destination market</label><select id="market" name="country"><option>United States</option><option>United Kingdom</option><option>Other market</option></select></div>
+            <div class="field"><label for="product">Product interest</label><select id="product" name="product"><option>Rectangular tiramisu box</option><option>Square dessert cup</option><option>Mini dessert cups</option><option>Family / catering tray</option><option>Dome-lid cup</option><option>Custom packaging project</option></select></div>
+            <div class="field"><label for="quantity">Estimated quantity</label><select id="quantity" name="quantity"><option>5,000–10,000 pcs</option><option>10,000–50,000 pcs</option><option>50,000–100,000 pcs</option><option>100,000+ pcs</option><option>Not confirmed yet</option></select></div>
+            <div class="field full"><label for="message">Project details *</label><textarea id="message" name="message" required placeholder="Size, capacity, lid style, branding, annual volume, destination postcode..."></textarea></div>
           </div>
-        </article>
+          <div class="form-foot"><small>By submitting, you agree to be contacted about this packaging enquiry.</small><button class="btn btn-primary" type="submit">Send Enquiry</button></div>
+        </form>
+      </div>
+    </section>
+  </main>
 
-        <!-- SKU 3 -->
-        <article class="product-card" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
-          <div>
-            <div class="product-media" style="background: #ffffff; display: flex; align-items: center; justify-content: center; padding: 12px; height: 210px; border-bottom: 1px solid var(--line);">
-              <img src="assets/img/products/e1300-clear-pet-dessert-box-1300ml.webp" alt="E1300 clear PET dessert box 1300ml size 18 x 13 x 6.4 cm" style="max-width: 100%; max-height: 100%; object-fit: contain;"  loading="lazy"  />
-            </div>
-            <div class="product-body" style="padding: 20px;">
-              <span class="tag" style="background: var(--mint); color: var(--coffee); font-weight: 900; margin-bottom: 8px;">PET Material</span>
-              <h3 style="font-size: 18px; margin: 0 0 10px; color: var(--coffee); font-weight: 900;">E1300 Clear PET Dessert Box</h3>
-              <ul class="specs" style="list-style: none; padding: 0; margin: 0 0 16px; font-size: 14px; line-height: 1.6; color: var(--muted);">
-                <li style="margin-bottom: 4px; padding-left: 14px; position: relative;">
-                  <span style="position: absolute; left: 0; color: var(--caramel);">•</span>
-                  <strong>Size:</strong> 18 × 13 × 6.4 cm
-                </li>
-                <li style="margin-bottom: 4px; padding-left: 14px; position: relative;">
-                  <span style="position: absolute; left: 0; color: var(--caramel);">•</span>
-                  <strong>Volume:</strong> 1300 ml
-                </li>
-                <li style="margin-bottom: 4px; padding-left: 14px; position: relative;">
-                  <span style="position: absolute; left: 0; color: var(--caramel);">•</span>
-                  <strong>QTY/CTN:</strong> 96 pcs/ctn
-                </li>
-                <li style="margin-bottom: 4px; padding-left: 14px; position: relative;">
-                  <span style="position: absolute; left: 0; color: var(--caramel);">•</span>
-                  <strong>Best for:</strong> bakery takeaway and standard dessert packaging
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div style="padding: 0 20px 20px; display: flex; gap: 8px;">
-            <a href="clear-dessert-box-sizes.html#e1300" class="btn outline" style="flex: 1; padding: 10px 4px; font-size: 12px; text-align: center; justify-content: center; min-height: 38px;">View Size Details</a>
-            <a href="contact.html?sku=E1300" class="btn" style="flex: 1; padding: 10px 4px; font-size: 12px; text-align: center; justify-content: center; min-height: 38px; box-shadow: none;">Request Quote</a>
-          </div>
-        </article>
-
-        <!-- SKU 4 -->
-        <article class="product-card" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
-          <div>
-            <div class="product-media" style="background: #ffffff; display: flex; align-items: center; justify-content: center; padding: 12px; height: 210px; border-bottom: 1px solid var(--line);">
-              <img src="assets/img/products/ssm-016-clear-round-dessert-container-600ml.webp" alt="SSM-016 600ml Clear Round Dessert Container - Food-grade PS Plastic Mousse Box Wholesale" style="max-width: 100%; max-height: 100%; object-fit: contain;"  loading="lazy"  />
-            </div>
-            <div class="product-body" style="padding: 20px;">
-              <span class="tag" style="background: var(--mint); color: var(--coffee); font-weight: 900; margin-bottom: 8px;">PS Material</span>
-              <h3 style="font-size: 18px; margin: 0 0 10px; color: var(--coffee); font-weight: 900;">SSM-016 Clear Round Container</h3>
-              <ul class="specs" style="list-style: none; padding: 0; margin: 0 0 16px; font-size: 14px; line-height: 1.6; color: var(--muted);">
-                <li style="margin-bottom: 4px; padding-left: 14px; position: relative;">
-                  <span style="position: absolute; left: 0; color: var(--caramel);">•</span>
-                  <strong>Size:</strong> Ø12.2 × 5.5 cm
-                </li>
-                <li style="margin-bottom: 4px; padding-left: 14px; position: relative;">
-                  <span style="position: absolute; left: 0; color: var(--caramel);">•</span>
-                  <strong>Volume:</strong> 600 ml
-                </li>
-                <li style="margin-bottom: 4px; padding-left: 14px; position: relative;">
-                  <span style="position: absolute; left: 0; color: var(--caramel);">•</span>
-                  <strong>QTY/CTN:</strong> 147 pcs/ctn
-                </li>
-                <li style="margin-bottom: 4px; padding-left: 14px; position: relative;">
-                  <span style="position: absolute; left: 0; color: var(--caramel);">•</span>
-                  <strong>Best for:</strong> round tiramisu, mousse cake and premium desserts
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div style="padding: 0 20px 20px; display: flex; gap: 8px;">
-            <a href="clear-dessert-box-sizes.html#ssm-016" class="btn outline" style="flex: 1; padding: 10px 4px; font-size: 12px; text-align: center; justify-content: center; min-height: 38px;">View Size Details</a>
-            <a href="contact.html?sku=SSM-016" class="btn" style="flex: 1; padding: 10px 4px; font-size: 12px; text-align: center; justify-content: center; min-height: 38px; box-shadow: none;">Request Quote</a>
-          </div>
-        </article>
-      </div>
-
-      <div style="margin-top: 48px; text-align: center;">
-        <a href="clear-dessert-box-sizes.html" class="btn" style="padding: 14px 36px; font-size: 16px; box-shadow: var(--shadow);">View Full Size Chart</a>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <div class="section-head">
-        <span class="eyebrow">Custom Branding Accessories</span>
-        <h2>Five high-value customization services</h2>
-        <p>These services help dessert brands look more premium and help B2B buyers increase average order value.</p>
-      </div>
-      <div class="grid-5">
-        <article class="card"><div class="icon">🏷️</div><h3>Logo Stickers</h3><p>Low-MOQ labels for clear boxes, bags and sealing points.</p></article>
-        <article class="card"><div class="icon">🛍️</div><h3>Paper Bags</h3><p>Premium dessert carrier bags for birthday and wedding gifts.</p></article>
-        <article class="card"><div class="icon">🎀</div><h3>Ribbons</h3><p>Branded satin ribbons for gift-box and event packaging.</p></article>
-        <article class="card"><div class="icon">📄</div><h3>Paper Sleeves</h3><p>Printed sleeves for logo, flavor, ingredients and QR code.</p></article>
-        <article class="card"><div class="icon">☕</div><h3>Cocoa Stencils</h3><p>Custom acrylic stencils for tiramisu branding and messages.</p></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="dark">
-    <div class="container">
-      <div class="section-head">
-        <span class="eyebrow">Application Scenes</span>
-        <h2>Designed for birthday, wedding and premium dessert brands</h2>
-        <p>Use applications to help buyers quickly choose packaging combinations.</p>
-      </div>
-      <div class="grid-3">
-        <div class="scenario"><h3>Birthday Desserts</h3><p>Clear boxes, Happy Birthday stickers, paper bags and gift ribbons for celebration desserts.</p></div>
-        <div class="scenario"><h3>Wedding Desserts</h3><p>Large tiramisu trays, Just Married cocoa stencils, branded ribbons and premium carrier bags.</p></div>
-        <div class="scenario"><h3>Dessert Brand Retail</h3><p>Paper sleeves, logo labels, QR-code cards and retail-friendly packaging kits for dessert brands.</p></div>
-      </div>
-    </div>
-  </section>
-</main>
-
-
-  <section class="cta" id="quote" style="grid-template-columns: 1fr; text-align: center; display: block;">
-    <div style="max-width: 800px; margin: 0 auto 40px; text-align: center;">
-      <span class="eyebrow" style="margin-bottom: 15px;">Wholesale Inquiry</span>
-      <h2 style="font-size: 42px; margin: 15px 0 12px; color: #fff;">Ready to build your dessert packaging system?</h2>
-      <p style="color: rgba(255,255,255,0.85); font-size: 17px; line-height: 1.6; max-width: 600px; margin: 0 auto 20px;">
-        Direct factory pricing, custom low MOQ branding, and global fast shipping support. Send your inquiry or get instant sample kits today.
-      </p>
-      <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 24px;">
-        <a class="btn wa-btn" href="https://wa.me/8618358130956?text=Hi%2C%20I%E2%80%99m%20interested%20in%20your%20clear%20dessert%20packaging%20and%20custom%20branding%20service.%20Please%20send%20me%20more%20information." target="_blank">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 16px; height: 16px; fill: currentColor; margin-right: 6px; vertical-align: middle;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-93.8-25.7l-6.7-4-69.8 18.3 18.7-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
-          WhatsApp Quick Quote
-        </a>
-        <a class="btn light" href="assets/downloads/Clear-Dessert-Pack-Catalog.pdf" target="_blank" download>
-          Download Catalog PDF
-        </a>
-      </div>
-    </div>
-    
-    <div id="index-inquiry-form-anchor" style="padding-top: 10px;"></div>
-    
-    <form class="form" id="wholesale-inquiry-form" name="Wholesale Inquiry Form" data-inquiry-form style="max-width: 650px; margin: 0 auto; text-align: left; width: 100%;">
-      <input name="name" placeholder="Your name" required />
-      <input name="company" placeholder="Company name" />
-      <input name="country" placeholder="Country / market" />
-      <input name="contact" placeholder="Email or WhatsApp" required />
-      <select name="product">
-        <option>Product interested in</option>
-        <option>Clear Tiramisu Boxes</option>
-        <option>Clear Dessert Containers</option>
-        <option>Custom Logo Stickers / Labels</option>
-        <option>Custom Paper Sleeves</option>
-        <option>Custom Paper Bags</option>
-        <option>Custom Ribbons</option>
-        <option>Acrylic Cocoa Stencils</option>
-        <option>Complete Packaging Kit</option>
-      </select>
-      <div class="checkbox-grid">
-        <label><input type="checkbox" value="Logo stickers"> Logo Stickers</label>
-        <label><input type="checkbox" value="Paper sleeves"> Paper Sleeves</label>
-        <label><input type="checkbox" value="Paper bags"> Paper Bags</label>
-        <label><input type="checkbox" value="Ribbons"> Ribbons</label>
-        <label><input type="checkbox" value="Acrylic cocoa stencil"> Acrylic Stencil</label>
-        <label><input type="checkbox" value="Custom box size"> Custom Box Size</label>
-      </div>
-      <select name="application">
-        <option>Application scene</option>
-        <option>Birthday dessert</option>
-        <option>Wedding dessert</option>
-        <option>Bakery takeaway</option>
-        <option>Catering event</option>
-        <option>Tiramisu brand</option>
-        <option>Foodservice distributor</option>
-      </select>
-      <select name="logo_files">
-        <option>Do you have logo files?</option>
-        <option>AI / PDF / SVG available</option>
-        <option>PNG / JPG only</option>
-        <option>Need simple design support</option>
-      </select>
-      <input name="quantity" placeholder="Estimated order quantity" />
-      <textarea name="message" placeholder="Tell us your box size, branding needs, target market and destination port"></textarea>
-      <div style="display: flex; gap: 12px; margin-top: 10px; width: 100%;">
-        <button class="btn" type="submit" style="flex: 1;">Send Inquiry</button>
-        <a href="https://wa.me/8618358130956?text=Hi%2C%20I%20would%20like%20to%20request%20a%20custom%20dessert%20packaging%20quote.%0ACompany%3A%0ACountry%3A%0AProduct%20Interested%20In%3A%0ACustom%20Options%3A%0AApplication%20Scene%3A%0ALogo%20File%3A%0AEstimated%20Quantity%3A%0AMessage%3A" target="_blank" class="btn wa-btn" data-wa-inquiry-btn style="flex: 1;">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 16px; height: 16px; fill: currentColor; margin-right: 8px; vertical-align: middle;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-93.8-25.7l-6.7-4-69.8 18.3 18.7-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
-          Send Inquiry via WhatsApp
-        </a>
-      </div>
-    </form>
-  </section>
-
-  <footer class="site-footer">
+  <footer>
     <div class="container">
       <div class="footer-grid">
-        <div class="footer-logo">
-          <img src="assets/img/brand/clear-dessert-pack-logo.webp" alt="Clear Dessert Pack logo"  />
-          <p>Clear Dessert Pack provides clear dessert packaging and custom branding solutions for bakeries, dessert brands, wedding caterers and foodservice distributors.</p>
+        <div class="footer-brand">
+          <a class="brand" href="index.html"><span class="brand-mark">CD</span><span>ClearDessertPack<small style="color:rgba(255,255,255,.5)">Wholesale dessert packaging</small></span></a>
+          <p>Clear tiramisu boxes and custom dessert packaging for importers, distributors, bakery groups and food brands.</p>
         </div>
-        <div>
-          <h4>Products</h4>
-          <a href="products.html">Clear Tiramisu Boxes</a>
-          <a href="products.html#sleeves">Paper Sleeves</a>
-          <a href="products.html#bags">Paper Bags</a>
-          <a href="products.html#stencils">Acrylic Cocoa Stencils</a>
-        </div>
-        <div>
-          <h4>Solutions</h4>
-          <a href="custom-branding.html">Custom Branding</a>
-          <a href="packaging-kits.html">Packaging Kits</a>
-          <a href="applications.html#wedding">Wedding Desserts</a>
-          <a href="applications.html#birthday">Birthday Desserts</a>
-        </div>
-        <div>
-          <h4>Contact</h4>
-          <p style="margin-bottom: 8px; font-size: 14px; color: var(--muted);">Email: <a href="mailto:sales@cleardessertpack.com" style="display: inline; color: inherit; font-weight: bold;">sales@cleardessertpack.com</a></p>
-          <p style="margin-bottom: 8px; font-size: 14px; color: var(--muted);">Backup: <a href="mailto:cleardessertpack@gmail.com" style="display: inline; color: inherit;">cleardessertpack@gmail.com</a></p>
-          <p style="margin-bottom: 8px; font-size: 14px; color: var(--muted);">WhatsApp: <a href="https://wa.me/8618358130956?text=Hi%2C%20I%E2%80%99m%20interested%20in%20your%20clear%20dessert%20packaging%20and%20custom%20branding%20service.%20Please%20send%20me%20more%20information." target="_blank" style="display: inline-flex; align-items: center; gap: 4px; color: #25d366; font-weight: bold;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 14px; height: 14px; fill: currentColor; vertical-align: middle;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-93.8-25.7l-6.7-4-69.8 18.3 18.7-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg> +86 18358130956</a></p>
-          <p style="margin-bottom: 8px; font-size: 14px; color: var(--muted);">Response Time: <span style="color: var(--text); font-weight: 500;">Within 24 hours</span></p>
-          <p style="margin-top: 10px; font-size: 12px; line-height: 1.4; color: var(--muted);">For faster communication, contact us on WhatsApp for samples, custom branding options and wholesale quotation.</p>
-        </div>
+        <div class="footer-col"><h4>Products</h4><a href="products.html">Tiramisu Boxes</a><a href="products.html">Dessert Cups</a><a href="products.html">Catering Trays</a><a href="custom-branding.html">Custom Packaging</a></div>
+        <div class="footer-col"><h4>Buyer Resources</h4><a href="factory.html">Factory & Quality</a><a href="resources.html">Resources</a><a href="contact.html">Request Samples</a><a href="#inquiry">Get a Quote</a></div>
+        <div class="footer-col"><h4>Target Markets</h4><a href="#inquiry">United States</a><a href="#inquiry">United Kingdom</a><a href="#solutions">Importers & Distributors</a><a href="#solutions">Bakeries & Foodservice</a></div>
       </div>
-      <div class="footer-bottom">
-        <span>© 2026 Clear Dessert Pack. All rights reserved.</span>
-      </div>
+      <div class="footer-bottom"><span>© 2026 ClearDessertPack. All rights reserved.</span><span>Privacy Policy · Terms · Cookie Policy</span></div>
     </div>
   </footer>
 
-  <a href="https://wa.me/8618358130956?text=Hi%2C%20I%E2%80%99m%20interested%20in%20your%20clear%20dessert%20packaging%20and%20custom%20branding%20service.%20Please%20send%20me%20more%20information." class="wa-floating" target="_blank" aria-label="Chat on WhatsApp">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 18px; height: 18px; fill: currentColor; margin-right: 4px; vertical-align: middle;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-93.8-25.7l-6.7-4-69.8 18.3 18.7-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
-    Chat on WhatsApp
-  </a>
+  <button class="back-top" id="backTop" aria-label="Back to top">↑</button>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    menuBtn.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(open));
+      menuBtn.textContent = open ? '✕' : '☰';
+    });
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open'); menuBtn.setAttribute('aria-expanded','false'); menuBtn.textContent='☰';
+    }));
+
+    const backTop = document.getElementById('backTop');
+    window.addEventListener('scroll', () => backTop.classList.toggle('show', window.scrollY > 700));
+    backTop.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
+
+  </script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>
