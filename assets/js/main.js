@@ -29,10 +29,10 @@ document.addEventListener("DOMContentLoaded", function () {
         top: 50% !important;
         bottom: auto !important;
         transform: translateY(-50%) !important;
-        width: 88px !important;
-        height: 88px !important;
-        min-width: 88px !important;
-        min-height: 88px !important;
+        width: 108px !important;
+        height: 108px !important;
+        min-width: 108px !important;
+        min-height: 108px !important;
         padding: 0 !important;
         margin: 0 !important;
         border: 4px solid #ffffff !important;
@@ -57,23 +57,23 @@ document.addEventListener("DOMContentLoaded", function () {
         outline-offset: 4px !important;
       }
       #global-whatsapp-float svg {
-        width: 48px !important;
-        height: 48px !important;
+        width: 60px !important;
+        height: 60px !important;
         display: block !important;
         fill: currentColor !important;
       }
       @media (max-width: 640px) {
         #global-whatsapp-float {
           right: 12px !important;
-          width: 72px !important;
-          height: 72px !important;
-          min-width: 72px !important;
-          min-height: 72px !important;
+          width: 84px !important;
+          height: 84px !important;
+          min-width: 84px !important;
+          min-height: 84px !important;
           border-width: 3px !important;
         }
         #global-whatsapp-float svg {
-          width: 40px !important;
-          height: 40px !important;
+          width: 48px !important;
+          height: 48px !important;
         }
       }
       @media (prefers-reduced-motion: reduce) {
