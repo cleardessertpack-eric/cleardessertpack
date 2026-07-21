@@ -8,41 +8,46 @@ const ProductRenderer = {
    * Render the product grid for products.html
    * @param {string} containerId - The ID of the container element
    */
-  renderProductGrid: function(containerId) {
+  renderProductGrid: function(containerId, options = {}) {
     const container = document.getElementById(containerId);
     if (!container) return;
 
-    let html = '';
-    PRODUCTS.forEach(product => {
-      html += `
-        <article class="product-card" id="${product.sku.toLowerCase()}" data-category="${product.category.toLowerCase()}" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+    const material = options.material ? String(options.material).toUpperCase() : "";
+    const products = PRODUCTS.filter((product) => {
+      return !material || String(product.material).toUpperCase() === material;
+    });
+
+    container.innerHTML = products.map((product) => {
+      const message = encodeURIComponent(
+        "Hi, I'm interested in SKU " + product.sku +
+        " (" + product.name + "). Please send me the wholesale price, MOQ, packing details and sample information."
+      );
+      const whatsappUrl = "https://wa.me/8618358130956?text=" + message;
+
+      return `
+        <article class="product-card" id="${product.sku.toLowerCase()}" data-material="${product.material.toLowerCase()}" style="display:flex;flex-direction:column;justify-content:space-between;height:100%">
           <div>
-            <div class="product-media" style="background: #ffffff; display: flex; align-items: center; justify-content: center; padding: 12px; height: 190px; border-bottom: 1px solid var(--line);">
-              <img src="${product.image}" alt="${product.name} - ${product.size_cm} ${product.capacity_ml}ml" style="max-width: 100%; max-height: 100%; object-fit: contain;" loading="lazy" />
+            <div class="product-media" style="background:#fff;display:flex;align-items:center;justify-content:center;padding:12px;height:190px;border-bottom:1px solid var(--line)">
+              <img src="${product.image}" alt="${product.name} - ${product.size_cm}, ${product.capacity_ml}ml" width="600" height="600" style="max-width:100%;max-height:100%;object-fit:contain" loading="lazy" />
             </div>
-            <div class="product-body" style="padding: 20px;">
-              <span class="tag" style="background: var(--mint); color: var(--coffee); font-weight: 900; margin-bottom: 8px;">${product.material} Material</span>
-              <h3 style="font-size: 17px; margin: 0 0 8px; color: var(--coffee); font-weight: 900;">${product.sku}</h3>
-              <ul class="specs" style="list-style: none; padding: 0; margin: 0; font-size: 13px; line-height: 1.5; color: var(--muted);">
+            <div class="product-body" style="padding:18px">
+              <span class="tag" style="background:var(--mint);color:var(--ink);font-weight:900;margin-bottom:8px">${product.material} Material</span>
+              <h3 style="font-size:15px;line-height:1.35;margin:0 0 8px;color:var(--ink);font-weight:900">${product.name}</h3>
+              <ul class="specs" style="list-style:none;padding:0;margin:0;font-size:12px;line-height:1.45;color:var(--muted)">
+                <li><strong>Item:</strong> ${product.sku}</li>
                 <li><strong>Size:</strong> ${product.size_cm}</li>
                 <li><strong>Volume:</strong> ${product.capacity_ml} ml</li>
-                <li><strong>QTY/CTN:</strong> ${product.qty_per_ctn} pcs/ctn</li>
+                <li><strong>QTY/CTN:</strong> ${product.qty_per_ctn} pcs</li>
                 <li><strong>Best for:</strong> ${product.best_for}</li>
               </ul>
             </div>
           </div>
-          <div style="padding: 0 20px 20px; display: flex; flex-direction: column; gap: 8px;">
-            <a href="contact.html?sku=${product.sku}" class="btn" style="width: 100%; padding: 10px; font-size: 13px; text-align: center; justify-content: center; min-height: 38px; box-shadow: none;">Request Quote</a>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
-              <a href="contact.html?sku=${product.sku}&type=sample" class="btn secondary" style="padding: 8px; font-size: 11px; text-align: center; justify-content: center; min-height: auto;">Ask for Sample</a>
-              <a href="custom-branding.html" class="btn outline" style="padding: 8px; font-size: 11px; text-align: center; justify-content: center; min-height: auto;">Customize Packaging</a>
-            </div>
+          <div style="padding:0 18px 18px">
+            <a href="${whatsappUrl}" target="_blank" rel="noopener noreferrer" class="btn wa-btn" style="width:100%;padding:10px;font-size:13px;text-align:center;justify-content:center;min-height:38px;box-shadow:none">WhatsApp Me</a>
           </div>
         </article>
       `;
-    });
-
-    container.innerHTML = html;
+    }).join("");
   },
 
   /**
