@@ -47,6 +47,22 @@ document.addEventListener("DOMContentLoaded", function () {
         line-height: 1 !important;
         text-decoration: none !important;
         transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+        animation: whatsappButtonGlow 2.4s ease-in-out infinite !important;
+        isolation: isolate !important;
+      }
+      #global-whatsapp-float::before,
+      #global-whatsapp-float::after {
+        content: "" !important;
+        position: absolute !important;
+        inset: -5px !important;
+        border: 3px solid rgba(37, 211, 102, 0.72) !important;
+        border-radius: 50% !important;
+        pointer-events: none !important;
+        z-index: -1 !important;
+        animation: whatsappRipple 2.4s ease-out infinite !important;
+      }
+      #global-whatsapp-float::after {
+        animation-delay: 1.2s !important;
       }
       #global-whatsapp-float:hover {
         transform: translateY(-50%) scale(1.08) !important;
@@ -61,6 +77,26 @@ document.addEventListener("DOMContentLoaded", function () {
         height: 60px !important;
         display: block !important;
         fill: currentColor !important;
+        position: relative !important;
+        z-index: 1 !important;
+      }
+      @keyframes whatsappButtonGlow {
+        0%, 100% {
+          box-shadow: 0 16px 38px rgba(0, 0, 0, 0.28), 0 0 0 rgba(37, 211, 102, 0) !important;
+        }
+        50% {
+          box-shadow: 0 18px 44px rgba(0, 0, 0, 0.3), 0 0 26px rgba(37, 211, 102, 0.58) !important;
+        }
+      }
+      @keyframes whatsappRipple {
+        0% {
+          transform: scale(0.94);
+          opacity: 0.78;
+        }
+        72%, 100% {
+          transform: scale(1.34);
+          opacity: 0;
+        }
       }
       @media (max-width: 640px) {
         #global-whatsapp-float {
@@ -77,8 +113,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       }
       @media (prefers-reduced-motion: reduce) {
-        #global-whatsapp-float {
+        #global-whatsapp-float,
+        #global-whatsapp-float::before,
+        #global-whatsapp-float::after {
           transition: none !important;
+          animation: none !important;
         }
       }
     `;
