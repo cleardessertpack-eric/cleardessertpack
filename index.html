@@ -86,7 +86,36 @@
     .nav-links{display:flex;align-items:center;gap:28px;font-weight:700;font-size:.9rem}
     .nav-links a{position:relative}
     .nav-links a::after{content:"";position:absolute;left:0;right:100%;bottom:-8px;height:2px;background:var(--red);transition:.2s}
-    .nav-links a:hover::after{right:0}
+    .nav-links a:hover::after,
+    .nav-links a.active::after{right:0}
+    .nav-dropdown{position:relative}
+    .dropdown-content{
+      display:none;position:absolute;top:calc(100% + 14px);left:50%;
+      transform:translateX(-50%);min-width:225px;padding:8px;
+      border:1px solid var(--line);border-radius:12px;background:#fff;
+      box-shadow:var(--shadow);z-index:100;
+    }
+    .dropdown-content::before{
+      content:"";position:absolute;top:-6px;left:50%;width:10px;height:10px;
+      transform:translateX(-50%) rotate(45deg);background:#fff;
+      border-left:1px solid var(--line);border-top:1px solid var(--line);
+    }
+    .dropdown-content a{
+      display:block;padding:10px 12px;border-radius:8px;color:var(--ink);
+      font-size:.83rem;font-weight:700;white-space:nowrap;
+    }
+    .dropdown-content a::after{display:none}
+    .dropdown-content a:hover{color:var(--red);background:#fff3f3}
+    @media (min-width:981px){
+      .nav-dropdown:hover .dropdown-content,
+      .nav-dropdown:focus-within .dropdown-content{
+        display:block;animation:homeNavDropdownIn .18s ease-out;
+      }
+    }
+    @keyframes homeNavDropdownIn{
+      from{opacity:0;transform:translate(-50%,8px)}
+      to{opacity:1;transform:translate(-50%,0)}
+    }
     .nav-actions{display:flex;align-items:center;gap:10px}
     .menu-btn{display:none;width:44px;height:44px;border:1px solid var(--line);background:#fff;border-radius:10px}
 
@@ -252,7 +281,14 @@
 
     @media (max-width:980px){
       .nav-links{display:none;position:absolute;top:76px;left:20px;right:20px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow);border-radius:14px;padding:18px;flex-direction:column;align-items:flex-start}
-      .nav-links.open{display:flex}
+      .nav-links.open{display:flex;gap:16px}
+      .nav-links.open>a,.nav-links.open .nav-dropdown{width:100%}
+      .nav-links .dropdown-content{
+        display:grid;position:static;min-width:0;margin-top:7px;padding:4px 0 0 14px;
+        transform:none;border:0;background:transparent;box-shadow:none;gap:2px;
+      }
+      .nav-links .dropdown-content::before{display:none}
+      .nav-links .dropdown-content a{padding:7px 0}
       .nav-actions .btn{display:none}.menu-btn{display:block}
       .hero{background:linear-gradient(180deg,#fff 0 55%,#f7ece6 55% 100%)}
       .hero-grid,.buyer-grid,.custom-grid,.factory-wrap,.inquiry-grid{grid-template-columns:1fr}
@@ -371,10 +407,28 @@
         <img class="brand-logo" src="assets/img/brand/clear-dessert-pack-logo.png" alt="Clear Dessert Pack logo" width="218" height="58" />
       </a>
       <nav class="nav-links" id="navLinks" aria-label="Main navigation">
-        <a href="products.html">Products</a>
+        <a class="active" href="index.html" aria-current="page">Home</a>
+
+        <div class="nav-dropdown">
+          <a href="products.html">Products <span aria-hidden="true" style="font-size:10px;margin-left:2px">▼</span></a>
+          <div class="dropdown-content">
+            <a href="products.html">All Products</a>
+            <a href="clear-dessert-box-sizes.html">Box Sizes &amp; Specs</a>
+            <a href="packaging-kits.html">Packaging Kits</a>
+          </div>
+        </div>
+
         <a href="custom-branding.html">Custom Branding</a>
-        <a href="packaging-kits.html">Packaging Kits</a>
-        <a href="factory.html">Factory</a>
+
+        <div class="nav-dropdown">
+          <a href="factory.html">Our Factory <span aria-hidden="true" style="font-size:10px;margin-left:2px">▼</span></a>
+          <div class="dropdown-content">
+            <a href="factory.html">Manufacturing Power</a>
+            <a href="applications.html">Application Scenes</a>
+          </div>
+        </div>
+
+        <a href="resources.html">Resources</a>
         <a href="contact.html">Contact</a>
       </nav>
       <div class="nav-actions">
