@@ -82,10 +82,10 @@ document.addEventListener("DOMContentLoaded", function () {
       }
       @keyframes whatsappButtonGlow {
         0%, 100% {
-          box-shadow: 0 16px 38px rgba(0, 0, 0, 0.28), 0 0 0 rgba(37, 211, 102, 0) !important;
+          filter: drop-shadow(0 0 0 rgba(37, 211, 102, 0));
         }
         50% {
-          box-shadow: 0 18px 44px rgba(0, 0, 0, 0.3), 0 0 26px rgba(37, 211, 102, 0.58) !important;
+          filter: drop-shadow(0 0 14px rgba(37, 211, 102, 0.72));
         }
       }
       @keyframes whatsappRipple {
