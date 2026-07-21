@@ -1,4 +1,90 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // Global extra-large WhatsApp button: fixed at the right center on every page.
+  const floatingLinks = Array.from(document.querySelectorAll("a.wa-floating"));
+  const floatingWhatsApp = floatingLinks.shift() || document.createElement("a");
+  floatingLinks.forEach((link) => link.remove());
+
+  const whatsappMessage = encodeURIComponent(
+    "Hi, I'm interested in your clear dessert packaging products. Please send me more information."
+  );
+  floatingWhatsApp.id = "global-whatsapp-float";
+  floatingWhatsApp.className = "wa-floating global-wa-floating";
+  floatingWhatsApp.href = "https://wa.me/8618358130956?text=" + whatsappMessage;
+  floatingWhatsApp.target = "_blank";
+  floatingWhatsApp.rel = "noopener noreferrer";
+  floatingWhatsApp.title = "WhatsApp Us";
+  floatingWhatsApp.setAttribute("aria-label", "Contact Clear Dessert Pack on WhatsApp");
+  floatingWhatsApp.innerHTML =
+    '<svg aria-hidden="true" focusable="false" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">' +
+    '<path d="M380.9 97.1C339 55.1 283.2 32 223.9 32 101.5 32 1.9 131.6 1.9 254c0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1C346.2 476.1 448 376.5 448 254c0-59.3-25.2-115-67.1-156.9zM223.9 438.7c-33.2 0-65.7-8.9-93.8-25.7l-6.7-4-69.8 18.3 18.7-68.1-4.4-7C49.4 322.8 39.7 288.9 39.7 254c0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.9 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>';
+  document.body.appendChild(floatingWhatsApp);
+
+  if (!document.getElementById("global-whatsapp-float-style")) {
+    const whatsappStyle = document.createElement("style");
+    whatsappStyle.id = "global-whatsapp-float-style";
+    whatsappStyle.textContent = `
+      #global-whatsapp-float {
+        position: fixed !important;
+        right: 24px !important;
+        top: 50% !important;
+        bottom: auto !important;
+        transform: translateY(-50%) !important;
+        width: 88px !important;
+        height: 88px !important;
+        min-width: 88px !important;
+        min-height: 88px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        border: 4px solid #ffffff !important;
+        border-radius: 50% !important;
+        background: #25d366 !important;
+        color: #ffffff !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        box-shadow: 0 16px 38px rgba(0, 0, 0, 0.28) !important;
+        z-index: 9999 !important;
+        line-height: 1 !important;
+        text-decoration: none !important;
+        transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+      }
+      #global-whatsapp-float:hover {
+        transform: translateY(-50%) scale(1.08) !important;
+        box-shadow: 0 20px 46px rgba(37, 211, 102, 0.42) !important;
+      }
+      #global-whatsapp-float:focus-visible {
+        outline: 4px solid rgba(37, 211, 102, 0.32) !important;
+        outline-offset: 4px !important;
+      }
+      #global-whatsapp-float svg {
+        width: 48px !important;
+        height: 48px !important;
+        display: block !important;
+        fill: currentColor !important;
+      }
+      @media (max-width: 640px) {
+        #global-whatsapp-float {
+          right: 12px !important;
+          width: 72px !important;
+          height: 72px !important;
+          min-width: 72px !important;
+          min-height: 72px !important;
+          border-width: 3px !important;
+        }
+        #global-whatsapp-float svg {
+          width: 40px !important;
+          height: 40px !important;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        #global-whatsapp-float {
+          transition: none !important;
+        }
+      }
+    `;
+    document.head.appendChild(whatsappStyle);
+  }
+
   const toggle = document.querySelector(".menu-toggle");
   const nav = document.querySelector(".nav");
   if (toggle && nav) {
