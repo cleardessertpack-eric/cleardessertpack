@@ -284,7 +284,7 @@ Message: ${message}`;
     }
 
     // 4. View Size Chart Click Tracking
-    if (href.includes("clear-dessert-box-sizes.html") || text === "View Full Size Chart") {
+    if (href.includes("/clear-dessert-box-sizes") || text === "View Full Size Chart") {
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
         event: "view_size_chart_click",
