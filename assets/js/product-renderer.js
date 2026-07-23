@@ -87,10 +87,10 @@ const ProductRenderer = {
           <td style="padding: 14px; color: var(--ink); font-size: 14px;">${product.shape}</td>
           <td style="padding: 14px; font-size: 13px; color: var(--muted);">${product.best_for}</td>
           <td style="padding: 14px; text-align: center; display: flex; flex-direction: column; gap: 5px; align-items: center;">
-            <a href="contact.html?sku=${product.sku}" class="btn" style="padding: 6px 12px; font-size: 12px; min-height: auto; border-radius: 6px; box-shadow: none; white-space: nowrap; width: 100%;">Request Quote</a>
+            <a href="/contact?sku=${product.sku}" class="btn" style="padding: 6px 12px; font-size: 12px; min-height: auto; border-radius: 6px; box-shadow: none; white-space: nowrap; width: 100%;">Request Quote</a>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4px; width: 100%;">
-              <a href="contact.html?sku=${product.sku}&type=sample" class="btn secondary" style="padding: 4px 8px; font-size: 10px; min-height: auto; width: 100%;">Sample</a>
-              <a href="custom-branding.html" class="btn outline" style="padding: 4px 8px; font-size: 10px; min-height: auto; width: 100%;">Custom</a>
+              <a href="/contact?sku=${product.sku}&type=sample" class="btn secondary" style="padding: 4px 8px; font-size: 10px; min-height: auto; width: 100%;">Sample</a>
+              <a href="/custom-branding" class="btn outline" style="padding: 4px 8px; font-size: 10px; min-height: auto; width: 100%;">Custom</a>
             </div>
           </td>
         </tr>
@@ -136,10 +136,10 @@ const ProductRenderer = {
             </div>
           </div>
           <div style="padding: 0 20px 20px; display: flex; flex-direction: column; gap: 8px;">
-            <a href="contact.html?sku=${product.sku}" class="btn" style="width: 100%; padding: 12px; font-size: 14px; text-align: center; justify-content: center; min-height: 44px; box-shadow: none;">Request Quote</a>
+            <a href="/contact?sku=${product.sku}" class="btn" style="width: 100%; padding: 12px; font-size: 14px; text-align: center; justify-content: center; min-height: 44px; box-shadow: none;">Request Quote</a>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
-              <a href="contact.html?sku=${product.sku}&type=sample" class="btn secondary" style="padding: 8px; font-size: 11px; text-align: center; justify-content: center; min-height: auto;">Ask for Sample</a>
-              <a href="custom-branding.html" class="btn outline" style="padding: 8px; font-size: 11px; text-align: center; justify-content: center; min-height: auto;">Customize Packaging</a>
+              <a href="/contact?sku=${product.sku}&type=sample" class="btn secondary" style="padding: 8px; font-size: 11px; text-align: center; justify-content: center; min-height: auto;">Ask for Sample</a>
+              <a href="/custom-branding" class="btn outline" style="padding: 8px; font-size: 11px; text-align: center; justify-content: center; min-height: auto;">Customize Packaging</a>
             </div>
           </div>
         </article>
