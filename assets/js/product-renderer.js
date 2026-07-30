@@ -22,7 +22,7 @@ const ProductRenderer = {
         "Hi, I'm interested in SKU " + product.sku +
         " (" + product.name + "). Please send me the wholesale price, MOQ, packing details and sample information."
       );
-      const whatsappUrl = "https://wa.me/8618358130956?text=" + message;
+      const whatsappUrl = "https://wa.me/8619032003411?text=" + message;
 
       return `
         <article class="product-card" id="${product.sku.toLowerCase()}" data-material="${product.material.toLowerCase()}" style="display:flex;flex-direction:column;justify-content:space-between;height:100%">
