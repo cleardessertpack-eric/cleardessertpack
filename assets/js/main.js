@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
   );
   floatingWhatsApp.id = "global-whatsapp-float";
   floatingWhatsApp.className = "wa-floating global-wa-floating";
-  floatingWhatsApp.href = "https://wa.me/8618358130956?text=" + whatsappMessage;
+  floatingWhatsApp.href = "https://wa.me/8619032003411?text=" + whatsappMessage;
   floatingWhatsApp.target = "_blank";
   floatingWhatsApp.rel = "noopener noreferrer";
   floatingWhatsApp.title = "WhatsApp Us";
@@ -224,7 +224,7 @@ Message: ${message}`;
       trackGoogleAdsConversion(10);
 
       const encodedMsg = encodeURIComponent(textMessage);
-      const url = `https://wa.me/8618358130956?text=${encodedMsg}`;
+      const url = `https://wa.me/8619032003411?text=${encodedMsg}`;
       window.open(url, "_blank");
     });
   });
