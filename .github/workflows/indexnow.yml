@@ -1,0 +1,90 @@
+name: Submit sitemap URLs to IndexNow
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: indexnow-main
+  cancel-in-progress: true
+
+env:
+  INDEXNOW_KEY: 87a5e5ec551534a743436171079aea95
+  SITE_HOST: www.cleardessertpack.com
+  KEY_LOCATION: https://www.cleardessertpack.com/87a5e5ec551534a743436171079aea95.txt
+
+jobs:
+  submit:
+    name: Notify IndexNow
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out the production content
+        uses: actions/checkout@v4
+
+      - name: Wait for the production key file
+        shell: bash
+        run: |
+          for attempt in {1..18}; do
+            published_key="$(curl --fail --silent --show-error "$KEY_LOCATION" 2>/dev/null | tr -d '\r\n' || true)"
+            if [ "$published_key" = "$INDEXNOW_KEY" ]; then
+              echo "IndexNow key file is available on the production domain."
+              exit 0
+            fi
+            echo "Waiting for the production deployment (attempt $attempt of 18)."
+            sleep 10
+          done
+          echo "The IndexNow key file was not available before timeout."
+          exit 1
+
+      - name: Build the IndexNow payload from sitemap.xml
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import xml.etree.ElementTree as ET
+
+          namespace = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+          root = ET.parse("sitemap.xml").getroot()
+          urls = [
+              node.text.strip()
+              for node in root.findall(".//sm:loc", namespace)
+              if node.text and node.text.strip()
+          ]
+
+          payload = {
+              "host": os.environ["SITE_HOST"],
+              "key": os.environ["INDEXNOW_KEY"],
+              "keyLocation": os.environ["KEY_LOCATION"],
+              "urlList": urls,
+          }
+
+          with open("indexnow-payload.json", "w", encoding="utf-8") as output:
+              json.dump(payload, output, ensure_ascii=False)
+
+          print(f"Prepared {len(urls)} URLs for IndexNow.")
+          PY
+
+      - name: Submit URLs
+        shell: bash
+        run: |
+          status_code="$(curl --silent --show-error             --output /tmp/indexnow-response.txt             --write-out "%{http_code}"             --header "Content-Type: application/json; charset=utf-8"             --data-binary @indexnow-payload.json             https://api.indexnow.org/indexnow)"
+
+          cat /tmp/indexnow-response.txt || true
+          echo "IndexNow HTTP status: $status_code"
+
+          case "$status_code" in
+            200|202)
+              echo "IndexNow accepted the submission."
+              ;;
+            *)
+              echo "IndexNow rejected the submission."
+              exit 1
+              ;;
+          esac
