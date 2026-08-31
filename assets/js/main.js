@@ -1,4 +1,27 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const obsoleteSalesEmail = "sales@cleardessertpack.com";
+
+  document.querySelectorAll('a[href^="mailto:"]').forEach((link) => {
+    const href = (link.getAttribute("href") || "").toLowerCase();
+    if (href.includes(obsoleteSalesEmail)) {
+      link.remove();
+    }
+  });
+
+  const emailWalker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  const emailTextNodes = [];
+  while (emailWalker.nextNode()) emailTextNodes.push(emailWalker.currentNode);
+  emailTextNodes.forEach((node) => {
+    if (!node.nodeValue || !node.nodeValue.toLowerCase().includes(obsoleteSalesEmail)) return;
+    node.nodeValue = node.nodeValue
+      .replaceAll("Email: sales@cleardessertpack.com", "")
+      .replaceAll("sales@cleardessertpack.com", "");
+  });
+
+  document.querySelectorAll("a, span, p, li, small, strong").forEach((el) => {
+    if (el.children.length === 0 && !el.textContent.trim()) el.remove();
+  });
+
   // Global extra-large WhatsApp button: fixed at the right center on every page.
   const floatingLinks = Array.from(document.querySelectorAll("a.wa-floating"));
   const floatingWhatsApp = floatingLinks.shift() || document.createElement("a");
@@ -169,7 +192,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
       trackGoogleAdsConversion(10);
 
-      window.location.href = "mailto:sales@cleardessertpack.com?subject=" + subject + "&body=" + body;
+      window.location.href = "mailto:cleardessertpack@gmail.com?subject=" + subject + "&body=" + body;
     });
   });
 
