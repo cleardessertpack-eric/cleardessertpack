@@ -1,5 +1,12 @@
 
 document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll('a[href="mailto:sales@cleardessertpack.com"]').forEach((link) => link.remove());
+  document.querySelectorAll("a, span, p, li, small, strong, div").forEach((el) => {
+    if (el.children.length === 0 && el.textContent.trim() === "Email: sales@cleardessertpack.com") {
+      el.remove();
+    }
+  });
+
   const toggle = document.querySelector(".menu-toggle");
   const nav = document.querySelector(".nav");
   if (toggle && nav) {
