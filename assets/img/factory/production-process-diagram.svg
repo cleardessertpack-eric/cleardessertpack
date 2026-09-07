@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img" aria-labelledby="pptitle">
+<title id="pptitle">Clear Dessert Pack production and quality control process</title>
+<defs>
+<linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+<stop stop-color="#fbf7f1"/>
+<stop offset="1" stop-color="#efe5d8"/>
+</linearGradient>
+</defs>
+<rect width="1400" height="900" rx="40" fill="url(#bg)"/>
+
+<text x="700" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-size="42" fill="#13212d">Production &amp; Quality Control Workflow</text>
+<text x="700" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#4f5c66">Every batch moves through four checkpoints before export packing</text>
+
+<!-- connecting line -->
+<line x1="235" y1="430" x2="1165" y2="430" stroke="#e7e4df" stroke-width="4"/>
+
+<!-- Step 1 -->
+<g>
+<circle cx="235" cy="430" r="86" fill="#ffffff" stroke="#e83b3f" stroke-width="4"/>
+<text x="235" y="415" text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-size="30" fill="#e83b3f">01</text>
+<text x="235" y="450" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#13212d">Material</text>
+<text x="235" y="475" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#13212d">Inspection</text>
+<text x="235" y="600" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#4f5c66">Clarity, thickness</text>
+<text x="235" y="625" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#4f5c66">and food-contact checks</text>
+</g>
+
+<!-- Step 2 -->
+<g>
+<circle cx="545" cy="430" r="86" fill="#ffffff" stroke="#e83b3f" stroke-width="4"/>
+<text x="545" y="415" text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-size="30" fill="#e83b3f">02</text>
+<text x="545" y="450" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#13212d">Thermoforming</text>
+<text x="545" y="475" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#13212d">&amp; Trimming</text>
+<text x="545" y="600" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#4f5c66">Dimensional accuracy</text>
+<text x="545" y="625" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#4f5c66">and lid-fit control</text>
+</g>
+
+<!-- Step 3 -->
+<g>
+<circle cx="855" cy="430" r="86" fill="#ffffff" stroke="#e83b3f" stroke-width="4"/>
+<text x="855" y="415" text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-size="30" fill="#e83b3f">03</text>
+<text x="855" y="450" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#13212d">Quality</text>
+<text x="855" y="475" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#13212d">Inspection</text>
+<text x="855" y="600" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#4f5c66">Sampling, weight and</text>
+<text x="855" y="625" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#4f5c66">closure verification</text>
+</g>
+
+<!-- Step 4 -->
+<g>
+<circle cx="1165" cy="430" r="86" fill="#e83b3f" stroke="#e83b3f" stroke-width="4"/>
+<text x="1165" y="415" text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-size="30" fill="#ffffff">04</text>
+<text x="1165" y="450" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#ffffff">Export</text>
+<text x="1165" y="475" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#ffffff">Packing</text>
+<text x="1165" y="600" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#4f5c66">Carton optimisation and</text>
+<text x="1165" y="625" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#4f5c66">pre-shipment records</text>
+</g>
+
+<text x="700" y="800" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="22" fill="#0f2637">Clear Dessert Pack · Hangzhou Huikai Packaging</text>
+</svg>
