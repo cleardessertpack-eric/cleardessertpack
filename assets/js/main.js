@@ -10,13 +10,15 @@ document.addEventListener("DOMContentLoaded", function () {
     btn.addEventListener("click", () => btn.closest(".faq-item").classList.toggle("open"));
   });
 
-  const FORM_ENDPOINT = "https://formsubmit.co/ajax/cleardessertpack@gmail.com";
+  const FORM_ENDPOINT = "/api/inquiry";
 
   function showFormMessage(form, type, text) {
     let el = form.querySelector(".form-status-message");
     if (!el) {
       el = document.createElement("div");
       el.className = "form-status-message";
+      el.setAttribute("role", "status");
+      el.setAttribute("aria-live", "polite");
       el.style.marginTop = "14px";
       el.style.padding = "12px 14px";
       el.style.borderRadius = "10px";
@@ -25,26 +27,31 @@ document.addEventListener("DOMContentLoaded", function () {
       form.appendChild(el);
     }
     el.textContent = text;
-    if (type === "success") {
-      el.style.background = "#e9f6f1";
-      el.style.color = "#246853";
-    } else {
-      el.style.background = "#fdecec";
-      el.style.color = "#a3262b";
-    }
+    el.style.background = type === "success" ? "#e9f6f1" : "#fdecec";
+    el.style.color = type === "success" ? "#246853" : "#a3262b";
   }
 
-  const forms = document.querySelectorAll("[data-inquiry-form]");
-  forms.forEach((form) => {
+  document.querySelectorAll("[data-inquiry-form]").forEach((form) => {
+    const trap = document.createElement("input");
+    trap.type = "text";
+    trap.name = "website";
+    trap.tabIndex = -1;
+    trap.autocomplete = "off";
+    trap.setAttribute("aria-hidden", "true");
+    trap.style.position = "absolute";
+    trap.style.left = "-9999px";
+    form.appendChild(trap);
+
+    const startedAt = Date.now();
+
     form.addEventListener("submit", async function (e) {
       e.preventDefault();
       const data = new FormData(form);
       const checks = Array.from(form.querySelectorAll('input[type="checkbox"]:checked'))
-        .map((i) => i.value)
+        .map((input) => input.value)
         .join(", ");
 
       const payload = {
-        _subject: "New wholesale inquiry - Clear Dessert Pack",
         name: data.get("name") || "",
         company: data.get("company") || "",
         country: data.get("country") || "",
@@ -55,33 +62,47 @@ document.addEventListener("DOMContentLoaded", function () {
         logo_files: data.get("logo_files") || "",
         quantity: data.get("quantity") || "",
         message: data.get("message") || "",
+        website: data.get("website") || "",
+        started_at: startedAt,
+        source: window.location.href,
       };
 
       const submitBtn = form.querySelector('button[type="submit"]');
       const originalLabel = submitBtn ? submitBtn.textContent : "";
+      const previousMessage = form.querySelector(".form-status-message");
+      if (previousMessage) previousMessage.remove();
+
       if (submitBtn) {
         submitBtn.disabled = true;
+        submitBtn.setAttribute("aria-busy", "true");
         submitBtn.textContent = "Sending...";
       }
 
       try {
-        const res = await fetch(FORM_ENDPOINT, {
+        const response = await fetch(FORM_ENDPOINT, {
           method: "POST",
           headers: { "Content-Type": "application/json", Accept: "application/json" },
           body: JSON.stringify(payload),
         });
-        if (!res.ok) throw new Error("Form submission failed");
-        showFormMessage(form, "success", "Thanks - your inquiry has been sent. We usually reply within one business day.");
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(result.error || "Form submission failed");
+
+        showFormMessage(
+          form,
+          "success",
+          "Thank you. Your enquiry has been sent successfully. We normally reply within one business day."
+        );
         form.reset();
-      } catch (err) {
+      } catch (error) {
         showFormMessage(
           form,
           "error",
-          "Something went wrong sending your inquiry. Please email us directly at cleardessertpack@gmail.com."
+          "We could not send your enquiry right now. Please try again or email cleardessertpack@gmail.com."
         );
       } finally {
         if (submitBtn) {
           submitBtn.disabled = false;
+          submitBtn.removeAttribute("aria-busy");
           submitBtn.textContent = originalLabel;
         }
       }
