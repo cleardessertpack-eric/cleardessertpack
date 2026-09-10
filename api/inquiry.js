@@ -89,7 +89,12 @@ module.exports = async function handler(req, res) {
   }
 
   const to = process.env.INQUIRY_TO_EMAIL || "cleardessertpack@gmail.com";
-  const from = process.env.INQUIRY_FROM_EMAIL || "Clear Dessert Pack <onboarding@resend.dev>";
+  const sendingDomain = process.env.RESEND_EMAIL_DOMAIN;
+  const from =
+    process.env.INQUIRY_FROM_EMAIL ||
+    (sendingDomain
+      ? `Clear Dessert Pack <enquiries@${sendingDomain}>`
+      : "Clear Dessert Pack <onboarding@resend.dev>");
   const subjectParts = ["New website enquiry", data.product, data.company || data.name].filter(Boolean);
   const subject = subjectParts.join(" | ").slice(0, 180);
 
