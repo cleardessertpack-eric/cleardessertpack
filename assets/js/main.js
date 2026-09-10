@@ -157,42 +157,117 @@ document.addEventListener("DOMContentLoaded", function () {
     btn.addEventListener("click", () => btn.closest(".faq-item").classList.toggle("open"));
   });
 
+  const FORM_ENDPOINT = "/api/inquiry";
+
+  function showFormMessage(form, type, message) {
+    let status = form.querySelector(".form-status-message");
+    if (!status) {
+      status = document.createElement("div");
+      status.className = "form-status-message";
+      status.setAttribute("role", "status");
+      status.setAttribute("aria-live", "polite");
+      status.style.marginTop = "14px";
+      status.style.padding = "12px 14px";
+      status.style.borderRadius = "10px";
+      status.style.fontWeight = "700";
+      status.style.fontSize = ".9rem";
+      form.appendChild(status);
+    }
+    status.textContent = message;
+    status.style.background = type === "success" ? "#e9f6f1" : "#fdecec";
+    status.style.color = type === "success" ? "#246853" : "#a3262b";
+  }
+
   const forms = document.querySelectorAll("[data-inquiry-form]");
   forms.forEach((form) => {
-    form.addEventListener("submit", function(e){
+    const trap = document.createElement("input");
+    trap.type = "text";
+    trap.name = "website";
+    trap.tabIndex = -1;
+    trap.autocomplete = "off";
+    trap.setAttribute("aria-hidden", "true");
+    trap.style.position = "absolute";
+    trap.style.left = "-9999px";
+    form.appendChild(trap);
+
+    const startedAt = Date.now();
+
+    form.addEventListener("submit", async function (e) {
       e.preventDefault();
+
       const data = new FormData(form);
-      const checks = Array.from(form.querySelectorAll('input[type="checkbox"]:checked')).map(i => i.value).join(", ");
-      const subject = encodeURIComponent("Wholesale inquiry - Clear Dessert Pack V2");
-      const body = encodeURIComponent(
-        "Name: " + (data.get("name") || "") + "\n" +
-        "Company: " + (data.get("company") || "") + "\n" +
-        "Country: " + (data.get("country") || "") + "\n" +
-        "Email/WhatsApp: " + (data.get("contact") || "") + "\n" +
-        "Product interested in: " + (data.get("product") || "") + "\n" +
-        "Custom options: " + checks + "\n" +
-        "Application: " + (data.get("application") || "") + "\n" +
-        "Logo files: " + (data.get("logo_files") || "") + "\n" +
-        "Estimated quantity: " + (data.get("quantity") || "") + "\n" +
-        "Message: " + (data.get("message") || "")
-      );
+      const checks = Array.from(form.querySelectorAll('input[type="checkbox"]:checked'))
+        .map((input) => input.value)
+        .join(", ");
+      const payload = {
+        name: data.get("name") || "",
+        company: data.get("company") || "",
+        country: data.get("country") || "",
+        contact: data.get("contact") || "",
+        product: data.get("product") || "",
+        custom_options: checks,
+        application: data.get("application") || "",
+        logo_files: data.get("logo_files") || "",
+        quantity: data.get("quantity") || "",
+        message: data.get("message") || "",
+        website: data.get("website") || "",
+        started_at: startedAt,
+        source: window.location.href
+      };
 
-      // Trigger Form Submit Event
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: 'form_submit',
-        form_id: form.id || 'wholesale-inquiry-form',
-        form_name: form.getAttribute('name') || 'Wholesale Inquiry Form'
-      });
-      if (typeof gtag === 'function') {
-        gtag('event', 'form_submit', {
-          'form_id': form.id || 'wholesale-inquiry-form',
-          'form_name': form.getAttribute('name') || 'Wholesale Inquiry Form'
-        });
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalLabel = submitBtn ? submitBtn.textContent : "";
+      const previousMessage = form.querySelector(".form-status-message");
+      if (previousMessage) previousMessage.remove();
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.setAttribute("aria-busy", "true");
+        submitBtn.textContent = "Sending...";
       }
-      trackGoogleAdsConversion(10);
 
-      window.location.href = "mailto:cleardessertpack@gmail.com?subject=" + subject + "&body=" + body;
+      try {
+        const response = await fetch(FORM_ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify(payload)
+        });
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(result.error || "Form submission failed");
+
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: "form_submit",
+          form_id: form.id || "wholesale-inquiry-form",
+          form_name: form.getAttribute("name") || "Wholesale Inquiry Form"
+        });
+        if (typeof gtag === "function") {
+          gtag("event", "form_submit", {
+            form_id: form.id || "wholesale-inquiry-form",
+            form_name: form.getAttribute("name") || "Wholesale Inquiry Form"
+          });
+        }
+        trackGoogleAdsConversion(10);
+
+        showFormMessage(
+          form,
+          "success",
+          "Thank you. Your enquiry has been sent successfully. We normally reply within one business day."
+        );
+        form.reset();
+      } catch (error) {
+        showFormMessage(
+          form,
+          "error",
+          "We could not send your enquiry right now. Please try again or email cleardessertpack@gmail.com."
+        );
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.removeAttribute("aria-busy");
+          submitBtn.textContent = originalLabel;
+        }
+      }
     });
   });
 
