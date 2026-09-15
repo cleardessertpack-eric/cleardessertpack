@@ -18,12 +18,17 @@
 })();
 
 document.addEventListener("DOMContentLoaded", function () {
-  const obsoleteSalesEmail = "sales@cleardessertpack.com";
+  const PUBLIC_EMAIL = "cleardessertpack@gmail.com";
+  const OBSOLETE_SALES_EMAIL = "sales@cleardessertpack.com";
+  const FORM_ENDPOINT = "/api/inquiry";
+  const mobileEmailMode = window.matchMedia && window.matchMedia("(max-width: 820px)").matches;
 
+  // Keep one public enquiry mailbox across legacy and current pages.
   document.querySelectorAll('a[href^="mailto:"]').forEach((link) => {
-    const href = (link.getAttribute("href") || "").toLowerCase();
-    if (href.includes(obsoleteSalesEmail)) {
-      link.remove();
+    const href = link.getAttribute("href") || "";
+    if (href.toLowerCase().includes(OBSOLETE_SALES_EMAIL)) {
+      link.setAttribute("href", href.replace(/sales@cleardessertpack\.com/ig, PUBLIC_EMAIL));
+      link.textContent = (link.textContent || "").replace(/sales@cleardessertpack\.com/ig, PUBLIC_EMAIL);
     }
   });
 
@@ -31,14 +36,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const emailTextNodes = [];
   while (emailWalker.nextNode()) emailTextNodes.push(emailWalker.currentNode);
   emailTextNodes.forEach((node) => {
-    if (!node.nodeValue || !node.nodeValue.toLowerCase().includes(obsoleteSalesEmail)) return;
-    node.nodeValue = node.nodeValue
-      .replaceAll("Email: sales@cleardessertpack.com", "")
-      .replaceAll("sales@cleardessertpack.com", "");
-  });
-
-  document.querySelectorAll("a, span, p, li, small, strong").forEach((el) => {
-    if (el.children.length === 0 && !el.textContent.trim()) el.remove();
+    if (!node.nodeValue || !node.nodeValue.toLowerCase().includes(OBSOLETE_SALES_EMAIL)) return;
+    node.nodeValue = node.nodeValue.replace(/sales@cleardessertpack\.com/ig, PUBLIC_EMAIL);
   });
 
   // Global extra-large WhatsApp button: fixed at the right center on every page.
@@ -103,9 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
         z-index: -1 !important;
         animation: whatsappRipple 2.4s ease-out infinite !important;
       }
-      #global-whatsapp-float::after {
-        animation-delay: 1.2s !important;
-      }
+      #global-whatsapp-float::after { animation-delay: 1.2s !important; }
       #global-whatsapp-float:hover {
         transform: translateY(-50%) scale(1.08) !important;
         box-shadow: 0 20px 46px rgba(37, 211, 102, 0.42) !important;
@@ -123,22 +120,12 @@ document.addEventListener("DOMContentLoaded", function () {
         z-index: 1 !important;
       }
       @keyframes whatsappButtonGlow {
-        0%, 100% {
-          filter: drop-shadow(0 0 0 rgba(37, 211, 102, 0));
-        }
-        50% {
-          filter: drop-shadow(0 0 14px rgba(37, 211, 102, 0.72));
-        }
+        0%, 100% { filter: drop-shadow(0 0 0 rgba(37, 211, 102, 0)); }
+        50% { filter: drop-shadow(0 0 14px rgba(37, 211, 102, 0.72)); }
       }
       @keyframes whatsappRipple {
-        0% {
-          transform: scale(0.94);
-          opacity: 0.78;
-        }
-        72%, 100% {
-          transform: scale(1.34);
-          opacity: 0;
-        }
+        0% { transform: scale(0.94); opacity: 0.78; }
+        72%, 100% { transform: scale(1.34); opacity: 0; }
       }
       @media (max-width: 640px) {
         #global-whatsapp-float {
@@ -149,18 +136,12 @@ document.addEventListener("DOMContentLoaded", function () {
           min-height: 84px !important;
           border-width: 3px !important;
         }
-        #global-whatsapp-float svg {
-          width: 48px !important;
-          height: 48px !important;
-        }
+        #global-whatsapp-float svg { width: 48px !important; height: 48px !important; }
       }
       @media (prefers-reduced-motion: reduce) {
         #global-whatsapp-float,
         #global-whatsapp-float::before,
-        #global-whatsapp-float::after {
-          transition: none !important;
-          animation: none !important;
-        }
+        #global-whatsapp-float::after { transition: none !important; animation: none !important; }
       }
     `;
     document.head.appendChild(whatsappStyle);
@@ -175,8 +156,6 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll(".faq-q").forEach((btn) => {
     btn.addEventListener("click", () => btn.closest(".faq-item").classList.toggle("open"));
   });
-
-  const FORM_ENDPOINT = "/api/inquiry";
 
   function showFormMessage(form, type, message) {
     let status = form.querySelector(".form-status-message");
@@ -197,6 +176,65 @@ document.addEventListener("DOMContentLoaded", function () {
     status.style.color = type === "success" ? "#246853" : "#a3262b";
   }
 
+  function cleanChoice(value, placeholderPattern) {
+    const text = String(value || "").trim();
+    return placeholderPattern.test(text) ? "" : text;
+  }
+
+  function buildPayload(form, startedAt) {
+    const data = new FormData(form);
+    const checks = Array.from(form.querySelectorAll('input[type="checkbox"]:checked'))
+      .map((input) => input.value)
+      .join(", ");
+    return {
+      name: data.get("name") || "",
+      company: data.get("company") || "",
+      country: data.get("country") || "",
+      contact: data.get("contact") || "",
+      product: cleanChoice(data.get("product"), /^Product interested in$/i),
+      custom_options: checks,
+      application: cleanChoice(data.get("application"), /^Application scene$/i),
+      logo_files: cleanChoice(data.get("logo_files"), /^Do you have logo files\?$/i),
+      quantity: data.get("quantity") || "",
+      message: data.get("message") || "",
+      website: data.get("website") || "",
+      started_at: startedAt,
+      source: window.location.href
+    };
+  }
+
+  function buildMobileMailto(payload) {
+    const pageTitle = ((document.querySelector("h1") || {}).textContent || document.title || "Clear Dessert Pack")
+      .replace(/\s+/g, " ").trim();
+    const subject = (`Custom Packaging RFQ - ${payload.product || pageTitle}`).slice(0, 180);
+    const body = [
+      "Hello Clear Dessert Pack,",
+      "",
+      `Product / project: ${payload.product || ""}`,
+      `Custom options: ${payload.custom_options || ""}`,
+      `Application: ${payload.application || ""}`,
+      `Estimated quantity: ${payload.quantity || ""}`,
+      `Country / market: ${payload.country || ""}`,
+      `Logo files: ${payload.logo_files || ""}`,
+      `Company: ${payload.company || ""}`,
+      `Contact: ${payload.contact || ""}`,
+      "",
+      "Project details:",
+      payload.message || "",
+      "",
+      `Source page: ${payload.source}`,
+      "",
+      "Thank you."
+    ].join("\n");
+    return `mailto:${PUBLIC_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  }
+
+  function trackEvent(name, params) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push(Object.assign({ event: name }, params || {}));
+    if (typeof gtag === "function") gtag("event", name, params || {});
+  }
+
   const forms = document.querySelectorAll("[data-inquiry-form]");
   forms.forEach((form) => {
     const trap = document.createElement("input");
@@ -210,31 +248,31 @@ document.addEventListener("DOMContentLoaded", function () {
     form.appendChild(trap);
 
     const startedAt = Date.now();
+    const submitBtn = form.querySelector('button[type="submit"]');
+
+    if (mobileEmailMode) {
+      form.setAttribute("novalidate", "novalidate");
+      if (submitBtn) {
+        submitBtn.textContent = "Email for Custom Quote";
+        submitBtn.setAttribute("aria-label", `Open your email app to send a quote request to ${PUBLIC_EMAIL}`);
+      }
+    }
 
     form.addEventListener("submit", async function (e) {
       e.preventDefault();
+      const payload = buildPayload(form, startedAt);
 
-      const data = new FormData(form);
-      const checks = Array.from(form.querySelectorAll('input[type="checkbox"]:checked'))
-        .map((input) => input.value)
-        .join(", ");
-      const payload = {
-        name: data.get("name") || "",
-        company: data.get("company") || "",
-        country: data.get("country") || "",
-        contact: data.get("contact") || "",
-        product: data.get("product") || "",
-        custom_options: checks,
-        application: data.get("application") || "",
-        logo_files: data.get("logo_files") || "",
-        quantity: data.get("quantity") || "",
-        message: data.get("message") || "",
-        website: data.get("website") || "",
-        started_at: startedAt,
-        source: window.location.href
-      };
+      // Mobile: hand off to the buyer's own email app. Do not claim the email was sent.
+      if (mobileEmailMode) {
+        trackEvent("mobile_email_quote", {
+          email_address: PUBLIC_EMAIL,
+          product: payload.product || "",
+          source_page: window.location.pathname
+        });
+        window.location.href = buildMobileMailto(payload);
+        return;
+      }
 
-      const submitBtn = form.querySelector('button[type="submit"]');
       const originalLabel = submitBtn ? submitBtn.textContent : "";
       const previousMessage = form.querySelector(".form-status-message");
       if (previousMessage) previousMessage.remove();
@@ -254,18 +292,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const result = await response.json().catch(() => ({}));
         if (!response.ok) throw new Error(result.error || "Form submission failed");
 
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-          event: "form_submit",
+        trackEvent("form_submit", {
           form_id: form.id || "wholesale-inquiry-form",
           form_name: form.getAttribute("name") || "Wholesale Inquiry Form"
         });
-        if (typeof gtag === "function") {
-          gtag("event", "form_submit", {
-            form_id: form.id || "wholesale-inquiry-form",
-            form_name: form.getAttribute("name") || "Wholesale Inquiry Form"
-          });
-        }
         trackGoogleAdsConversion(10);
 
         showFormMessage(
@@ -278,7 +308,7 @@ document.addEventListener("DOMContentLoaded", function () {
         showFormMessage(
           form,
           "error",
-          "We could not send your enquiry right now. Please try again or email cleardessertpack@gmail.com."
+          `We could not send your enquiry right now. Please try again or email ${PUBLIC_EMAIL}.`
         );
       } finally {
         if (submitBtn) {
@@ -294,7 +324,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const waButtons = document.querySelectorAll("[data-wa-inquiry-btn]");
   waButtons.forEach((btn) => {
     btn.addEventListener("click", function (e) {
-      e.preventDefault(); // Intercept static fallback link
+      e.preventDefault();
       const form = btn.closest("form");
       if (!form) return;
 
@@ -312,7 +342,6 @@ document.addEventListener("DOMContentLoaded", function () {
       const quantity = data.get("quantity") || "";
       const message = data.get("message") || "";
 
-      // Construct WhatsApp structured message
       const textMessage = `Hi, I would like to request a custom dessert packaging quote.
 Name: ${name}
 Company: ${company}
@@ -325,23 +354,13 @@ Logo File: ${logoFiles}
 Estimated Quantity: ${quantity}
 Message: ${message}`;
 
-      // Trigger Form Submit Event
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: 'form_submit',
-        form_id: form.id || 'wholesale-inquiry-form-whatsapp',
-        form_name: (form.getAttribute('name') || 'Wholesale Inquiry Form') + ' via WhatsApp'
+      trackEvent("form_submit", {
+        form_id: form.id || "wholesale-inquiry-form-whatsapp",
+        form_name: (form.getAttribute("name") || "Wholesale Inquiry Form") + " via WhatsApp"
       });
-      if (typeof gtag === 'function') {
-        gtag('event', 'form_submit', {
-          'form_id': form.id || 'wholesale-inquiry-form-whatsapp',
-          'form_name': (form.getAttribute('name') || 'Wholesale Inquiry Form') + ' via WhatsApp'
-        });
-      }
       trackGoogleAdsConversion(10);
 
-      const encodedMsg = encodeURIComponent(textMessage);
-      const url = `https://wa.me/8619032003411?text=${encodedMsg}`;
+      const url = `https://wa.me/8619032003411?text=${encodeURIComponent(textMessage)}`;
       window.open(url, "_blank");
     });
   });
@@ -354,93 +373,35 @@ Message: ${message}`;
     const href = target.getAttribute("href") || "";
     const text = (target.innerText || target.textContent || "").trim();
 
-    // 1. WhatsApp Click Tracking (href contains wa.me)
     if (href.includes("wa.me")) {
       let locationName = "other";
-      if (target.closest(".hero")) {
-        locationName = "hero";
-      } else if (target.classList.contains("wa-floating") || target.closest(".wa-floating")) {
-        locationName = "floating";
-      } else if (target.closest(".products-section") || target.closest("#sku-grid") || target.closest(".grid-3") || target.closest(".grid-4")) {
-        locationName = "core_offering_or_grid";
-      } else if (target.closest(".site-footer")) {
-        locationName = "footer";
-      } else if (target.closest(".contact-section") || target.closest(".split") || window.location.pathname.includes("contact")) {
-        locationName = "contact_page";
-      } else if (target.closest(".product-card") || target.closest(".card")) {
-        locationName = "sku_card";
-      }
+      if (target.closest(".hero")) locationName = "hero";
+      else if (target.classList.contains("wa-floating") || target.closest(".wa-floating")) locationName = "floating";
+      else if (target.closest(".products-section") || target.closest("#sku-grid") || target.closest(".grid-3") || target.closest(".grid-4")) locationName = "core_offering_or_grid";
+      else if (target.closest(".site-footer")) locationName = "footer";
+      else if (target.closest(".contact-section") || target.closest(".split") || window.location.pathname.includes("contact")) locationName = "contact_page";
+      else if (target.closest(".product-card") || target.closest(".card")) locationName = "sku_card";
 
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: "whatsapp_click",
-        link_url: href,
-        button_location: locationName
-      });
-      if (typeof gtag === "function") {
-        gtag("event", "whatsapp_click", {
-          "link_url": href,
-          "button_location": locationName
-        });
-      }
+      trackEvent("whatsapp_click", { link_url: href, button_location: locationName });
     }
 
-    // 3. Request Quote Click Tracking
     const matchTexts = ["Request Quote", "Request Box Quote", "Request Custom Quote", "Ask for Stencil Quote", "Request Quote & Sample"];
     if (matchTexts.some(t => text.includes(t))) {
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: "request_quote_click",
-        button_text: text
-      });
-      if (typeof gtag === "function") {
-        gtag("event", "request_quote_click", {
-          "button_text": text
-        });
-      }
+      trackEvent("request_quote_click", { button_text: text });
     }
 
-    // 4. View Size Chart Click Tracking
     if (href.includes("/clear-dessert-box-sizes") || text === "View Full Size Chart") {
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: "view_size_chart_click",
-        source_page: window.location.pathname
-      });
-      if (typeof gtag === "function") {
-        gtag("event", "view_size_chart_click", {
-          "source_page": window.location.pathname
-        });
-      }
+      trackEvent("view_size_chart_click", { source_page: window.location.pathname });
     }
 
-    // 5. Email Click Tracking (href starts with mailto:)
     if (href.startsWith("mailto:")) {
       const email = href.replace("mailto:", "").split("?")[0];
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: "email_click",
-        email_address: email
-      });
-      if (typeof gtag === "function") {
-        gtag("event", "email_click", {
-          "email_address": email
-        });
-      }
+      trackEvent("email_click", { email_address: email });
     }
   });
 });
 
 // Google Ads Conversion Tracking Placeholder Function
 function trackGoogleAdsConversion(value = 0) {
-  // Placeholder for Google Ads Conversion Tracking
-  // Once ID and Label are provided, user can uncomment and configure:
-  /*
-  gtag('event', 'conversion', {
-    'send_to': 'AW-CONVERSION_ID/CONVERSION_LABEL',
-    'value': value,
-    'currency': 'USD'
-  });
-  */
   console.log('Google Ads Conversion Tracked with value:', value);
 }
