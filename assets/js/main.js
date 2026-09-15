@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", function () {
   const toggle = document.querySelector(".menu-toggle");
   const nav = document.querySelector(".nav");
@@ -11,6 +10,8 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   const FORM_ENDPOINT = "/api/inquiry";
+  const SALES_EMAIL = "cleardessertpack@gmail.com";
+  const mobileEmailMode = window.matchMedia && window.matchMedia("(max-width: 820px)").matches;
 
   function showFormMessage(form, type, text) {
     let el = form.querySelector(".form-status-message");
@@ -31,6 +32,75 @@ document.addEventListener("DOMContentLoaded", function () {
     el.style.color = type === "success" ? "#246853" : "#a3262b";
   }
 
+  function cleanChoice(value, placeholderPattern) {
+    const text = String(value || "").trim();
+    return placeholderPattern.test(text) ? "" : text;
+  }
+
+  function formPayload(form, startedAt) {
+    const data = new FormData(form);
+    const checks = Array.from(form.querySelectorAll('input[type="checkbox"]:checked'))
+      .map((input) => input.value)
+      .join(", ");
+
+    return {
+      name: data.get("name") || "",
+      company: data.get("company") || "",
+      country: data.get("country") || "",
+      contact: data.get("contact") || "",
+      product: cleanChoice(data.get("product"), /^Product interested in$/i),
+      custom_options: checks,
+      application: cleanChoice(data.get("application"), /^Application scene$/i),
+      logo_files: cleanChoice(data.get("logo_files"), /^Do you have logo files\?$/i),
+      quantity: data.get("quantity") || "",
+      message: data.get("message") || "",
+      website: data.get("website") || "",
+      started_at: startedAt,
+      source: window.location.href,
+    };
+  }
+
+  function buildMobileMailto(payload) {
+    const pageTitle = (document.querySelector("h1")?.textContent || document.title || "Clear Dessert Pack").replace(/\s+/g, " ").trim();
+    const subjectProduct = payload.product || pageTitle;
+    const subject = `Custom Packaging RFQ - ${subjectProduct}`.slice(0, 180);
+    const lines = [
+      "Hello Clear Dessert Pack,",
+      "",
+      `Product / project: ${payload.product || ""}`,
+      `Custom options: ${payload.custom_options || ""}`,
+      `Application: ${payload.application || ""}`,
+      `Estimated quantity: ${payload.quantity || ""}`,
+      `Country / market: ${payload.country || ""}`,
+      `Logo files: ${payload.logo_files || ""}`,
+      `Company: ${payload.company || ""}`,
+      `Contact: ${payload.contact || ""}`,
+      "",
+      "Project details:",
+      payload.message || "",
+      "",
+      `Source page: ${payload.source}`,
+      "",
+      "Thank you."
+    ];
+    return `mailto:${SALES_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
+  }
+
+  function trackMobileEmail(payload) {
+    if (typeof window.gtag === "function") {
+      window.gtag("event", "mobile_email_quote", {
+        page_location: window.location.href,
+        product: payload.product || "",
+      });
+    } else if (Array.isArray(window.dataLayer)) {
+      window.dataLayer.push({
+        event: "mobile_email_quote",
+        page_location: window.location.href,
+        product: payload.product || "",
+      });
+    }
+  }
+
   document.querySelectorAll("[data-inquiry-form]").forEach((form) => {
     const trap = document.createElement("input");
     trap.type = "text";
@@ -43,31 +113,26 @@ document.addEventListener("DOMContentLoaded", function () {
     form.appendChild(trap);
 
     const startedAt = Date.now();
+    const submitBtn = form.querySelector('button[type="submit"]');
+
+    if (mobileEmailMode) {
+      form.setAttribute("novalidate", "novalidate");
+      if (submitBtn) {
+        submitBtn.textContent = "Email for Custom Quote";
+        submitBtn.setAttribute("aria-label", `Open your email app to send a quote request to ${SALES_EMAIL}`);
+      }
+    }
 
     form.addEventListener("submit", async function (e) {
       e.preventDefault();
-      const data = new FormData(form);
-      const checks = Array.from(form.querySelectorAll('input[type="checkbox"]:checked'))
-        .map((input) => input.value)
-        .join(", ");
+      const payload = formPayload(form, startedAt);
 
-      const payload = {
-        name: data.get("name") || "",
-        company: data.get("company") || "",
-        country: data.get("country") || "",
-        contact: data.get("contact") || "",
-        product: data.get("product") || "",
-        custom_options: checks,
-        application: data.get("application") || "",
-        logo_files: data.get("logo_files") || "",
-        quantity: data.get("quantity") || "",
-        message: data.get("message") || "",
-        website: data.get("website") || "",
-        started_at: startedAt,
-        source: window.location.href,
-      };
+      if (mobileEmailMode) {
+        trackMobileEmail(payload);
+        window.location.href = buildMobileMailto(payload);
+        return;
+      }
 
-      const submitBtn = form.querySelector('button[type="submit"]');
       const originalLabel = submitBtn ? submitBtn.textContent : "";
       const previousMessage = form.querySelector(".form-status-message");
       if (previousMessage) previousMessage.remove();
@@ -97,7 +162,7 @@ document.addEventListener("DOMContentLoaded", function () {
         showFormMessage(
           form,
           "error",
-          "We could not send your enquiry right now. Please try again or email cleardessertpack@gmail.com."
+          `We could not send your enquiry right now. Please try again or email ${SALES_EMAIL}.`
         );
       } finally {
         if (submitBtn) {
