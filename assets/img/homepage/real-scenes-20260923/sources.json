@@ -1,0 +1,26 @@
+[
+  {
+    "asset": "supermarket-chilled-dessert-aisle.webp",
+    "source_page": "https://www.irishnews.com/news/business/tesco-in-multi-million-pound-store-refurbishment-programme-across-north-EIOFRAWI4BCZBFQSVNNU3LOIGU/",
+    "source_image": "https://cloudfront-eu-central-1.images.arcpublishing.com/irishnews/4F5NMYWIEBEMFLT22XCZRPGEEQ.jpg",
+    "credit": "The Irish News / Tesco store refurbishment report",
+    "processing": "Non-generative crop to 2:1, downsize, sRGB and compression only.",
+    "context": "Real third-party store or working kitchen, used as an application illustration; no customer or supplier relationship implied."
+  },
+  {
+    "asset": "bakery-tiramisu-display-counter.webp",
+    "source_page": "https://www.labakeriatiramisuroma.com/la-bakeria-roma-galleria-fotografica/",
+    "source_image": "https://www.labakeriatiramisuroma.com/data/1366/La-Bakeria-Tiramisu-Artigianale-Roma-NJXZ9692.jpg",
+    "credit": "La Bakeria, Rome / official photo gallery",
+    "processing": "Non-generative crop to 2:1, downsize, sRGB and compression only.",
+    "context": "Real third-party store or working kitchen, used as an application illustration; no customer or supplier relationship implied."
+  },
+  {
+    "asset": "foodservice-dessert-batch-preparation.webp",
+    "source_page": "https://www.nonnalia.ca/",
+    "source_image": "https://images.squarespace-cdn.com/content/v1/6035464c45701232137695ab/1684190994010-5Y9BB5D0IMGIHDBVN4TL/image-asset.jpeg",
+    "credit": "Nonna Lia / official store website",
+    "processing": "Non-generative crop to 2:1, downsize, sRGB and compression only.",
+    "context": "Real third-party store or working kitchen, used as an application illustration; no customer or supplier relationship implied."
+  }
+]
