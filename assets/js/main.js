@@ -192,6 +192,7 @@ document.addEventListener("DOMContentLoaded", function () {
       country: data.get("country") || "",
       contact: data.get("contact") || "",
       product: cleanChoice(data.get("product"), /^Product interested in$/i),
+      item_no: data.get("item_no") || "",
       custom_options: checks,
       application: cleanChoice(data.get("application"), /^Application scene$/i),
       logo_files: cleanChoice(data.get("logo_files"), /^Do you have logo files\?$/i),
@@ -211,6 +212,8 @@ document.addEventListener("DOMContentLoaded", function () {
       "Hello Clear Dessert Pack,",
       "",
       `Product / project: ${payload.product || ""}`,
+      `Item No.: ${payload.item_no || ""}`,
+      `Name: ${payload.name || ""}`,
       `Custom options: ${payload.custom_options || ""}`,
       `Application: ${payload.application || ""}`,
       `Estimated quantity: ${payload.quantity || ""}`,
@@ -236,6 +239,20 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   const forms = document.querySelectorAll("[data-inquiry-form]");
+  document.querySelectorAll('[data-quote-sku]').forEach((link) => {
+    link.addEventListener('click', () => {
+      const form = document.getElementById('quoteForm');
+      if (!form) return;
+      const sku = link.dataset.quoteSku;
+      const item = form.querySelector('[name="item_no"]');
+      const message = form.querySelector('[name="message"]');
+      if (item) item.value = sku;
+      if (message && (!message.value.trim() || message.dataset.prefilled === message.value)) {
+        message.value = `Hi, I am interested in SKU: ${sku}. Please send me pricing, MOQ, packing and sample details.`;
+        message.dataset.prefilled = message.value;
+      }
+    });
+  });
   forms.forEach((form) => {
     const trap = document.createElement("input");
     trap.type = "text";
@@ -256,14 +273,23 @@ document.addEventListener("DOMContentLoaded", function () {
         submitBtn.textContent = "Email for Custom Quote";
         submitBtn.setAttribute("aria-label", `Open your email app to send a quote request to ${PUBLIC_EMAIL}`);
       }
+      const directButton = document.createElement('button');
+      directButton.type = 'submit';
+      directButton.dataset.directInquiry = 'true';
+      directButton.className = 'btn mobile-direct-inquiry';
+      directButton.textContent = 'Send directly from this page';
+      directButton.style.cssText = 'display:flex;width:100%;margin-top:12px;justify-content:center;white-space:normal';
+      form.appendChild(directButton);
     }
 
     form.addEventListener("submit", async function (e) {
       e.preventDefault();
+      if (form.dataset.sending === 'true') return;
+      const directSubmit = e.submitter && e.submitter.dataset.directInquiry === 'true';
       const payload = buildPayload(form, startedAt);
 
       // Mobile: hand off to the buyer's own email app. Do not claim the email was sent.
-      if (mobileEmailMode) {
+      if (mobileEmailMode && !directSubmit) {
         trackEvent("mobile_email_quote", {
           email_address: PUBLIC_EMAIL,
           product: payload.product || "",
@@ -273,14 +299,18 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
-      const originalLabel = submitBtn ? submitBtn.textContent : "";
+      if (!form.reportValidity()) return;
+      form.dataset.sending = 'true';
+      const activeButton = e.submitter || submitBtn;
+      const submitButtons = Array.from(form.querySelectorAll('button[type="submit"]'));
+      const originalLabel = activeButton ? activeButton.textContent : "";
       const previousMessage = form.querySelector(".form-status-message");
       if (previousMessage) previousMessage.remove();
 
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.setAttribute("aria-busy", "true");
-        submitBtn.textContent = "Sending...";
+      submitButtons.forEach((button) => { button.disabled = true; });
+      if (activeButton) {
+        activeButton.setAttribute("aria-busy", "true");
+        activeButton.textContent = "Sending...";
       }
 
       try {
@@ -311,10 +341,11 @@ document.addEventListener("DOMContentLoaded", function () {
           `We could not send your enquiry right now. Please try again or email ${PUBLIC_EMAIL}.`
         );
       } finally {
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.removeAttribute("aria-busy");
-          submitBtn.textContent = originalLabel;
+        delete form.dataset.sending;
+        submitButtons.forEach((button) => { button.disabled = false; });
+        if (activeButton) {
+          activeButton.removeAttribute("aria-busy");
+          activeButton.textContent = originalLabel;
         }
       }
     });
@@ -354,12 +385,10 @@ Logo File: ${logoFiles}
 Estimated Quantity: ${quantity}
 Message: ${message}`;
 
-      trackEvent("form_submit", {
+      trackEvent("whatsapp_inquiry_open", {
         form_id: form.id || "wholesale-inquiry-form-whatsapp",
         form_name: (form.getAttribute("name") || "Wholesale Inquiry Form") + " via WhatsApp"
       });
-      trackGoogleAdsConversion(10);
-
       const url = `https://wa.me/8619032003411?text=${encodeURIComponent(textMessage)}`;
       window.open(url, "_blank");
     });
