@@ -3,6 +3,9 @@ const ALLOWED_ORIGINS = new Set([
   "https://cleardessertpack.com",
 ]);
 
+// The owner's sole inbox. A legacy environment variable must not redirect leads.
+const INQUIRY_EMAIL = "cleardessertpack@gmail.com";
+
 const MAX_LENGTHS = {
   name: 120,
   company: 160,
@@ -31,8 +34,11 @@ function escapeHtml(value) {
     .replaceAll("'", "&#039;");
 }
 
-function isEmail(value) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+function contactEmail(value) {
+  const match = value.match(/[A-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i);
+  const email = match ? match[0] : "";
+  // This site's domain is used for authenticated sending, not a receiving inbox.
+  return /@cleardessertpack\.com$/i.test(email) ? "" : email;
 }
 
 function row(label, value) {
@@ -89,7 +95,7 @@ module.exports = async function handler(req, res) {
     return res.status(503).json({ error: "Enquiry service is not configured" });
   }
 
-  const to = process.env.INQUIRY_TO_EMAIL || "cleardessertpack@gmail.com";
+  const to = INQUIRY_EMAIL;
   const sendingDomain = process.env.RESEND_EMAIL_DOMAIN;
   const from =
     process.env.INQUIRY_FROM_EMAIL ||
@@ -98,6 +104,10 @@ module.exports = async function handler(req, res) {
       : "Clear Dessert Pack <onboarding@resend.dev>");
   const subjectParts = ["New website enquiry", data.product, data.company || data.name].filter(Boolean);
   const subject = subjectParts.join(" | ").slice(0, 180);
+  const buyerEmail = contactEmail(data.contact);
+  const replyNote = buyerEmail
+    ? `Reply to this message to contact the buyer at ${buyerEmail}.`
+    : `No customer email was supplied. Follow up using the contact details above. Replies to this notification go to ${INQUIRY_EMAIL}.`;
 
   const rows = [
     row("Name", data.name),
@@ -112,6 +122,7 @@ module.exports = async function handler(req, res) {
     row("Estimated quantity", data.quantity),
     row("Project details", data.message),
     row("Source page", data.source),
+    row("Follow-up", replyNote),
   ].join("");
 
   const plainText = [
@@ -127,6 +138,7 @@ module.exports = async function handler(req, res) {
     `Estimated quantity: ${data.quantity}`,
     `Project details: ${data.message}`,
     `Source page: ${data.source}`,
+    `Follow-up: ${replyNote}`,
   ].join("\n");
 
   const email = {
@@ -135,9 +147,8 @@ module.exports = async function handler(req, res) {
     subject,
     html: `<div style="font-family:Arial,sans-serif;background:#f4f6f7;padding:28px"><div style="max-width:720px;margin:auto;background:#fff;border-radius:14px;overflow:hidden;border:1px solid #e2e7ea"><div style="background:#0f2637;color:#fff;padding:22px 24px"><div style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#ff9fa2;font-weight:700">Clear Dessert Pack</div><h1 style="font-size:22px;margin:7px 0 0">New website enquiry</h1></div><table role="presentation" style="width:100%;border-collapse:collapse;font-size:14px">${rows}</table><div style="padding:18px 24px;color:#74818a;font-size:12px">Submitted through cleardessertpack.com</div></div></div>`,
     text: plainText,
+    reply_to: buyerEmail || INQUIRY_EMAIL,
   };
-
-  if (isEmail(data.contact)) email.reply_to = data.contact;
 
   try {
     const emailResponse = await fetch("https://api.resend.com/emails", {
@@ -151,11 +162,12 @@ module.exports = async function handler(req, res) {
     });
 
     const result = await emailResponse.json().catch(() => ({}));
-    if (!emailResponse.ok) {
+    if (!emailResponse.ok || !result.id) {
       console.error("Resend error", emailResponse.status, result);
       return res.status(502).json({ error: "Email delivery failed" });
     }
 
+    console.info("Website enquiry accepted", { id: result.id, to: INQUIRY_EMAIL });
     return res.status(200).json({ ok: true, id: result.id });
   } catch (error) {
     console.error("Enquiry email error", error);

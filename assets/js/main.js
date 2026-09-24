@@ -19,25 +19,23 @@
 
 document.addEventListener("DOMContentLoaded", function () {
   const PUBLIC_EMAIL = "cleardessertpack@gmail.com";
-  const OBSOLETE_SALES_EMAIL = "sales@cleardessertpack.com";
+  const OBSOLETE_EMAIL = /\b(?:sales|enquiries)@cleardessertpack\.com/ig;
   const FORM_ENDPOINT = "/api/inquiry";
   const mobileEmailMode = window.matchMedia && window.matchMedia("(max-width: 820px)").matches;
 
   // Keep one public enquiry mailbox across legacy and current pages.
   document.querySelectorAll('a[href^="mailto:"]').forEach((link) => {
     const href = link.getAttribute("href") || "";
-    if (href.toLowerCase().includes(OBSOLETE_SALES_EMAIL)) {
-      link.setAttribute("href", href.replace(/sales@cleardessertpack\.com/ig, PUBLIC_EMAIL));
-      link.textContent = (link.textContent || "").replace(/sales@cleardessertpack\.com/ig, PUBLIC_EMAIL);
-    }
+    link.setAttribute("href", href.replace(OBSOLETE_EMAIL, PUBLIC_EMAIL));
+    link.textContent = (link.textContent || "").replace(OBSOLETE_EMAIL, PUBLIC_EMAIL);
   });
 
   const emailWalker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
   const emailTextNodes = [];
   while (emailWalker.nextNode()) emailTextNodes.push(emailWalker.currentNode);
   emailTextNodes.forEach((node) => {
-    if (!node.nodeValue || !node.nodeValue.toLowerCase().includes(OBSOLETE_SALES_EMAIL)) return;
-    node.nodeValue = node.nodeValue.replace(/sales@cleardessertpack\.com/ig, PUBLIC_EMAIL);
+    if (!node.nodeValue || /^(SCRIPT|STYLE|TEXTAREA)$/.test(node.parentElement?.tagName)) return;
+    node.nodeValue = node.nodeValue.replace(OBSOLETE_EMAIL, PUBLIC_EMAIL);
   });
 
   // Global extra-large WhatsApp button: fixed at the right center on every page.
@@ -320,7 +318,7 @@ document.addEventListener("DOMContentLoaded", function () {
           body: JSON.stringify(payload)
         });
         const result = await response.json().catch(() => ({}));
-        if (!response.ok) throw new Error(result.error || "Form submission failed");
+        if (!response.ok || result.ok !== true || !result.id) throw new Error(result.error || "Form submission failed");
 
         trackEvent("form_submit", {
           form_id: form.id || "wholesale-inquiry-form",
