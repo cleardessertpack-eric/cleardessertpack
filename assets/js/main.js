@@ -179,7 +179,7 @@ document.addEventListener("DOMContentLoaded", function () {
     return placeholderPattern.test(text) ? "" : text;
   }
 
-  function buildPayload(form, startedAt) {
+  function buildPayload(form, startedAt, submissionId) {
     const data = new FormData(form);
     const checks = Array.from(form.querySelectorAll('input[type="checkbox"]:checked'))
       .map((input) => input.value)
@@ -198,6 +198,7 @@ document.addEventListener("DOMContentLoaded", function () {
       message: data.get("message") || "",
       website: data.get("website") || "",
       started_at: startedAt,
+      submission_id: submissionId,
       source: window.location.href
     };
   }
@@ -236,6 +237,13 @@ document.addEventListener("DOMContentLoaded", function () {
     if (typeof gtag === "function") gtag("event", name, params || {});
   }
 
+  function createSubmissionId() {
+    if (window.crypto && typeof window.crypto.randomUUID === "function") {
+      return window.crypto.randomUUID();
+    }
+    return `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+  }
+
   const forms = document.querySelectorAll("[data-inquiry-form]");
   document.querySelectorAll('[data-quote-sku]').forEach((link) => {
     link.addEventListener('click', () => {
@@ -263,6 +271,7 @@ document.addEventListener("DOMContentLoaded", function () {
     form.appendChild(trap);
 
     const startedAt = Date.now();
+    let submissionId = createSubmissionId();
     const submitBtn = form.querySelector('button[type="submit"]');
 
     if (mobileEmailMode) {
@@ -284,7 +293,7 @@ document.addEventListener("DOMContentLoaded", function () {
       e.preventDefault();
       if (form.dataset.sending === 'true') return;
       const directSubmit = e.submitter && e.submitter.dataset.directInquiry === 'true';
-      const payload = buildPayload(form, startedAt);
+      const payload = buildPayload(form, startedAt, submissionId);
 
       // Mobile: hand off to the buyer's own email app. Do not claim the email was sent.
       if (mobileEmailMode && !directSubmit) {
@@ -332,6 +341,7 @@ document.addEventListener("DOMContentLoaded", function () {
           "Thank you. Your enquiry has been sent successfully. We normally reply within one business day."
         );
         form.reset();
+        submissionId = createSubmissionId();
       } catch (error) {
         showFormMessage(
           form,

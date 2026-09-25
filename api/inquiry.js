@@ -5,6 +5,7 @@ const ALLOWED_ORIGINS = new Set([
 
 // The owner's sole inbox. A legacy environment variable must not redirect leads.
 const INQUIRY_EMAIL = "cleardessertpack@gmail.com";
+const INQUIRY_FROM = "Clear Dessert Pack <noreply@cleardessertpack.com>";
 
 const MAX_LENGTHS = {
   name: 120,
@@ -19,6 +20,7 @@ const MAX_LENGTHS = {
   quantity: 100,
   message: 4000,
   source: 500,
+  submission_id: 100,
 };
 
 function clean(value, maxLength) {
@@ -95,13 +97,9 @@ module.exports = async function handler(req, res) {
     return res.status(503).json({ error: "Enquiry service is not configured" });
   }
 
+  // Keep routing independent from legacy Vercel environment variables.
   const to = INQUIRY_EMAIL;
-  const sendingDomain = process.env.RESEND_EMAIL_DOMAIN;
-  const from =
-    process.env.INQUIRY_FROM_EMAIL ||
-    (sendingDomain
-      ? `Clear Dessert Pack <enquiries@${sendingDomain}>`
-      : "Clear Dessert Pack <onboarding@resend.dev>");
+  const from = INQUIRY_FROM;
   const subjectParts = ["New website enquiry", data.product, data.company || data.name].filter(Boolean);
   const subject = subjectParts.join(" | ").slice(0, 180);
   const buyerEmail = contactEmail(data.contact);
@@ -150,13 +148,20 @@ module.exports = async function handler(req, res) {
     reply_to: buyerEmail || INQUIRY_EMAIL,
   };
 
+  const submissionKey = data.submission_id
+    .replace(/[^A-Za-z0-9_-]/g, "")
+    .slice(0, 80);
+  const idempotencyKey = submissionKey
+    ? `inquiry-${submissionKey}`
+    : `inquiry-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
+
   try {
     const emailResponse = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${resendApiKey}`,
         "Content-Type": "application/json",
-        "Idempotency-Key": `inquiry-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`,
+        "Idempotency-Key": idempotencyKey,
       },
       body: JSON.stringify(email),
     });
