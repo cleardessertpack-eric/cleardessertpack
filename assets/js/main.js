@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
     node.nodeValue = node.nodeValue.replace(OBSOLETE_EMAIL, PUBLIC_EMAIL);
   });
 
-  // Global extra-large WhatsApp button: fixed at the right center on every page.
+  // Keep one compact WhatsApp shortcut at the bottom right on every page.
   const floatingLinks = Array.from(document.querySelectorAll("a.wa-floating"));
   const floatingWhatsApp = floatingLinks.shift() || document.createElement("a");
   floatingLinks.forEach((link) => link.remove());
@@ -64,82 +64,58 @@ document.addEventListener("DOMContentLoaded", function () {
     whatsappStyle.textContent = `
       #global-whatsapp-float {
         position: fixed !important;
-        right: 24px !important;
-        top: 50% !important;
-        bottom: auto !important;
-        transform: translateY(-50%) !important;
-        width: 108px !important;
-        height: 108px !important;
-        min-width: 108px !important;
-        min-height: 108px !important;
+        right: 20px !important;
+        top: auto !important;
+        bottom: 20px !important;
+        transform: none !important;
+        width: 54px !important;
+        height: 54px !important;
+        min-width: 54px !important;
+        min-height: 54px !important;
         padding: 0 !important;
         margin: 0 !important;
-        border: 4px solid #ffffff !important;
+        border: 2px solid #ffffff !important;
         border-radius: 50% !important;
         background: #25d366 !important;
         color: #ffffff !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-        box-shadow: 0 16px 38px rgba(0, 0, 0, 0.28) !important;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18) !important;
         z-index: 9999 !important;
         line-height: 1 !important;
         text-decoration: none !important;
         transition: transform 0.2s ease, box-shadow 0.2s ease !important;
-        animation: whatsappButtonGlow 2.4s ease-in-out infinite !important;
-        isolation: isolate !important;
       }
-      #global-whatsapp-float::before,
-      #global-whatsapp-float::after {
-        content: "" !important;
-        position: absolute !important;
-        inset: -5px !important;
-        border: 3px solid rgba(37, 211, 102, 0.72) !important;
-        border-radius: 50% !important;
-        pointer-events: none !important;
-        z-index: -1 !important;
-        animation: whatsappRipple 2.4s ease-out infinite !important;
-      }
-      #global-whatsapp-float::after { animation-delay: 1.2s !important; }
       #global-whatsapp-float:hover {
-        transform: translateY(-50%) scale(1.08) !important;
-        box-shadow: 0 20px 46px rgba(37, 211, 102, 0.42) !important;
+        transform: scale(1.05) !important;
+        box-shadow: 0 8px 24px rgba(37, 211, 102, 0.28) !important;
       }
       #global-whatsapp-float:focus-visible {
         outline: 4px solid rgba(37, 211, 102, 0.32) !important;
         outline-offset: 4px !important;
       }
       #global-whatsapp-float svg {
-        width: 60px !important;
-        height: 60px !important;
+        width: 28px !important;
+        height: 28px !important;
         display: block !important;
         fill: currentColor !important;
         position: relative !important;
         z-index: 1 !important;
       }
-      @keyframes whatsappButtonGlow {
-        0%, 100% { filter: drop-shadow(0 0 0 rgba(37, 211, 102, 0)); }
-        50% { filter: drop-shadow(0 0 14px rgba(37, 211, 102, 0.72)); }
-      }
-      @keyframes whatsappRipple {
-        0% { transform: scale(0.94); opacity: 0.78; }
-        72%, 100% { transform: scale(1.34); opacity: 0; }
-      }
       @media (max-width: 640px) {
         #global-whatsapp-float {
-          right: 12px !important;
-          width: 84px !important;
-          height: 84px !important;
-          min-width: 84px !important;
-          min-height: 84px !important;
-          border-width: 3px !important;
+          right: 14px !important;
+          bottom: 14px !important;
+          width: 48px !important;
+          height: 48px !important;
+          min-width: 48px !important;
+          min-height: 48px !important;
         }
-        #global-whatsapp-float svg { width: 48px !important; height: 48px !important; }
+        #global-whatsapp-float svg { width: 25px !important; height: 25px !important; }
       }
       @media (prefers-reduced-motion: reduce) {
-        #global-whatsapp-float,
-        #global-whatsapp-float::before,
-        #global-whatsapp-float::after { transition: none !important; animation: none !important; }
+        #global-whatsapp-float { transition: none !important; }
       }
     `;
     document.head.appendChild(whatsappStyle);
