@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "node scripts/render-products.cjs"
+    "build": "node scripts/sync-site-components.cjs && node scripts/render-products.cjs"
   }
 }
