@@ -17,6 +17,17 @@
   <meta name="twitter:image" content="https://www.cleardessertpack.com/assets/img/hero/clear-dessert-pack-custom-tiramisu-packaging-hero.webp" />
   <link rel="icon" href="assets/img/brand/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    .branding-gallery-section{background:#fff}
+    .branding-gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:17px}
+    .branding-gallery-card{margin:0;min-width:0;overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow2)}
+    .branding-gallery-card img{display:block;width:100%;aspect-ratio:1;object-fit:cover}
+    .branding-gallery-card figcaption{padding:11px 15px 13px;font-size:.86rem;font-weight:700;line-height:1.3;color:var(--ink)}
+    .branding-gallery-note{margin:24px 0 0;text-align:center;color:var(--ink-soft);font-size:.94rem}
+    .branding-gallery-note a{color:var(--red);font-weight:800;text-decoration:underline;text-underline-offset:3px}
+    @media(max-width:900px){.branding-gallery{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    @media(max-width:760px){.branding-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.branding-gallery-card{border-radius:12px}.branding-gallery-card figcaption{padding:9px 10px;font-size:.75rem}.branding-gallery-note{font-size:.85rem;line-height:1.5}}
+  </style>
   <!-- FAQ JSON-LD Schema -->
   <script type="application/ld+json">
   {
@@ -118,19 +129,28 @@
     </div>
   </section>
 
-  <section>
-    <div class="container split">
-      <div class="image-panel"><img src="assets/img/custom/branded-dessert-gift-set.webp" alt="Custom branded dessert gift set with paper bag and ribbon"  loading="lazy" /></div>
-      <div>
-        <span class="eyebrow">Why Custom Branding</span>
-        <h2>Make your dessert packaging memorable before customers open the box.</h2>
-        <ul class="checklist">
-          <li>Improve brand recognition with logo stickers and printed sleeves.</li>
-          <li>Increase perceived value with paper bags and branded ribbons.</li>
-          <li>Create viral wedding and birthday moments with cocoa powder stencils.</li>
-          <li>Help distributors sell complete packaging kits instead of single SKUs.</li>
-        </ul>
+  <section class="branding-gallery-section" aria-labelledby="branding-gallery-title">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Branding Concept Gallery</span>
+        <h2 id="branding-gallery-title">Dessert packaging and personalization ideas</h2>
+        <p>Concept visuals showing label placement, printed sleeves, gift ribbons and occasion-ready details. Your final design can be adapted to your box and artwork.</p>
       </div>
+      <div class="branding-gallery">
+        <figure class="branding-gallery-card"><img src="assets/img/custom/branding-gallery/branded-clear-dessert-boxes-bakery-display.jpg" alt="Clear tiramisu boxes with branded labels in a bakery display" width="1000" height="1000" fetchpriority="high" decoding="async" /><figcaption>Bakery display</figcaption></figure>
+        <figure class="branding-gallery-card"><img src="assets/img/custom/branding-gallery/custom-tiramisu-gift-box-paper-bag-ribbon.jpg" alt="Custom tiramisu gift box with printed ribbon and matching paper bag" width="1000" height="1000" loading="lazy" decoding="async" /><figcaption>Gift set</figcaption></figure>
+        <figure class="branding-gallery-card"><img src="assets/img/custom/branding-gallery/clear-tiramisu-boxes-branded-gift-ribbons.jpg" alt="Clear tiramisu gift boxes tied with branded satin ribbons" width="1000" height="1000" loading="lazy" decoding="async" /><figcaption>Ribbon finish</figcaption></figure>
+        <figure class="branding-gallery-card"><img src="assets/img/custom/branding-gallery/clear-tiramisu-dessert-box-printed-ribbon.jpg" alt="Clear tiramisu dessert box with a custom printed gift ribbon" width="1000" height="1000" loading="lazy" decoding="async" /><figcaption>Clear box detail</figcaption></figure>
+        <figure class="branding-gallery-card"><img src="assets/img/custom/branding-gallery/assorted-dessert-boxes-custom-paper-sleeves.jpg" alt="Assorted dessert boxes with colorful custom printed paper sleeves" width="1000" height="1000" loading="lazy" decoding="async" /><figcaption>Sleeve colors</figcaption></figure>
+        <figure class="branding-gallery-card"><img src="assets/img/custom/branding-gallery/tiramisu-boxes-custom-paper-sleeve-packaging.jpg" alt="Tiramisu dessert boxes with custom printed paper sleeve packaging" width="1000" height="1000" loading="lazy" decoding="async" /><figcaption>Paper sleeves</figcaption></figure>
+        <figure class="branding-gallery-card"><img src="assets/img/custom/branding-gallery/personalized-birthday-tiramisu-cocoa-lettering.jpg" alt="Birthday message in cocoa lettering on a tiramisu dessert" width="1000" height="1000" loading="lazy" decoding="async" /><figcaption>Birthday message</figcaption></figure>
+        <figure class="branding-gallery-card"><img src="assets/img/custom/branding-gallery/personalized-name-tiramisu-cocoa-decoration.jpg" alt="Personalized name written in cocoa on a tiramisu dessert" width="1000" height="1000" loading="lazy" decoding="async" /><figcaption>Personalized name</figcaption></figure>
+        <figure class="branding-gallery-card"><img src="assets/img/custom/branding-gallery/custom-name-tiramisu-cocoa-message.jpg" alt="Custom name lettering on an oval tiramisu dessert for an event" width="1000" height="1000" loading="lazy" decoding="async" /><figcaption>Event lettering</figcaption></figure>
+        <figure class="branding-gallery-card"><img src="assets/img/custom/branding-gallery/birthday-tiramisu-dessert-custom-message.jpg" alt="Birthday tiramisu dessert with a personalized cocoa message" width="1000" height="1000" loading="lazy" decoding="async" /><figcaption>Birthday design</figcaption></figure>
+        <figure class="branding-gallery-card"><img src="assets/img/custom/branding-gallery/wedding-tiramisu-just-married-decoration.jpg" alt="Wedding tiramisu dessert with Just Married cocoa decoration" width="1000" height="1000" loading="lazy" decoding="async" /><figcaption>Wedding design</figcaption></figure>
+        <figure class="branding-gallery-card"><img src="assets/img/custom/branding-gallery/custom-printed-tiramisu-metal-gift-tin.jpg" alt="Custom printed tiramisu metal gift tin with side latches" width="1000" height="1000" loading="lazy" decoding="async" /><figcaption>Gift tin</figcaption></figure>
+      </div>
+      <p class="branding-gallery-note">Have a logo, box size or event theme in mind? <a href="#quote">Tell us what you need for a custom quote →</a></p>
     </div>
   </section>
 
