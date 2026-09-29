@@ -22,6 +22,7 @@
     const name = card.querySelector('h3').textContent.trim();
     const shape = material === 'glass' ? 'oval' : /\bsquare\b/i.test(name) ? 'square' : /\bround\b/i.test(name) ? 'round' : 'rectangular';
     const info = card.querySelector('.product-body');
+    const media = card.querySelector('.product-media');
     const originalAction = card.querySelector('.wa-btn');
     const actions = originalAction ? originalAction.parentElement : document.createElement('div');
     actions.classList.add('catalog-card-actions');
@@ -32,6 +33,19 @@
     quote.href = `/contact?sku=${encodeURIComponent(sku)}`;
     quote.textContent = 'Request Quote';
     actions.prepend(quote);
+    if (!originalAction) {
+      const whatsapp = document.createElement('a');
+      const whatsappUrl = new URL(source.querySelector('.wa-btn').href);
+      whatsappUrl.searchParams.set('text', `Hi, I'm interested in SKU ${sku} (${name}). Please send me the wholesale price, MOQ, packing details and sample information.`);
+      whatsapp.href = whatsappUrl.href;
+      whatsapp.className = 'btn wa-btn';
+      whatsapp.target = '_blank';
+      whatsapp.rel = 'noopener noreferrer';
+      whatsapp.textContent = 'WhatsApp Me';
+      actions.append(whatsapp);
+    }
+    // All materials share the same direct-child layout, including legacy wrapped cards.
+    card.replaceChildren(media, info, actions);
     return {card, index, material, name, shape, text: normalize(info.textContent + ' ' + name)};
   });
   entries.forEach(({card}) => grid.append(card));
