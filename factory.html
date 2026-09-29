@@ -50,8 +50,9 @@
 }
   </script>
   <link rel="stylesheet" href="/assets/css/site-components.css" />
+  <link rel="stylesheet" href="/assets/css/factory.css" />
 </head>
-<body>
+<body class="factory-page">
   <!-- shared:site-header:start -->
 <div class="cdp-topbar">
     <div class="cdp-container cdp-topbar-inner">
@@ -100,33 +101,60 @@
 <!-- shared:site-header:end -->
 
   
-<main>
-  <section class="page-hero">
+<main id="factory-content">
+  <section class="fac-hero">
     <div class="container">
-      <div class="breadcrumb"><a href="/" style="color:inherit;text-decoration:none">Home</a> / Factory</div>
-      <span class="eyebrow">Factory & Supply Chain</span>
-      <h1>Operated by Hangzhou Huikai Packaging with integrated custom accessory supply support.</h1>
-      <p class="hero-text">Review the packaging production workflow, accessory sourcing support and order-specific quality checkpoints used for B2B projects.</p>
-    </div>
-  </section>
-
-  <section>
-    <div class="container grid-3">
-      <article class="card"><div class="icon">🏭</div><h3>Factory Photos</h3><p>Production, inspection, packing and warehouse records can be shared for project review when available.</p></article>
-      <article class="card"><div class="icon">⚙️</div><h3>Production Line</h3><p>Thermoforming, trimming, inspection, stacking and carton packing process.</p></article>
-      <article class="card"><div class="icon">🤝</div><h3>Accessory Supply Chain</h3><p>Sticker, sleeve, paper bag, ribbon and acrylic stencil customization through packaging partners.</p></article>
-    </div>
-  </section>
-
-  <section class="products-section">
-    <div class="container split">
-      <div class="image-panel"><img src="assets/img/factory/factory-production-placeholder.svg" alt="Dessert packaging production and quality control overview"  loading="lazy" /></div>
-      <div>
-        <span class="eyebrow">Production Transparency</span>
-        <h2>Our Production Capabilities & Strategic Partnerships</h2>
-        <div class="note">Clear Dessert Pack is the international B2B sourcing brand operated by Hangzhou Huikai Packaging. Packaging formats and custom accessories are coordinated through its production and supply network, with specifications, quality checks and available documents confirmed for each order.</div>
+      <div class="fac-breadcrumb"><a href="/">Home</a><span>/</span>Our Factory</div>
+      <div class="fac-hero-grid">
+        <div class="fac-hero-copy">
+          <span class="fac-kicker">BEHIND YOUR PACKAGING</span>
+          <h1>A closer look at your <em>packaging partner.</em></h1>
+          <p>Clear dessert boxes. Coordinated paper accessories. A supply network that brings your packaging project together.</p>
+          <div class="fac-actions"><a class="fac-btn" href="#quoteForm">Discuss your project <span>↗</span></a><a class="fac-text-link" href="#workshops">Explore our capabilities ↓</a></div>
+          <div class="fac-operator"><span class="fac-dot"></span><div><strong>Operated by Hangzhou Huikai Packaging</strong><span>Clear Dessert Pack · B2B packaging & custom accessories</span></div></div>
+        </div>
+        <div class="fac-hero-visual"><figure class="fac-photo"><button type="button" class="fac-image" data-full-image aria-label="Enlarge packaging warehouse"><img src="/assets/img/factory/packaging-carton-warehouse.webp" alt="Stacked shipping cartons in the packaging warehouse" width="800" height="508" fetchpriority="high" /></button><figcaption><span>Packaging warehouse</span><span aria-hidden="true">View full image ↗</span></figcaption></figure><div class="fac-visual-foot"><span>FROM PRODUCT TO PRESENTATION</span><strong>One coordinated packaging project.</strong></div></div>
       </div>
     </div>
+  </section>
+  <nav class="fac-section-nav" aria-label="Factory page sections"><div class="container">
+    <a href="#workshops"><span>01</span>Workshops & capabilities <span>↗</span></a><a href="#packing"><span>02</span>Packing & checks <span>↗</span></a><a href="#documents"><span>03</span>Quality documents <span>↗</span></a><a href="#cooperation"><span>04</span>Work with us <span>↗</span></a>
+  </div></nav>
+  <section id="workshops" class="fac-workshops">
+    <div class="container">
+      <div class="fac-section-head"><div><span class="fac-kicker">01 / WORKSHOPS & CAPABILITIES</span><h2>More than the box.<br>A complete presentation.</h2></div><p>Packaging formats and custom accessories are coordinated through our production and supply network, with specifications agreed for each order.</p></div>
+      <div class="fac-workshop-grid">
+        <div class="fac-workshop-copy"><span class="fac-small-label">PAPER ACCESSORY SUPPLY</span><h3>The details that carry your brand.</h3><p>Explore the paper printing, converting and finishing operations supporting branded packaging accessories.</p><ul class="fac-capabilities"><li><span>01</span><div><strong>Print & artwork</strong><p>Coordinate your logo, artwork and print requirements.</p></div></li><li><span>02</span><div><strong>Paper & finishing</strong><p>Confirm stock, dimensions and finishing for the chosen accessory.</p></div></li><li><span>03</span><div><strong>Match the complete kit</strong><p>Review sleeves, bags and labels alongside your dessert box.</p></div></li></ul><a class="fac-text-link" href="/custom-branding">Explore custom branding ↗</a><p class="fac-photo-note">These photos show paper accessory operations within the supply network.</p></div>
+        <figure class="fac-photo"><button type="button" class="fac-image" data-full-image aria-label="Enlarge printing & converting"><img src="/assets/img/factory/paper-printing-production.webp" alt="Complete photo collection of paper printing and converting equipment" width="750" height="1417" loading="lazy" /></button><figcaption><span>Printing & converting</span><span aria-hidden="true">View full image ↗</span></figcaption></figure><figure class="fac-photo"><button type="button" class="fac-image" data-full-image aria-label="Enlarge paper workshop & finishing"><img src="/assets/img/factory/paper-workshop-finishing.webp" alt="Complete paper workshop photo collection showing equipment, finishing and manual checks" width="1024" height="2048" loading="lazy" /></button><figcaption><span>Paper workshop & finishing</span><span aria-hidden="true">View full image ↗</span></figcaption></figure>
+      </div>
+    </div>
+  </section>
+  <section id="packing" class="fac-packing">
+    <div class="container fac-packing-grid">
+      <div class="fac-pack-image"><figure class="fac-photo"><button type="button" class="fac-image" data-full-image aria-label="Enlarge clear box carton packing"><img src="/assets/img/factory/clear-box-carton-packing.webp" alt="Clear plastic packaging nested inside a protective bag in an outer carton" width="800" height="1067" loading="lazy" /></button><figcaption><span>Clear box carton packing</span><span aria-hidden="true">View full image ↗</span></figcaption></figure></div>
+      <div class="fac-pack-copy"><span class="fac-kicker">02 / PACKING & ORDER REVIEW</span><h2>Good packaging deserves<br>careful packing.</h2><p>The details inside the carton matter too. Use your sample review to agree on the product, its presentation and its packing arrangement.</p><div class="fac-checks"><div><span>✓</span><div><h3>Product & lid fit</h3><p>Confirm the selected model, dimensions, appearance and lid fit against your approved sample.</p></div></div><div><span>✓</span><div><h3>Nesting & inner protection</h3><p>Review how the boxes are stacked and protected within the carton.</p></div></div><div><span>✓</span><div><h3>Carton & shipment details</h3><p>Agree on quantity per carton, carton markings and destination requirements before dispatch.</p></div></div></div><a class="fac-text-link" href="/clear-dessert-box-sizes">Find your box size ↗</a></div>
+    </div>
+  </section>
+  <section id="documents" class="fac-documents">
+    <div class="container">
+      <div class="fac-document-intro"><div><span class="fac-kicker">03 / QUALITY DOCUMENTS</span><h2>See the documents.<br>Know what they cover.</h2><p>Review the original files for the tested PS box samples and the GP525 raw material. We can help you match the available documentation to your selected model and destination market.</p><a class="fac-text-link" href="#quoteForm">Ask about your product’s documents ↗</a></div><div class="fac-report-photos"><figure class="fac-photo"><button type="button" class="fac-image" data-full-image aria-label="Enlarge ps box report · cover"><img src="/assets/img/factory/ps-box-report-cover.webp" alt="Framed cover of SIT report SIT251009560201CR for PS plastic boxes" width="920" height="1293" loading="lazy" /></button><figcaption><span>PS box report · cover</span><span aria-hidden="true">View full image ↗</span></figcaption></figure><figure class="fac-photo"><button type="button" class="fac-image" data-full-image aria-label="Enlarge ps box report · summary"><img src="/assets/img/factory/ps-box-report-summary.webp" alt="Framed summary page of the PS box report showing results for the listed tests" width="920" height="1293" loading="lazy" /></button><figcaption><span>PS box report · summary</span><span aria-hidden="true">View full image ↗</span></figcaption></figure></div></div>
+      <div class="fac-doc-grid">
+        <article class="fac-doc-card"><div class="fac-doc-top"><span>PRODUCT SAMPLE</span><span>PDF · 9 PAGES</span></div><div class="fac-file-icon" aria-hidden="true">↗</div><h3>PS plastic box<br>test report</h3><p>SIT251009560201CR · 16 October 2025. Covers sample model HK-034 and the submodels listed in the report.</p><div class="fac-doc-scope">The summary records PASS for the listed tests on the submitted samples.</div><a href="/assets/documents/ps-box-test-report-sit251009560201cr.pdf" target="_blank" rel="noopener">Open complete report <span>↗</span></a></article>
+        <article class="fac-doc-card"><div class="fac-doc-top"><span>RAW MATERIAL / BATCH</span><span>PDF · 1 PAGE</span></div><div class="fac-file-icon" aria-hidden="true">↗</div><h3>GP525 resin<br>quality certificate</h3><p>Product quality certificate from Ningbo Union King New Material Limited for polystyrene grade GP525.</p><div class="fac-doc-scope">Batch GP525 241231#2 2B · Production date: 31 December 2024.</div><a href="/assets/documents/gp525-resin-batch-quality-certificate.pdf" target="_blank" rel="noopener">Open batch certificate <span>↗</span></a></article>
+        <article class="fac-doc-card"><div class="fac-doc-top"><span>RAW MATERIAL / SAFETY</span><span>PDF · 8 PAGES</span></div><div class="fac-file-icon" aria-hidden="true">↗</div><h3>GP525 safety<br>data sheet</h3><p>Safety Data Sheet for general purpose polystyrene GP525, with composition and material handling information.</p><div class="fac-doc-scope">A raw-material safety reference, not a finished-product food-contact test report.</div><a href="/assets/documents/gp525-safety-data-sheet.pdf" target="_blank" rel="noopener">Open safety data sheet <span>↗</span></a></article>
+      </div>
+      <p class="fac-document-note">Document scope matters: the PS report applies to its identified samples; the resin files apply to their stated material or batch. Confirm applicability to your order before purchase. These files do not establish certification for every product or material in our catalog.</p>
+    </div>
+  </section>
+  <section class="fac-partners">
+    <div class="container"><div class="fac-section-head"><div><span class="fac-kicker">BUILT AROUND YOUR BUSINESS</span><h2>Your product. Your brand.<br>Our packaging coordination.</h2></div><a class="fac-text-link" href="/packaging-kits">Discover packaging kits ↗</a></div><div class="fac-partner-grid">
+      <article><span class="fac-partner-number">01 / BAKERIES & DESSERT BRANDS</span><h3>A consistent<br>brand presentation.</h3><p>Match clear boxes with sleeves, stickers and bags for your dessert collection.</p><a href="/custom-branding">Branding options ↗</a></article>
+      <article><span class="fac-partner-number">02 / CATERERS & EVENT TEAMS</span><h3>A considered<br>serving experience.</h3><p>Review portion sizes, individual desserts and coordinated event packaging.</p><a href="/applications">Application ideas ↗</a></article>
+      <article><span class="fac-partner-number">03 / IMPORTERS & DISTRIBUTORS</span><h3>A clear brief.<br>A coordinated order.</h3><p>Bring model selection, packing details and market-specific document requests into one discussion.</p><a href="/products">Browse the range ↗</a></article>
+    </div></div>
+  </section>
+  <section id="cooperation" class="fac-cooperation">
+    <div class="container"><div class="fac-section-head"><div><span class="fac-kicker">04 / LET’S WORK TOGETHER</span><h2>From your first idea<br>to an agreed order.</h2></div><p>A practical process for clear boxes and coordinated accessories, built around your project requirements.</p></div><ol class="fac-steps"><li><span>01</span><h3>Share your brief</h3><p>Tell us your dessert, box size, quantity, branding and delivery market.</p></li><li><span>02</span><h3>Review the options</h3><p>Compare suitable models, accessories, samples and available documents.</p></li><li><span>03</span><h3>Approve the details</h3><p>Confirm the sample, artwork, specifications, packing and commercial terms.</p></li><li><span>04</span><h3>Coordinate delivery</h3><p>Agree on the production schedule, order checks and shipment arrangements.</p></li></ol><div class="fac-process-cta"><p>Have a box size or a brand concept in mind?</p><a class="fac-btn" href="#quoteForm">Start your packaging project <span>↗</span></a></div></div>
   </section>
 </main>
 
@@ -199,5 +227,6 @@
   </a>
   <script src="assets/js/main.js"></script>
   <script src="/assets/js/site-components.js" defer></script>
+  <script src="/assets/js/buying-pages.js" defer></script>
 </body>
 </html>
