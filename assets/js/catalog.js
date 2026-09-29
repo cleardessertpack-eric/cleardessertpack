@@ -74,7 +74,7 @@
     clear();
     filters.querySelector(`input[name="material"][value="${link.dataset.catalogJump}"]`).checked = true;
     update();
-    grid.scrollIntoView({block:'start',behavior:'smooth'});
+    sortRow.scrollIntoView({block:'start',behavior:'smooth'});
   }));
   sort('relevant');
   update();
@@ -82,13 +82,22 @@
   sortRow.hidden = false;
   grid.hidden = false;
   layout.classList.add('is-interactive');
-  const hash = decodeURIComponent(location.hash.slice(1));
-  const materialHash = {'ps-dessert-boxes':'ps','pet-dessert-boxes':'pet','oval-glass-baking-dishes':'glass'}[hash];
-  if (materialHash) {
-    filters.querySelector(`input[name="material"][value="${materialHash}"]`).checked = true;
-    update();
-    requestAnimationFrame(() => grid.scrollIntoView({block:'start'}));
-  } else if (hash && document.getElementById(hash)?.classList.contains('product-card')) {
-    requestAnimationFrame(() => document.getElementById(hash).scrollIntoView({block:'start'}));
+  function followHash() {
+    const hash = decodeURIComponent(location.hash.slice(1));
+    const materialHash = {'ps-dessert-boxes':'ps','pet-dessert-boxes':'pet','oval-glass-baking-dishes':'glass'}[hash];
+    if (materialHash) {
+      clear();
+      filters.querySelector(`input[name="material"][value="${materialHash}"]`).checked = true;
+      update();
+      requestAnimationFrame(() => sortRow.scrollIntoView({block:'start'}));
+    } else {
+      const card = hash && document.getElementById(hash);
+      if (card?.classList.contains('product-card')) {
+        if (card.hidden) clear();
+        requestAnimationFrame(() => card.scrollIntoView({block:'start'}));
+      }
+    }
   }
+  window.addEventListener('hashchange', followHash);
+  if (location.hash) followHash();
 })();
