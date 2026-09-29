@@ -314,6 +314,7 @@
   }
   </script>
   <link rel="stylesheet" href="/assets/css/site-components.css" />
+  <link rel="stylesheet" href="/assets/css/catalog.css" />
 </head>
 <body>
   <!-- shared:site-header:start -->
@@ -364,7 +365,7 @@
 <!-- shared:site-header:end -->
 
   
-<main>
+<main class="catalog-page">
   <section class="page-hero">
     <div class="container">
       <div class="breadcrumb"><a href="/" style="color:inherit;text-decoration:none">Home</a> / Products</div>
@@ -376,6 +377,27 @@
   </section>
 
 
+  <nav class="catalog-series container" aria-label="Browse product materials">
+    <a href="#ps-dessert-boxes" data-catalog-jump="ps"><span class="eyebrow">PS Material · 16 SKUs</span><h2>PS clear dessert boxes</h2><p>Rigid, high-clarity PS boxes for tiramisu, mousse cakes, bakery display, catering trays and portioned desserts.</p><span class="catalog-series-arrow" aria-hidden="true">↗</span></a>
+    <a href="#pet-dessert-boxes" data-catalog-jump="pet"><span class="eyebrow">PET Material</span><h2>PET clear dessert boxes</h2><p>A dedicated PET packaging group for buyers who need clear takeaway presentation and material-specific sourcing.</p><span class="catalog-series-arrow" aria-hidden="true">↗</span></a>
+    <a href="#oval-glass-baking-dishes" data-catalog-jump="glass"><span class="eyebrow">Glass Bakeware · 5 Sizes</span><h2>Wholesale oval glass baking dishes</h2><p>Five capacities from 0.8L to 4L for bakery, foodservice, catering and retail programs. Supplier specifications state a temperature range of −20°C to 200°C.</p><span class="catalog-series-arrow" aria-hidden="true">↗</span></a>
+  </nav>
+
+  <section class="catalog-browser" aria-label="Product catalogue">
+   <div class="container catalog-layout">
+    <aside class="catalog-filters" aria-label="Filter products" hidden>
+     <div class="catalog-filter-head"><h2>Filters</h2><button id="catalog-clear" type="button">Remove filters</button></div>
+     <div class="catalog-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg><input id="catalog-search" type="search" placeholder="Search for a product…" aria-label="Search products" autocomplete="off" /></div>
+     <fieldset><legend>Material</legend><div class="catalog-options"><label><input type="checkbox" name="material" value="ps" /> PS clear boxes</label><label><input type="checkbox" name="material" value="pet" /> PET clear boxes</label><label><input type="checkbox" name="material" value="glass" /> Glass bakeware</label></div></fieldset>
+     <fieldset><legend>Product shape</legend><div class="catalog-options"><label><input type="checkbox" name="shape" value="rectangular" /> Rectangular</label><label><input type="checkbox" name="shape" value="square" /> Square</label><label><input type="checkbox" name="shape" value="round" /> Round</label><label><input type="checkbox" name="shape" value="oval" /> Oval</label></div></fieldset>
+     <div class="catalog-side-links"><h2>Buying tools</h2><a href="/clear-dessert-box-sizes">Compare box sizes <span aria-hidden="true">↗</span></a><a href="/wholesale-tiramisu-boxes">Wholesale tiramisu boxes <span aria-hidden="true">↗</span></a><a href="/custom-branding">Custom branding options <span aria-hidden="true">↗</span></a></div>
+    </aside>
+    <div class="catalog-main">
+     <div class="catalog-sort" hidden><div class="catalog-sort-actions" role="group" aria-label="Sort products"><strong>Sort by:</strong><button type="button" data-catalog-sort="relevant" aria-pressed="true">Most Relevant</button><button type="button" data-catalog-sort="az" aria-pressed="false">Name A to Z</button><button type="button" data-catalog-sort="za" aria-pressed="false">Name Z to A</button></div><span id="catalog-count" role="status" aria-live="polite" aria-atomic="true">22 items</span></div>
+     <div id="catalog-display" class="catalog-grid" aria-label="Products" hidden></div>
+     <div class="catalog-empty" hidden><h2>No matching products</h2><p>Try a different search or remove your filters.</p><button id="catalog-empty-reset" type="button">Show all products</button></div>
+     <div class="catalog-glass-note" hidden></div>
+    <div class="catalog-source">
   <section class="products-section" id="ps-dessert-boxes">
     <div class="container">
       <div class="section-head">
@@ -873,11 +895,16 @@
           </div>
         </article>
       </div>
-      <div style="margin:28px auto 0;max-width:900px;padding:20px 22px;border:1px solid var(--line);border-radius:16px;background:#fff;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
+      <div class="catalog-glass-info" style="margin:28px auto 0;max-width:900px;padding:20px 22px;border:1px solid var(--line);border-radius:16px;background:#fff;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
         <p style="margin:0;color:var(--muted);font-size:.9rem;max-width:640px"><strong style="color:var(--ink)">Compatible applications shown:</strong> microwave, oven, dishwasher, disinfection cabinet, steamer and refrigerator. Confirm final packing, MOQ and compliance documents before ordering.</p>
         <a class="btn wa-btn" href="https://wa.me/8619032003411?text=Hi%2C%20I'm%20interested%20in%20the%20oval%20glass%20baking%20dish%20series%20(0.8L%E2%80%934L).%20Please%20send%20me%20the%20MOQ%2C%20wholesale%20price%2C%20packing%20details%20and%20sample%20information." target="_blank" rel="noopener noreferrer" style="white-space:nowrap">WhatsApp Me</a>
       </div>
     </div>
+  </section>
+
+</div>
+    </div>
+   </div>
   </section>
 
   <section class="cta" id="quote">
@@ -1003,10 +1030,11 @@
   <script src="assets/js/product-renderer.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      if (!document.querySelector('#ps-products-grid .product-card')) ProductRenderer.renderProductGrid('ps-products-grid', { material: 'PS' });
-      if (!document.querySelector('#pet-products-grid .product-card')) ProductRenderer.renderProductGrid('pet-products-grid', { material: 'PET' });
+      if (!document.querySelector('#ps-products-grid .product-card, #catalog-display .product-card[data-material="ps"]')) ProductRenderer.renderProductGrid('ps-products-grid', { material: 'PS' });
+      if (!document.querySelector('#pet-products-grid .product-card, #catalog-display .product-card[data-material="pet"]')) ProductRenderer.renderProductGrid('pet-products-grid', { material: 'PET' });
     });
   </script>
+  <script src="/assets/js/catalog.js" defer></script>
   <script src="assets/js/main.js"></script>
   <script src="/assets/js/site-components.js" defer></script>
 </body>
