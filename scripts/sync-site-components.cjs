@@ -8,7 +8,7 @@ const pages = [...read('sitemap.xml').matchAll(/<loc>(.*?)<\/loc>/g)].map(([, ur
 const activeSection = route => {
   if (['/clear-dessert-box-sizes', '/packaging-kits', '/wholesale-tiramisu-boxes', '/transparent-plastic-dessert-boxes'].includes(route)) return '/products';
   if (route === '/applications') return '/factory';
-  if (route.startsWith('/how-to-') || route === '/custom-dessert-packaging-guide') return '/resources';
+  if (route.startsWith('/how-to-') || route === '/custom-dessert-packaging-guide' || route === '/eco-friendly-dessert-containers-bulk') return '/resources';
   return route;
 };
 function replaceComponent(html, name, legacy, replacement) {

@@ -1,0 +1,13 @@
+/* Scoped disclosure styling for buyer guides; native details work without JavaScript. */
+.buyer-faq{display:grid;gap:12px;max-width:900px;margin-inline:auto}
+.buyer-faq details{border:1px solid var(--line,#e1e6e8);border-radius:14px;background:#fff;overflow:hidden}
+.buyer-faq summary{padding:19px 20px;color:var(--ink,#162b35);font:800 16px/1.5 Manrope,sans-serif;cursor:pointer;overflow-wrap:anywhere}
+.buyer-faq summary::marker{color:var(--red,#c53438)}
+.buyer-faq summary:focus-visible{outline:3px solid #c53438;outline-offset:-4px}
+.buyer-answer{padding:0 20px 19px;color:var(--ink-soft,#3e505c);font-size:16px;line-height:1.8}
+.buyer-answer p:last-child{margin:0}
+.buyer-answer a,.buyer-source-note a{color:var(--red,#c53438);text-decoration:underline;text-underline-offset:3px}
+.buyer-source-note{font-size:14px;line-height:1.75;margin-top:28px!important}
+.article-cover.article-product-photo{background:#fff}
+.article-cover.article-product-photo>img{object-fit:contain;background:#080a0b}
+@media(max-width:720px){.buyer-faq summary{padding:16px 18px}.buyer-answer{padding:0 18px 16px}}
