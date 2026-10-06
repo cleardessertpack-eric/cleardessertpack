@@ -12,6 +12,9 @@ const PRODUCTS = [
     size_cm: "28 × 18 × 8 cm",
     capacity_ml: 4000,
     shape: "Rectangular",
+    // User-supplied catalogue table, PDF p.1; reviewed 2026-10-06. Not internal measurements.
+    wholesale_moq: "10 cartons",
+    carton_size_cm: "61 × 41 × 54 cm",
     qty_per_ctn: 28,
     best_for: "wedding desserts, party tiramisu and catering trays",
     custom_options: "Paper sleeves, logo stickers, ribbons, cocoa stencils",
@@ -28,6 +31,9 @@ const PRODUCTS = [
     size_cm: "21 × 15 × 7 cm",
     capacity_ml: 1800,
     shape: "Rectangular",
+    // User-supplied catalogue table, PDF p.1; reviewed 2026-10-06. Not internal measurements.
+    wholesale_moq: "10 cartons",
+    carton_size_cm: "68 × 49 × 40 cm",
     qty_per_ctn: 72,
     best_for: "large tiramisu boxes and family-size desserts",
     custom_options: "Paper sleeves, logo stickers, ribbons, cocoa stencils",
@@ -44,6 +50,9 @@ const PRODUCTS = [
     size_cm: "18 × 13 × 6.4 cm",
     capacity_ml: 1300,
     shape: "Rectangular",
+    // User-supplied catalogue table, PDF p.1; reviewed 2026-10-06. Not internal measurements.
+    wholesale_moq: "5 cartons",
+    carton_size_cm: "67 × 40 × 51 cm",
     qty_per_ctn: 96,
     best_for: "bakery takeaway and standard dessert packaging",
     custom_options: "Paper sleeves, logo stickers, ribbons, cocoa stencils",
@@ -58,8 +67,12 @@ const PRODUCTS = [
     category: "Round",
     material: "PS",
     size_cm: "Ø12.2 × 5.5 cm",
+    specification_review: true,
     capacity_ml: 600,
     shape: "Round",
+    // User-supplied catalogue table, PDF p.2; reviewed 2026-10-06. Not internal measurements.
+    wholesale_moq: "5 cartons",
+    carton_size_cm: "Ø12.2 × 5.5 cm",
     qty_per_ctn: 147,
     best_for: "round tiramisu, mousse cake and premium desserts",
     custom_options: "Paper sleeves, logo stickers, ribbons, cocoa stencils",
@@ -76,6 +89,9 @@ const PRODUCTS = [
     size_cm: "9.5 × 9.5 × 6.3 cm",
     capacity_ml: 450,
     shape: "Square",
+    // User-supplied catalogue table, PDF p.3; reviewed 2026-10-06. Not internal measurements.
+    wholesale_moq: "5 cartons",
+    carton_size_cm: "61 × 41 × 54 cm",
     qty_per_ctn: 200,
     best_for: "small dessert portion, single-serve tiramisu",
     custom_options: "Paper sleeves, logo stickers, ribbons, cocoa stencils",
@@ -83,7 +99,7 @@ const PRODUCTS = [
     slug: "ssm-004-clear-square-box-450ml",
     meta_title: "SSM-004 Clear Square Box (450ml) | Wholesale",
     meta_description: "450ml Clear Square Box in food-grade PS, ideal for small dessert portions and single-serve tiramisu.",
-    // TODO: confirm final specification with supplier before launch
+    // Catalogue size/capacity matched to supplied PDF; internal fit and packing units still require order confirmation.
   },
   {
     sku: "HK-034",
@@ -93,6 +109,9 @@ const PRODUCTS = [
     size_cm: "37 × 20 × 7.2 cm",
     capacity_ml: 4500,
     shape: "Rectangular / Tray",
+    // User-supplied catalogue table, PDF p.1; reviewed 2026-10-06. Not internal measurements.
+    wholesale_moq: "5 cartons",
+    carton_size_cm: "66 × 40 × 40 cm",
     qty_per_ctn: 12,
     best_for: "large tiramisu box and catering dessert trays",
     custom_options: "Paper sleeves, logo stickers, ribbons, cocoa stencils",
@@ -100,7 +119,7 @@ const PRODUCTS = [
     slug: "hk-034-large-clear-tiramisu-box-4500ml",
     meta_title: "HK-034 Large Clear Tiramisu Box (4500ml) | Wholesale",
     meta_description: "4500ml Large Rectangular Clear Tiramisu Box/Tray in food-grade PS, ideal for large tiramisu box and catering dessert trays.",
-    // TODO: confirm final specification with supplier before launch
+    // Catalogue size/capacity matched to supplied PDF; internal fit and packing units still require order confirmation.
   },
   {
     sku: "SM-040",
@@ -141,8 +160,11 @@ const PRODUCTS = [
     category: "Rectangular",
     material: "PS",
     size_cm: "11.8 × 6 × 5.1 cm",
+    specification_review: true,
     capacity_ml: 300,
     shape: "Rectangular",
+    // User-supplied catalogue table, PDF p.3; reviewed 2026-10-06. Not internal measurements.
+    wholesale_moq: "5 cartons",
     qty_per_ctn: 294,
     best_for: "small dessert box and tiramisu portion",
     custom_options: "Paper sleeves, logo stickers, ribbons, cocoa stencils",
@@ -157,8 +179,11 @@ const PRODUCTS = [
     category: "Rectangular",
     material: "PS",
     size_cm: "11.8 × 6 × 7 cm",
+    specification_review: true,
     capacity_ml: 400,
     shape: "Rectangular",
+    // User-supplied catalogue table, PDF p.3; reviewed 2026-10-06. Not internal measurements.
+    wholesale_moq: "5 cartons",
     qty_per_ctn: 225,
     best_for: "small dessert box and tall tiramisu",
     custom_options: "Paper sleeves, logo stickers, ribbons, cocoa stencils",
@@ -173,8 +198,11 @@ const PRODUCTS = [
     category: "Square",
     material: "PS",
     size_cm: "8.5 × 8.5 × 6.3 cm",
+    specification_review: true,
     capacity_ml: 380,
     shape: "Square",
+    // User-supplied catalogue table, PDF p.3; reviewed 2026-10-06. Not internal measurements.
+    wholesale_moq: "5 cartons",
     qty_per_ctn: 258,
     best_for: "small dessert box and mousse cake",
     custom_options: "Paper sleeves, logo stickers, ribbons, cocoa stencils",
@@ -189,8 +217,12 @@ const PRODUCTS = [
     category: "Rectangular",
     material: "PS",
     size_cm: "15.6 × 8.5 × 7.2 cm",
+    specification_review: true,
     capacity_ml: 500,
     shape: "Rectangular",
+    // User-supplied catalogue table, PDF p.2; reviewed 2026-10-06. Not internal measurements.
+    wholesale_moq: "5 cartons",
+    carton_size_cm: "15.6 × 8.5 × 7.2 cm",
     qty_per_ctn: 120,
     best_for: "medium rectangular dessert box and cake packaging",
     custom_options: "Paper sleeves, logo stickers, ribbons, cocoa stencils",
@@ -221,8 +253,12 @@ const PRODUCTS = [
     category: "Square",
     material: "PS",
     size_cm: "10 × 10 × 7.5 cm",
+    specification_review: true,
     capacity_ml: 500,
     shape: "Square",
+    // User-supplied catalogue table, PDF p.2; reviewed 2026-10-06. Not internal measurements.
+    wholesale_moq: "5 cartons",
+    carton_size_cm: "10 × 10 × 7.5 cm",
     qty_per_ctn: 144,
     best_for: "medium square dessert box and tall tiramisu",
     custom_options: "Paper sleeves, logo stickers, ribbons, cocoa stencils",
@@ -236,9 +272,13 @@ const PRODUCTS = [
     name: "HK-37106 Clear Tiramisu Box",
     category: "Rectangular",
     material: "PS",
-    size_cm: "15.6 × 11.8 × 7 cm",
+    size_cm: "37 × 10 × 6 cm",
+    specification_review: true,
     capacity_ml: 1300,
     shape: "Rectangular",
+    // User-supplied catalogue table, PDF p.6; reviewed 2026-10-06. Not internal measurements.
+    wholesale_moq: "500 pieces",
+    carton_size_cm: "61 × 40 × 35 cm",
     qty_per_ctn: 100,
     best_for: "medium tiramisu box and bakery takeaway",
     custom_options: "Paper sleeves, logo stickers, ribbons, cocoa stencils",

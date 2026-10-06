@@ -36,7 +36,7 @@ const ProductRenderer = {
               <ul class="specs" style="list-style:none;padding:0;margin:0;font-size:12px;line-height:1.45;color:var(--muted)">
                 <li><strong>Item:</strong> ${product.sku}</li>
                 <li><strong>Size:</strong> ${product.size_cm}</li>
-                <li><strong>Volume:</strong> ${product.capacity_ml} ml</li>
+                <li><strong>Volume:</strong> ${product.capacity_ml} ml${product.specification_review ? " — confirm version" : ""}</li>
                 <li><strong>QTY/CTN:</strong> ${product.qty_per_ctn} pcs</li>
                 <li><strong>Best for:</strong> ${product.best_for}</li>
               </ul>
