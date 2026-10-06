@@ -21,6 +21,11 @@ const MAX_LENGTHS = {
   message: 4000,
   source: 500,
   submission_id: 100,
+  landing_page: 500,
+  referrer: 250,
+  utm_source: 120,
+  utm_medium: 120,
+  utm_campaign: 120,
 };
 
 function clean(value, maxLength) {
@@ -57,8 +62,8 @@ module.exports = async function handler(req, res) {
   }
 
   const origin = req.headers.origin;
-  const isVercelPreview = origin && /^https:\/\/[a-z0-9-]+\.vercel\.app$/i.test(origin);
-  if (origin && !ALLOWED_ORIGINS.has(origin) && !isVercelPreview) {
+  const isVercelPreview = origin && [process.env.VERCEL_URL, process.env.VERCEL_BRANCH_URL].filter(Boolean).some(host => origin === `https://${host}`);
+  if (!origin || (!ALLOWED_ORIGINS.has(origin) && !isVercelPreview)) {
     return res.status(403).json({ error: "Origin not allowed" });
   }
 
@@ -79,7 +84,10 @@ module.exports = async function handler(req, res) {
   }
 
   const startedAt = Number(body.started_at);
-  if (Number.isFinite(startedAt) && Date.now() - startedAt < 1500) {
+  if (!Number.isFinite(startedAt) || startedAt <= 0) {
+    return res.status(400).json({ error: "Please reload the page before submitting" });
+  }
+  if (Date.now() - startedAt < 1500) {
     return res.status(429).json({ error: "Please wait before submitting" });
   }
 
@@ -120,6 +128,11 @@ module.exports = async function handler(req, res) {
     row("Estimated quantity", data.quantity),
     row("Project details", data.message),
     row("Source page", data.source),
+    row("Landing page", data.landing_page),
+    row("Referrer", data.referrer),
+    row("Campaign source", data.utm_source),
+    row("Campaign medium", data.utm_medium),
+    row("Campaign name", data.utm_campaign),
     row("Follow-up", replyNote),
   ].join("");
 
@@ -136,6 +149,9 @@ module.exports = async function handler(req, res) {
     `Estimated quantity: ${data.quantity}`,
     `Project details: ${data.message}`,
     `Source page: ${data.source}`,
+    `Landing page: ${data.landing_page}`,
+    `Referrer: ${data.referrer}`,
+    `Campaign: ${data.utm_source} / ${data.utm_medium} / ${data.utm_campaign}`,
     `Follow-up: ${replyNote}`,
   ].join("\n");
 

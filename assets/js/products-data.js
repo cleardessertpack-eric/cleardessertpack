@@ -72,7 +72,7 @@ const PRODUCTS = [
     shape: "Round",
     // User-supplied catalogue table, PDF p.2; reviewed 2026-10-06. Not internal measurements.
     wholesale_moq: "5 cartons",
-    carton_size_cm: "Ø12.2 × 5.5 cm",
+    carton_size_cm: "67 × 40 × 51 cm",
     qty_per_ctn: 147,
     best_for: "round tiramisu, mousse cake and premium desserts",
     custom_options: "Paper sleeves, logo stickers, ribbons, cocoa stencils",
@@ -213,16 +213,18 @@ const PRODUCTS = [
   },
   {
     sku: "SSM-028",
+    review_note: "Confirm pieces per carton and whether the quantity counts bodies, lids or complete sets.",
+    packing_review: true,
     name: "SSM-028 Clear Rectangular Box",
     category: "Rectangular",
     material: "PS",
-    size_cm: "15.6 × 8.5 × 7.2 cm",
+    size_cm: "13 × 8.5 × 6.2 cm",
     // Capacity follows the supplied PDF table, confirmed by the owner on 2026-10-06.
     capacity_ml: 550,
     shape: "Rectangular",
     // User-supplied catalogue table, PDF p.2; reviewed 2026-10-06. Not internal measurements.
     wholesale_moq: "5 cartons",
-    carton_size_cm: "15.6 × 8.5 × 7.2 cm",
+    carton_size_cm: "67 × 40 × 51 cm",
     qty_per_ctn: 120,
     best_for: "medium rectangular dessert box and cake packaging",
     custom_options: "Paper sleeves, logo stickers, ribbons, cocoa stencils",
@@ -233,6 +235,9 @@ const PRODUCTS = [
   },
   {
     sku: "SSM-024",
+    review_note: "Model dimensions and capacity require confirmation before ordering. Image annotations and catalogue specifications are not yet reconciled.",
+    dimension_review: true,
+    specification_review: true,
     name: "SSM-024 Clear Square Box",
     category: "Square",
     material: "PS",
@@ -244,21 +249,23 @@ const PRODUCTS = [
     custom_options: "Paper sleeves, logo stickers, ribbons, cocoa stencils",
     image: "assets/img/products/ssm-024-clear-square-box.webp",
     slug: "ssm-024-clear-square-box-600ml",
-    meta_title: "SSM-024 Clear Square Box (600ml) | Wholesale",
-    meta_description: "600ml Square Clear Dessert Box in food-grade PS, ideal for medium square dessert box and tiramisu cake."
+    meta_title: "SSM-024 Clear Square Box | Confirm Specifications",
+    meta_description: "SSM-024 clear square dessert box. Confirm model dimensions, capacity and matching lid before ordering."
   },
   {
     sku: "SSM-018",
+    review_note: "Confirm pieces per carton and whether the quantity counts bodies, lids or complete sets.",
+    packing_review: true,
     name: "SSM-018 Clear Square Box",
     category: "Square",
     material: "PS",
-    size_cm: "10 × 10 × 7.5 cm",
+    size_cm: "10.5 × 10.5 × 6 cm",
     // Capacity follows the supplied PDF table, confirmed by the owner on 2026-10-06.
     capacity_ml: 550,
     shape: "Square",
     // User-supplied catalogue table, PDF p.2; reviewed 2026-10-06. Not internal measurements.
     wholesale_moq: "5 cartons",
-    carton_size_cm: "10 × 10 × 7.5 cm",
+    carton_size_cm: "67 × 40 × 45 cm",
     qty_per_ctn: 144,
     best_for: "medium square dessert box and tall tiramisu",
     custom_options: "Paper sleeves, logo stickers, ribbons, cocoa stencils",
@@ -305,6 +312,8 @@ const PRODUCTS = [
   },
   {
     sku: "HK-40117",
+    review_note: "Confirm the exact model and external dimensions before ordering; image and catalogue lengths differ.",
+    dimension_review: true,
     name: "HK-40117 Clear PS Tray / Box (40x11)",
     category: "Rectangular",
     material: "PS",

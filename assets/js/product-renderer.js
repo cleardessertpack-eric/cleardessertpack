@@ -28,16 +28,17 @@ const ProductRenderer = {
         <article class="product-card" id="${product.sku.toLowerCase()}" data-material="${product.material.toLowerCase()}" style="display:flex;flex-direction:column;justify-content:space-between;height:100%">
           <div>
             <div class="product-media" style="background:#fff;display:flex;align-items:center;justify-content:center;padding:12px;height:190px;border-bottom:1px solid var(--line)">
-              <img src="${product.image}" alt="${product.name} - ${product.size_cm}, ${product.capacity_ml}ml" width="600" height="600" style="max-width:100%;max-height:100%;object-fit:contain" loading="lazy" />
+              <img src="${product.image}" alt="${product.name} - ${product.dimension_review ? "dimensions subject to confirmation" : product.size_cm}" width="600" height="600" style="max-width:100%;max-height:100%;object-fit:contain" loading="lazy" />
             </div>
             <div class="product-body" style="padding:18px">
               <span class="tag" style="background:var(--mint);color:var(--ink);font-weight:900;margin-bottom:8px">${product.material} Material</span>
               <h3 style="font-size:15px;line-height:1.35;margin:0 0 8px;color:var(--ink);font-weight:900">${product.name}</h3>
               <ul class="specs" style="list-style:none;padding:0;margin:0;font-size:12px;line-height:1.45;color:var(--muted)">
                 <li><strong>Item:</strong> ${product.sku}</li>
-                <li><strong>Size:</strong> ${product.size_cm}</li>
-                <li><strong>Volume:</strong> ${product.capacity_ml} ml${product.specification_review ? " — confirm version" : ""}</li>
-                <li><strong>QTY/CTN:</strong> ${product.qty_per_ctn} pcs</li>
+                <li><strong>Size:</strong> ${product.dimension_review ? "Confirm dimensions" : product.size_cm}</li>
+                <li><strong>Volume:</strong> ${product.specification_review ? "Confirm capacity" : product.capacity_ml + " ml"}</li>
+                <li><strong>QTY/CTN:</strong> ${product.packing_review ? "Confirm packing" : product.qty_per_ctn + " pcs"}</li>
+                ${product.review_note ? `<li class="spec-review"><strong>Before ordering:</strong> ${product.review_note}</li>` : ""}
                 <li><strong>Best for:</strong> ${product.best_for}</li>
               </ul>
             </div>
@@ -80,9 +81,9 @@ const ProductRenderer = {
       html += `
         <tr style="border-bottom: 1px solid var(--line);">
           <td style="padding: 14px; font-weight: bold; color: var(--coffee); font-size: 14px;">${product.sku}</td>
-          <td style="padding: 14px; color: var(--ink); font-weight: bold; font-size: 14px;">${product.size_cm}</td>
-          <td style="padding: 14px; color: var(--caramel); font-weight: bold; font-size: 14px;">${product.capacity_ml} ml</td>
-          <td style="padding: 14px; font-size: 14px; color: var(--ink);">${product.qty_per_ctn} pcs/ctn</td>
+          <td style="padding: 14px; color: var(--ink); font-weight: bold; font-size: 14px;">${product.dimension_review ? "Confirm dimensions" : product.size_cm}</td>
+          <td style="padding: 14px; color: var(--caramel); font-weight: bold; font-size: 14px;">${product.specification_review ? "Confirm capacity" : product.capacity_ml + " ml"}</td>
+          <td style="padding: 14px; font-size: 14px; color: var(--ink);">${product.packing_review ? "Confirm packing" : product.qty_per_ctn + " pcs/ctn"}</td>
           <td style="padding: 14px;"><span class="tag" style="margin: 0; background: var(--mint); color: var(--coffee); font-size: 12px;">${product.material}</span></td>
           <td style="padding: 14px; color: var(--ink); font-size: 14px;">${product.shape}</td>
           <td style="padding: 14px; font-size: 13px; color: var(--muted);">${product.best_for}</td>
@@ -129,8 +130,8 @@ const ProductRenderer = {
               <span class="tag" style="background: var(--mint); color: var(--coffee); font-weight: 900; margin-bottom: 8px;">${product.material} Material</span>
               <h3 style="font-size: 18px; margin: 0 0 10px; color: var(--coffee); font-weight: 900;">${product.sku} ${product.shape.split(' ')[0]} Box</h3>
               <ul class="specs" style="list-style: none; padding: 0; margin: 0 0 16px; font-size: 14px; line-height: 1.6; color: var(--muted);">
-                <li style="margin-bottom: 4px; padding-left: 14px; position: relative;"><span style="position: absolute; left: 0; color: var(--caramel);">•</span><strong>Size:</strong> ${product.size_cm}</li>
-                <li style="margin-bottom: 4px; padding-left: 14px; position: relative;"><span style="position: absolute; left: 0; color: var(--caramel);">•</span><strong>Capacity:</strong> ${product.capacity_ml}ml</li>
+                <li style="margin-bottom: 4px; padding-left: 14px; position: relative;"><span style="position: absolute; left: 0; color: var(--caramel);">•</span><strong>Size:</strong> ${product.dimension_review ? "Confirm dimensions" : product.size_cm}</li>
+                <li style="margin-bottom: 4px; padding-left: 14px; position: relative;"><span style="position: absolute; left: 0; color: var(--caramel);">•</span><strong>Capacity:</strong> ${product.specification_review ? "Confirm capacity" : product.capacity_ml + "ml"}</li>
                 <li style="margin-bottom: 4px; padding-left: 14px; position: relative;"><span style="position: absolute; left: 0; color: var(--caramel);">•</span><strong>Perfect for:</strong> ${product.best_for}</li>
               </ul>
             </div>

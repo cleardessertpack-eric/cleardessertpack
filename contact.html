@@ -114,7 +114,7 @@
             <div class="cdp-field"><label for="contact-inquiry-form-company">Company *</label><input id="contact-inquiry-form-company" name="company" required autocomplete="organization" placeholder="Company name" /></div>
             <div class="cdp-field"><label for="contact-inquiry-form-email">Business email / WhatsApp *</label><input id="contact-inquiry-form-email" name="contact" required autocomplete="email" placeholder="name@company.com or WhatsApp" /></div>
             <div class="cdp-field"><label for="contact-inquiry-form-market">Destination market</label><select id="contact-inquiry-form-market" name="country"><option value="" selected>Select destination market</option><option>United Kingdom</option><option>Australia</option><option>United States</option><option>Canada</option><option>Other market</option></select></div>
-            <div class="cdp-field"><label for="contact-inquiry-form-product">Product interest</label><select id="contact-inquiry-form-product" name="product"><option>Rectangular tiramisu box</option><option>Square dessert cup</option><option>Mini dessert cups</option><option>Family / catering tray</option><option>Dome-lid cup</option><option>Custom packaging project</option></select></div>
+            <div class="cdp-field"><label for="contact-inquiry-form-product">Product interest</label><select id="contact-inquiry-form-product" name="product"><option value="" selected>Select product type</option><option>Rectangular tiramisu box</option><option>Round dessert container</option><option>Oval glass dish</option><option>Square dessert cup</option><option>Mini dessert cups</option><option>Family / catering tray</option><option>Dome-lid cup</option><option>Custom packaging project</option></select></div>
             <div class="cdp-field"><label for="contact-inquiry-form-quantity">Estimated quantity</label><select id="contact-inquiry-form-quantity" name="quantity"><option value="" selected>Not confirmed yet</option><option value="5">5 pcs (sample enquiry)</option><option>Carton order — specify quantity below</option><option>10,000–50,000 pcs</option><option>50,000–100,000 pcs</option><option>100,000+ pcs</option></select></div>
             <div class="cdp-field cdp-full"><label for="contact-inquiry-form-message">Project details *</label><textarea id="contact-inquiry-form-message" name="message" required placeholder="Size, capacity, lid style, branding, annual volume, destination postcode..."></textarea></div>
           </div>
@@ -130,7 +130,7 @@
     <div class="cdp-container">
       <div class="footer-grid">
         <div class="footer-logo">
-          <img src="/assets/img/brand/clear-dessert-pack-logo.webp" alt="Clear Dessert Pack logo"  />
+          <img height="178" width="500" src="/assets/img/brand/clear-dessert-pack-logo.webp" alt="Clear Dessert Pack logo"  />
           <p>Clear Dessert Pack provides clear dessert packaging and custom branding solutions for bakeries, dessert brands, wedding caterers and foodservice distributors.</p>
         </div>
         <div>
@@ -167,41 +167,7 @@
     Chat on WhatsApp
   </a>
   <script src="assets/js/main.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const urlParams = new URLSearchParams(window.location.search);
-      const sku = urlParams.get('sku');
-      const product = urlParams.get('product');
 
-      if (sku) {
-        const itemField = document.querySelector('input[name="item_no"]');
-        if (itemField) itemField.value = sku.toUpperCase().slice(0,100);
-        const messageField = document.querySelector('textarea[name="message"]');
-        if (messageField) {
-          messageField.value = `Hi, I am interested in SKU: ${sku.toUpperCase()}. Please send me pricing, MOQ, and sample details.`;
-        }
-        const productSelect = document.querySelector('select[name="product"]');
-        if (productSelect) {
-          for (let option of productSelect.options) {
-            if (option.text.toLowerCase().includes("box") || option.text.toLowerCase().includes("container")) {
-              option.selected = true;
-              break;
-            }
-          }
-        }
-      } else if (product) {
-        const productSelect = document.querySelector('select[name="product"]');
-        if (productSelect) {
-          for (let option of productSelect.options) {
-            if (option.value.toLowerCase().includes(product.toLowerCase()) || option.text.toLowerCase().includes(product.toLowerCase())) {
-              option.selected = true;
-              break;
-            }
-          }
-        }
-      }
-    });
-  </script>
   <script src="/assets/js/site-components.js" defer></script>
 </body>
 </html>

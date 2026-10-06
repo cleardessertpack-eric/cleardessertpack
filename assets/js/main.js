@@ -21,7 +21,22 @@ document.addEventListener("DOMContentLoaded", function () {
   const PUBLIC_EMAIL = "cleardessertpack@gmail.com";
   const OBSOLETE_EMAIL = /\b(?:sales|enquiries)@cleardessertpack\.com/ig;
   const FORM_ENDPOINT = "/api/inquiry";
-  const mobileEmailMode = window.matchMedia && window.matchMedia("(max-width: 820px)").matches;
+  // Session attribution contains no form values and does not identify visitors.
+  const attribution = (() => {
+    const key = "cdp-rfq-source-v1";
+    const params = new URLSearchParams(window.location.search);
+    let previous;
+    try { previous = JSON.parse(sessionStorage.getItem(key)); } catch (_) {}
+    if (previous && Date.now() - previous.captured_at < 86400000) return previous;
+    let referrer = "";
+    try { referrer = new URL(document.referrer).origin; } catch (_) {}
+    const value = { captured_at: Date.now(), landing_page: window.location.pathname, referrer };
+    ["utm_source", "utm_medium", "utm_campaign"].forEach(key => {
+      value[key] = (params.get(key) || "").slice(0, 120);
+    });
+    try { sessionStorage.setItem(key, JSON.stringify(value)); } catch (_) {}
+    return value;
+  })();
 
   // Keep one public enquiry mailbox across legacy and current pages.
   document.querySelectorAll('a[href^="mailto:"]').forEach((link) => {
@@ -175,7 +190,12 @@ document.addEventListener("DOMContentLoaded", function () {
       website: data.get("website") || "",
       started_at: startedAt,
       submission_id: submissionId,
-      source: window.location.href
+      source: window.location.origin + window.location.pathname,
+      landing_page: attribution.landing_page,
+      referrer: attribution.referrer,
+      utm_source: attribution.utm_source,
+      utm_medium: attribution.utm_medium,
+      utm_campaign: attribution.utm_campaign
     };
   }
 
@@ -208,9 +228,32 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function trackEvent(name, params) {
+    // Only controlled metadata. Never send names, contact details, messages or URL query strings.
+    const data = Object.assign({ source_page: window.location.pathname }, params || {});
+    delete data.link_url;
     window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push(Object.assign({ event: name }, params || {}));
-    if (typeof gtag === "function") gtag("event", name, params || {});
+    window.dataLayer.push(Object.assign({ event: name }, data));
+    try { if (typeof window.va === "function") window.va("event", { name, data }); } catch (_) {}
+    try { if (typeof window.gtag === "function") window.gtag("event", name, data); } catch (_) {}
+  }
+
+  function prefillSku(form, rawSku) {
+    const sku = String(rawSku || "").toUpperCase().replace(/[^A-Z0-9-]/g, "").slice(0, 40);
+    if (!sku) return;
+    const item = form.querySelector('[name="item_no"]');
+    const select = form.querySelector('[name="product"]');
+    const message = form.querySelector('[name="message"]');
+    const squares = ["SSM-004", "SSM-205", "SSM-024", "SSM-018"];
+    const rectangles = ["HK-28188", "HK-21157", "E1300", "SM-040", "SSM-045", "SSM-002", "SSM-012", "SSM-028", "HK-37106"];
+    const product = sku === "SSM-016" ? "Round dessert container" : squares.includes(sku) ? "Square dessert cup" :
+      /^OGBD-/.test(sku) ? "Oval glass dish" : ["HK-034", "HK-30117", "HK-40117"].includes(sku) ? "Family / catering tray" :
+      rectangles.includes(sku) ? "Rectangular tiramisu box" : "";
+    if (item) item.value = sku;
+    if (select) select.value = product;
+    if (message && (!message.value.trim() || message.dataset.prefilled === message.value)) {
+      message.value = `Hi, I am interested in SKU: ${sku}. Please confirm dimensions, capacity, MOQ, carton packing and sample details.`;
+      message.dataset.prefilled = message.value;
+    }
   }
 
   function createSubmissionId() {
@@ -225,14 +268,7 @@ document.addEventListener("DOMContentLoaded", function () {
     link.addEventListener('click', () => {
       const form = document.getElementById('quoteForm');
       if (!form) return;
-      const sku = link.dataset.quoteSku;
-      const item = form.querySelector('[name="item_no"]');
-      const message = form.querySelector('[name="message"]');
-      if (item) item.value = sku;
-      if (message && (!message.value.trim() || message.dataset.prefilled === message.value)) {
-        message.value = `Hi, I am interested in SKU: ${sku}. Please send me pricing, MOQ, packing and sample details.`;
-        message.dataset.prefilled = message.value;
-      }
+      prefillSku(form, link.dataset.quoteSku);
     });
   });
   forms.forEach((form) => {
@@ -250,37 +286,42 @@ document.addEventListener("DOMContentLoaded", function () {
     let submissionId = createSubmissionId();
     const submitBtn = form.querySelector('button[type="submit"]');
 
-    if (mobileEmailMode) {
-      form.setAttribute("novalidate", "novalidate");
-      if (submitBtn) {
-        submitBtn.textContent = "Email for Custom Quote";
-        submitBtn.setAttribute("aria-label", `Open your email app to send a quote request to ${PUBLIC_EMAIL}`);
-      }
-      const directButton = document.createElement('button');
-      directButton.type = 'submit';
-      directButton.dataset.directInquiry = 'true';
-      directButton.className = 'btn mobile-direct-inquiry';
-      directButton.textContent = 'Send directly from this page';
-      directButton.style.cssText = 'display:flex;width:100%;margin-top:12px;justify-content:center;white-space:normal';
-      form.appendChild(directButton);
+    const params = new URLSearchParams(window.location.search);
+    prefillSku(form, params.get("sku"));
+    if (!params.get("sku") && params.get("product")) {
+      const select = form.querySelector('[name="product"]');
+      const match = select && Array.from(select.options).find(option => option.value && option.value.toLowerCase().includes(params.get("product").toLowerCase()));
+      if (match) select.value = match.value;
     }
+    let formStarted = false;
+    form.addEventListener("input", () => {
+      if (formStarted) return;
+      formStarted = true;
+      trackEvent("form_start", { form_id: form.id });
+    });
+    let validationReported = false;
+    form.addEventListener("invalid", () => {
+      if (validationReported) return;
+      validationReported = true;
+      trackEvent("form_error", { form_id: form.id, error_type: "validation" });
+      setTimeout(() => { validationReported = false; }, 0);
+    }, true);
+    // Direct submission works on mobile without requiring a configured mail app.
+    const emailButton = document.createElement("button");
+    emailButton.type = "button";
+    emailButton.className = "btn mobile-email-inquiry";
+    emailButton.textContent = "Or use your email app";
+    emailButton.style.cssText = "display:flex;width:100%;margin-top:12px;justify-content:center;white-space:normal";
+    emailButton.addEventListener("click", () => {
+      trackEvent("email_quote_open", { form_id: form.id });
+      window.location.href = buildMobileMailto(buildPayload(form, startedAt, submissionId));
+    });
+    form.appendChild(emailButton);
 
     form.addEventListener("submit", async function (e) {
       e.preventDefault();
       if (form.dataset.sending === 'true') return;
-      const directSubmit = e.submitter && e.submitter.dataset.directInquiry === 'true';
       const payload = buildPayload(form, startedAt, submissionId);
-
-      // Mobile: hand off to the buyer's own email app. Do not claim the email was sent.
-      if (mobileEmailMode && !directSubmit) {
-        trackEvent("mobile_email_quote", {
-          email_address: PUBLIC_EMAIL,
-          product: payload.product || "",
-          source_page: window.location.pathname
-        });
-        window.location.href = buildMobileMailto(payload);
-        return;
-      }
 
       if (!form.reportValidity()) return;
       form.dataset.sending = 'true';
@@ -307,9 +348,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
         trackEvent("form_submit", {
           form_id: form.id || "wholesale-inquiry-form",
-          form_name: form.getAttribute("name") || "Wholesale Inquiry Form"
+          form_name: form.getAttribute("name") || "Wholesale Inquiry Form",
+          product_type: payload.product,
+          market: payload.country,
+          sku: String(payload.item_no).replace(/[^A-Z0-9-]/g, "").slice(0, 40)
         });
-        trackGoogleAdsConversion(10);
+        trackEvent("rfq_success", { form_id: form.id, product_type: payload.product, market: payload.country, sku: String(payload.item_no).replace(/[^A-Z0-9-]/g, "").slice(0, 40) });
 
         showFormMessage(
           form,
@@ -317,8 +361,11 @@ document.addEventListener("DOMContentLoaded", function () {
           "Thank you. Your enquiry has been sent successfully. We normally reply within one business day."
         );
         form.reset();
+        formStarted = false;
+        prefillSku(form, params.get("sku"));
         submissionId = createSubmissionId();
       } catch (error) {
+        trackEvent("form_error", { form_id: form.id, error_type: "delivery" });
         showFormMessage(
           form,
           "error",
@@ -413,8 +460,3 @@ Message: ${message}`;
     }
   });
 });
-
-// Google Ads Conversion Tracking Placeholder Function
-function trackGoogleAdsConversion(value = 0) {
-  console.log('Google Ads Conversion Tracked with value:', value);
-}

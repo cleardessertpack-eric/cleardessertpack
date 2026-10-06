@@ -21,8 +21,8 @@ async function submit(contact, provider = { ok: true, status: 200, data: { id: '
   };
   try {
     await handler({ method: 'POST', headers: { origin: 'https://www.cleardessertpack.com' }, body: {
-      name: 'Routing regression test', contact, to: 'untrusted@example.com',
-      message: '<script>unsafe</script>',
+      started_at: Date.now() - 5000, name: 'Routing regression test', contact, to: 'untrusted@example.com',
+      message: '<script>unsafe</script>', landing_page: '/products', referrer: 'https://example.com', utm_source: 'source-fixture', utm_medium: 'campaign-fixture', utm_campaign: 'october-fixture',
     } }, res);
     return { res, sent };
   } finally {
@@ -67,4 +67,31 @@ test('provider rejection never reports success', async () => {
 test('a provider response without an email ID never reports success', async () => {
   const { res } = await submit('buyer@example.com', { ok: true, status: 200, data: {} });
   assert.equal(res.statusCode, 502);
+});
+
+
+test('RFQ notification preserves acquisition context without changing recipient', async () => {
+  const { sent } = await submit('buyer@example.com');
+  assert.match(sent.text, /Landing page: \/products/);
+  assert.match(sent.text, /source-fixture \/ campaign-fixture \/ october-fixture/);
+  assert.deepEqual(sent.to, ['cleardessertpack@gmail.com']);
+});
+
+test('invalid origins and absent or premature timestamps cannot reach the email provider', async () => {
+  const original = global.fetch;
+  let calls = 0;
+  global.fetch = async () => { calls++; throw new Error('must not send'); };
+  try {
+    for (const [origin, started_at, expected] of [
+      ['https://unrelated-project.vercel.app', Date.now()-5000, 403],
+      [undefined, Date.now()-5000, 403],
+      ['https://www.cleardessertpack.com', undefined, 400],
+      ['https://www.cleardessertpack.com', Date.now()+5000, 429],
+    ]) {
+      const res = { setHeader() {}, status(code) { this.code=code; return this; }, json(value) { this.body=value; } };
+      await handler({method:'POST',headers:{origin},body:{name:'Local QA',contact:'test@example.com',started_at}},res);
+      assert.equal(res.code,expected);
+    }
+    assert.equal(calls,0);
+  } finally { global.fetch=original; }
 });
