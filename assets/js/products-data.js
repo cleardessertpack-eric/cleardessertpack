@@ -67,8 +67,8 @@ const PRODUCTS = [
     category: "Round",
     material: "PS",
     size_cm: "Ø12.2 × 5.5 cm",
-    specification_review: true,
-    capacity_ml: 600,
+    // Capacity follows the supplied PDF table, confirmed by the owner on 2026-10-06.
+    capacity_ml: 500,
     shape: "Round",
     // User-supplied catalogue table, PDF p.2; reviewed 2026-10-06. Not internal measurements.
     wholesale_moq: "5 cartons",
@@ -78,8 +78,8 @@ const PRODUCTS = [
     custom_options: "Paper sleeves, logo stickers, ribbons, cocoa stencils",
     image: "assets/img/products/ssm-016-clear-round-dessert-container-600ml.webp",
     slug: "ssm-016-clear-round-dessert-container-600ml",
-    meta_title: "SSM-016 Clear Round Dessert Container (600ml) | Wholesale",
-    meta_description: "600ml Clear Round Dessert Container in food-grade PS, ideal for round tiramisu, mousse cake and premium desserts."
+    meta_title: "SSM-016 Clear Round Dessert Container (500ml) | Wholesale",
+    meta_description: "500ml Clear Round Dessert Container in food-grade PS, ideal for round tiramisu, mousse cake and premium desserts."
   },
   {
     sku: "SSM-004",
@@ -160,8 +160,8 @@ const PRODUCTS = [
     category: "Rectangular",
     material: "PS",
     size_cm: "11.8 × 6 × 5.1 cm",
-    specification_review: true,
-    capacity_ml: 300,
+    // Capacity follows the supplied PDF table, confirmed by the owner on 2026-10-06.
+    capacity_ml: 240,
     shape: "Rectangular",
     // User-supplied catalogue table, PDF p.3; reviewed 2026-10-06. Not internal measurements.
     wholesale_moq: "5 cartons",
@@ -170,8 +170,8 @@ const PRODUCTS = [
     custom_options: "Paper sleeves, logo stickers, ribbons, cocoa stencils",
     image: "assets/img/products/ssm-002-clear-rectangular-box-300ml.webp",
     slug: "ssm-002-clear-rectangular-box-300ml",
-    meta_title: "SSM-002 Clear Rectangular Box (300ml) | Wholesale",
-    meta_description: "300ml Rectangular Clear Dessert Box in food-grade PS, ideal for small dessert box and tiramisu portions."
+    meta_title: "SSM-002 Clear Rectangular Box (240ml) | Wholesale",
+    meta_description: "240ml Rectangular Clear Dessert Box in food-grade PS, ideal for small dessert box and tiramisu portions."
   },
   {
     sku: "SSM-012",
@@ -179,8 +179,8 @@ const PRODUCTS = [
     category: "Rectangular",
     material: "PS",
     size_cm: "11.8 × 6 × 7 cm",
-    specification_review: true,
-    capacity_ml: 400,
+    // Capacity follows the supplied PDF table, confirmed by the owner on 2026-10-06.
+    capacity_ml: 350,
     shape: "Rectangular",
     // User-supplied catalogue table, PDF p.3; reviewed 2026-10-06. Not internal measurements.
     wholesale_moq: "5 cartons",
@@ -189,8 +189,8 @@ const PRODUCTS = [
     custom_options: "Paper sleeves, logo stickers, ribbons, cocoa stencils",
     image: "assets/img/products/ssm-012-clear-rectangular-box-400ml.webp",
     slug: "ssm-012-clear-rectangular-box-400ml",
-    meta_title: "SSM-012 Clear Rectangular Box (400ml) | Wholesale",
-    meta_description: "400ml Rectangular Clear Dessert Box in food-grade PS, ideal for small dessert box and tall tiramisu."
+    meta_title: "SSM-012 Clear Rectangular Box (350ml) | Wholesale",
+    meta_description: "350ml Rectangular Clear Dessert Box in food-grade PS, ideal for small dessert box and tall tiramisu."
   },
   {
     sku: "SSM-205",
@@ -198,8 +198,8 @@ const PRODUCTS = [
     category: "Square",
     material: "PS",
     size_cm: "8.5 × 8.5 × 6.3 cm",
-    specification_review: true,
-    capacity_ml: 380,
+    // Capacity follows the supplied PDF table, confirmed by the owner on 2026-10-06.
+    capacity_ml: 350,
     shape: "Square",
     // User-supplied catalogue table, PDF p.3; reviewed 2026-10-06. Not internal measurements.
     wholesale_moq: "5 cartons",
@@ -208,8 +208,8 @@ const PRODUCTS = [
     custom_options: "Paper sleeves, logo stickers, ribbons, cocoa stencils",
     image: "assets/img/products/ssm-205-clear-square-box-380ml.webp",
     slug: "ssm-205-clear-square-box-380ml",
-    meta_title: "SSM-205 Clear Square Box (380ml) | Wholesale",
-    meta_description: "380ml Square Clear Dessert Box in food-grade PS, ideal for small dessert box and mousse cake."
+    meta_title: "SSM-205 Clear Square Box (350ml) | Wholesale",
+    meta_description: "350ml Square Clear Dessert Box in food-grade PS, ideal for small dessert box and mousse cake."
   },
   {
     sku: "SSM-028",
@@ -217,8 +217,8 @@ const PRODUCTS = [
     category: "Rectangular",
     material: "PS",
     size_cm: "15.6 × 8.5 × 7.2 cm",
-    specification_review: true,
-    capacity_ml: 500,
+    // Capacity follows the supplied PDF table, confirmed by the owner on 2026-10-06.
+    capacity_ml: 550,
     shape: "Rectangular",
     // User-supplied catalogue table, PDF p.2; reviewed 2026-10-06. Not internal measurements.
     wholesale_moq: "5 cartons",
@@ -228,8 +228,8 @@ const PRODUCTS = [
     custom_options: "Paper sleeves, logo stickers, ribbons, cocoa stencils",
     image: "assets/img/products/ssm-028-clear-rectangular-box-500ml.webp",
     slug: "ssm-028-clear-rectangular-box-500ml",
-    meta_title: "SSM-028 Clear Rectangular Box (500ml) | Wholesale",
-    meta_description: "500ml Rectangular Clear Dessert Box in food-grade PS, ideal for medium rectangular dessert box and cake packaging."
+    meta_title: "SSM-028 Clear Rectangular Box (550ml) | Wholesale",
+    meta_description: "550ml Rectangular Clear Dessert Box in food-grade PS, ideal for medium rectangular dessert box and cake packaging."
   },
   {
     sku: "SSM-024",
@@ -253,8 +253,8 @@ const PRODUCTS = [
     category: "Square",
     material: "PS",
     size_cm: "10 × 10 × 7.5 cm",
-    specification_review: true,
-    capacity_ml: 500,
+    // Capacity follows the supplied PDF table, confirmed by the owner on 2026-10-06.
+    capacity_ml: 550,
     shape: "Square",
     // User-supplied catalogue table, PDF p.2; reviewed 2026-10-06. Not internal measurements.
     wholesale_moq: "5 cartons",
@@ -264,8 +264,8 @@ const PRODUCTS = [
     custom_options: "Paper sleeves, logo stickers, ribbons, cocoa stencils",
     image: "assets/img/products/ssm-018-clear-square-box-500ml.webp",
     slug: "ssm-018-clear-square-box-500ml",
-    meta_title: "SSM-018 Clear Square Box (500ml) | Wholesale",
-    meta_description: "500ml Square Clear Dessert Box in food-grade PS, ideal for medium square dessert box and tall tiramisu."
+    meta_title: "SSM-018 Clear Square Box (550ml) | Wholesale",
+    meta_description: "550ml Square Clear Dessert Box in food-grade PS, ideal for medium square dessert box and tall tiramisu."
   },
   {
     sku: "HK-37106",
@@ -273,8 +273,8 @@ const PRODUCTS = [
     category: "Rectangular",
     material: "PS",
     size_cm: "37 × 10 × 6 cm",
-    specification_review: true,
-    capacity_ml: 1300,
+    // Capacity follows the supplied PDF table, confirmed by the owner on 2026-10-06.
+    capacity_ml: 1800,
     shape: "Rectangular",
     // User-supplied catalogue table, PDF p.6; reviewed 2026-10-06. Not internal measurements.
     wholesale_moq: "500 pieces",
@@ -284,8 +284,8 @@ const PRODUCTS = [
     custom_options: "Paper sleeves, logo stickers, ribbons, cocoa stencils",
     image: "assets/img/products/hk-37106-clear-tiramisu-box-1300ml.webp",
     slug: "hk-37106-clear-tiramisu-box-1300ml",
-    meta_title: "HK-37106 Clear Tiramisu Box (1300ml) | Wholesale",
-    meta_description: "1300ml Rectangular Clear Dessert Box in food-grade PS, ideal for medium tiramisu box and bakery takeaway."
+    meta_title: "HK-37106 Clear Tiramisu Box (1800ml) | Wholesale",
+    meta_description: "1800ml Rectangular Clear Dessert Box in food-grade PS, ideal for medium tiramisu box and bakery takeaway."
   },
   {
     sku: "HK-30117",
