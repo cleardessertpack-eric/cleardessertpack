@@ -1,6 +1,7 @@
 /* Compact size chart page. Scoped to avoid changing other category pages. */
 .sizes-page .size-page{background:#fff}
 .sizes-page .size-shell{width:min(1120px,calc(100% - 40px));margin:0 auto;padding:24px 0 64px}
+.sizes-page .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .sizes-page .size-breadcrumb{display:flex;align-items:center;gap:10px;color:#75828a;font-size:12px;line-height:1.5;margin-bottom:25px}
 .sizes-page .size-breadcrumb a:hover{color:var(--red)}
 .sizes-page .size-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:29px}
@@ -20,10 +21,10 @@
 .sizes-page .size-table{width:100%;min-width:815px;border-collapse:collapse;text-align:left;font-size:13px;line-height:1.4}
 .sizes-page .size-table thead{background:#f7f8f8;color:#5c6870}
 .sizes-page .size-table th,.sizes-page .size-table td{padding:11px 13px;vertical-align:middle;border-bottom:1px solid #edf0f1}
-.sizes-page .size-table thead th{font-weight:700;font-size:11px;letter-spacing:.03em;white-space:nowrap}
+.sizes-page .size-table thead th{background:#f7f8f8;color:#58656d;font-weight:700;font-size:11px;letter-spacing:.03em;white-space:nowrap}
 .sizes-page .size-table tbody tr:last-child th,.sizes-page .size-table tbody tr:last-child td{border-bottom:0}
-.sizes-page .size-table tbody tr:hover{background:#fbf9f7}
-.sizes-page .size-table tbody th{font-weight:600;min-width:175px}
+.sizes-page .size-table tbody tr:hover,.sizes-page .size-table tbody tr:hover th{background:#fbf9f7}
+.sizes-page .size-table tbody th{background:#fff;color:#13212d;font-weight:600;min-width:175px}
 .sizes-page .size-table tbody td:nth-child(2),.sizes-page .size-table tbody td:nth-child(3),.sizes-page .size-table tbody td:nth-child(6){white-space:nowrap}
 .sizes-page .size-model{color:#13212d;font-weight:800}
 .sizes-page .size-model:hover,.sizes-page .size-quote-link:hover{color:#c9252a;text-decoration:underline}
