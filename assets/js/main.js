@@ -316,7 +316,7 @@ document.addEventListener("DOMContentLoaded", function () {
       trackEvent("email_quote_open", { form_id: form.id });
       window.location.href = buildMobileMailto(buildPayload(form, startedAt, submissionId));
     });
-    form.appendChild(emailButton);
+    if (!form.hasAttribute("data-compact-inquiry")) form.appendChild(emailButton);
 
     form.addEventListener("submit", async function (e) {
       e.preventDefault();

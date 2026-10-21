@@ -1,0 +1,10 @@
+<form class="cdp-inquiry" id="{{FORM_ID}}" name="Wholesale Inquiry Form" data-inquiry-form data-compact-inquiry>
+          <input type="hidden" name="item_no" value="" />
+          <select id="{{FORM_ID}}-product" hidden aria-hidden="true" name="product"><option value="" selected>Select product type</option><option>Rectangular tiramisu box</option><option>Round dessert container</option><option>Oval glass dish</option><option>Square dessert cup</option><option>Mini dessert cups</option><option>Family / catering tray</option><option>Dome-lid cup</option><option>Custom packaging project</option></select>
+          <div class="cdp-form-grid">
+            <div class="cdp-field"><label for="{{FORM_ID}}-name">Your name *</label><input id="{{FORM_ID}}-name" name="name" required autocomplete="name" placeholder="Your name" /></div>
+            <div class="cdp-field"><label for="{{FORM_ID}}-email">Email / WhatsApp *</label><input id="{{FORM_ID}}-email" name="contact" required autocomplete="email" placeholder="Email or WhatsApp number" /></div>
+            <div class="cdp-field cdp-full"><label for="{{FORM_ID}}-message">What do you need? <span style="font-weight:400">(optional)</span></label><textarea id="{{FORM_ID}}-message" name="message" placeholder="Box size, quantity or a product you like"></textarea></div>
+          </div>
+          <div class="cdp-form-foot"><small>We’ll only contact you about your enquiry.</small><button class="cdp-button cdp-primary" type="submit">Get a Quote</button></div>
+        </form>
