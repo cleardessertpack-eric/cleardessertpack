@@ -251,6 +251,8 @@
     .buying-guide-toggle::after{flex-shrink:0}
     .buying-guide-content{padding:0 24px 12px}
     .buying-guide-content>p{padding:0 0 18px;margin:0;color:var(--ink-soft)}
+    .buying-guide-content details>summary::after{content:"+"}
+    .buying-guide-content details[open]>summary::after{content:"–"}
     .buying-guide-content details:last-child{border-bottom:0}
     .buying-guide-content details p{padding-right:4px}
     @media(max-width:640px){
