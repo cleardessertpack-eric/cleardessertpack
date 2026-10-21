@@ -14,9 +14,9 @@
 .kits-page .kit-section-heading a{font-size:13px;font-weight:700;color:#be3036}
 .kits-page .kit-section-heading a:hover{text-decoration:underline;text-underline-offset:3px}
 .kits-page .kit-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-.kits-page .kit-card{display:grid;grid-template-columns:40% minmax(0,1fr);min-height:248px;overflow:hidden;border:1px solid #e5e9eb;border-radius:10px;background:#fff}
-.kits-page .kit-card-photo{min-width:0;background:#f5f1ed;overflow:hidden}
-.kits-page .kit-card-photo img{display:block;width:100%;height:100%;min-height:248px;object-fit:cover}
+.kits-page .kit-card{display:grid;grid-template-columns:40% minmax(0,1fr);height:252px;overflow:hidden;border:1px solid #e5e9eb;border-radius:10px;background:#fff}
+.kits-page .kit-card-photo{position:relative;min-width:0;background:#f5f1ed;overflow:hidden}
+.kits-page .kit-card-photo img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover}
 .kits-page .kit-card-content{display:flex;flex-direction:column;align-items:flex-start;padding:20px 21px 18px}
 .kits-page .kit-card-kicker{color:#bd3b3e;font-size:10px;font-weight:800;letter-spacing:.09em}
 .kits-page .kit-card h2{font-size:19px;letter-spacing:-.027em;line-height:1.25;margin:8px 0 5px}
@@ -51,14 +51,14 @@
   .kits-page .kit-heading h1{font-size:30px}
   .kits-page .kit-heading p{font-size:14px}
   .kits-page .kit-primary-link{align-self:flex-start}
-  .kits-page .kit-card{grid-template-columns:35% minmax(0,1fr);min-height:200px}
-  .kits-page .kit-card-photo img{min-height:200px}
+  .kits-page .kit-card{grid-template-columns:35% minmax(0,1fr);height:220px}
   .kits-page .kit-card-content{padding:15px}
   .kits-page .kit-card h2{font-size:17px}
   .kits-page .kit-bottom-cta{align-items:flex-start;flex-direction:column;padding:20px}
 }
 @media(max-width:420px){
-  .kits-page .kit-card{grid-template-columns:1fr}
-  .kits-page .kit-card-photo img{height:160px;min-height:0;object-fit:cover}
+  .kits-page .kit-card{grid-template-columns:1fr;height:auto}
+  .kits-page .kit-card-photo{height:160px}
+  .kits-page .kit-card-photo img{height:100%;object-fit:cover}
   .kits-page .kit-card-content{padding:16px}
 }
