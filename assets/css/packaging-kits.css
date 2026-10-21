@@ -1,0 +1,64 @@
+/* Focused packaging kit catalog. All rules are scoped to this page. */
+.kits-page .kit-page{background:#fff}
+.kits-page .kit-shell{width:min(1120px,calc(100% - 40px));margin:0 auto;padding:24px 0 64px}
+.kits-page .kit-breadcrumb{display:flex;align-items:center;gap:10px;color:#75828a;font-size:12px;line-height:1.5;margin-bottom:25px}
+.kits-page .kit-breadcrumb a:hover{color:var(--red)}
+.kits-page .kit-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:34px}
+.kits-page .kit-heading h1{font-size:clamp(30px,3.5vw,44px);line-height:1.13;letter-spacing:-.042em;margin:0 0 10px}
+.kits-page .kit-heading p{font-size:15px;color:#56646d;line-height:1.65;max-width:700px;margin:0}
+.kits-page .kit-primary-link{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:44px;padding:12px 18px;white-space:nowrap;border-radius:8px;background:#e83b3f;color:#fff;font-size:13px;font-weight:700;transition:background .2s ease}
+.kits-page .kit-primary-link:hover{background:#c9252a}
+.kits-page .kit-grid-section{padding:0}
+.kits-page .kit-section-heading{display:flex;justify-content:space-between;align-items:baseline;gap:18px;margin-bottom:14px}
+.kits-page .kit-section-heading h2{font-size:20px;letter-spacing:-.025em;margin:0}
+.kits-page .kit-section-heading a{font-size:13px;font-weight:700;color:#be3036}
+.kits-page .kit-section-heading a:hover{text-decoration:underline;text-underline-offset:3px}
+.kits-page .kit-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.kits-page .kit-card{display:grid;grid-template-columns:40% minmax(0,1fr);min-height:248px;overflow:hidden;border:1px solid #e5e9eb;border-radius:10px;background:#fff}
+.kits-page .kit-card-photo{min-width:0;background:#f5f1ed;overflow:hidden}
+.kits-page .kit-card-photo img{display:block;width:100%;height:100%;min-height:248px;object-fit:cover}
+.kits-page .kit-card-content{display:flex;flex-direction:column;align-items:flex-start;padding:20px 21px 18px}
+.kits-page .kit-card-kicker{color:#bd3b3e;font-size:10px;font-weight:800;letter-spacing:.09em}
+.kits-page .kit-card h2{font-size:19px;letter-spacing:-.027em;line-height:1.25;margin:8px 0 5px}
+.kits-page .kit-card p{color:#66747c;font-size:12px;line-height:1.5;margin:0 0 11px}
+.kits-page .kit-card ul{display:flex;flex-wrap:wrap;gap:5px 8px;list-style:none;padding:0;margin:0 0 17px}
+.kits-page .kit-card li{color:#43525a;font-size:11px;line-height:1.3}
+.kits-page .kit-card li:not(:last-child)::after{content:" ·";color:#99a3a8;padding-left:8px}
+.kits-page .kit-card-content>a{margin-top:auto;color:#c52b31;font-size:12px;font-weight:800}
+.kits-page .kit-card-content>a:hover{text-decoration:underline;text-underline-offset:3px}
+.kits-page .kit-availability{font-size:12px;line-height:1.6;color:#75828a;margin:13px 0 0}
+.kits-page .kit-faq-wrap{padding:22px 0 25px}
+.kits-page .kit-faq-group{border-top:1px solid #e5e9eb;border-bottom:1px solid #e5e9eb}
+.kits-page .kit-faq-group>summary{display:flex;justify-content:space-between;gap:16px;list-style:none;cursor:pointer;padding:15px 1px;font-weight:700;font-size:14px}
+.kits-page .kit-faq-group>summary::-webkit-details-marker{display:none}
+.kits-page .kit-faq-group>summary span{color:#839096;font-size:18px;font-weight:400;line-height:1}
+.kits-page .kit-faq-group[open]>summary span{transform:rotate(45deg)}
+.kits-page .kit-faq-list{max-width:850px;padding:0 1px 13px;font-size:13px}
+.kits-page .kit-faq-list details{border-top:1px solid #edf0f1}
+.kits-page .kit-faq-list summary{cursor:pointer;padding:10px 0;color:#23333d;font-weight:600}
+.kits-page .kit-faq-list p{color:#5b686f;line-height:1.7;margin:0;padding-bottom:12px}
+.kits-page .kit-bottom-cta{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:23px 25px;border:1px solid #e6e8e9;border-radius:9px;background:#faf9f7}
+.kits-page .kit-bottom-cta h2{font-size:18px;letter-spacing:-.02em;margin:0 0 4px}
+.kits-page .kit-bottom-cta p{font-size:13px;line-height:1.5;color:#64727a;margin:0}
+@media(max-width:900px){
+  .kits-page .kit-grid{grid-template-columns:1fr}
+  .kits-page .kit-card{grid-template-columns:34% minmax(0,1fr)}
+}
+@media(max-width:700px){
+  .kits-page .kit-shell{width:min(100% - 30px,1120px);padding:18px 0 48px}
+  .kits-page .kit-breadcrumb{margin-bottom:18px}
+  .kits-page .kit-heading{align-items:stretch;flex-direction:column;gap:16px;margin-bottom:27px}
+  .kits-page .kit-heading h1{font-size:30px}
+  .kits-page .kit-heading p{font-size:14px}
+  .kits-page .kit-primary-link{align-self:flex-start}
+  .kits-page .kit-card{grid-template-columns:35% minmax(0,1fr);min-height:200px}
+  .kits-page .kit-card-photo img{min-height:200px}
+  .kits-page .kit-card-content{padding:15px}
+  .kits-page .kit-card h2{font-size:17px}
+  .kits-page .kit-bottom-cta{align-items:flex-start;flex-direction:column;padding:20px}
+}
+@media(max-width:420px){
+  .kits-page .kit-card{grid-template-columns:1fr}
+  .kits-page .kit-card-photo img{height:160px;min-height:0;object-fit:cover}
+  .kits-page .kit-card-content{padding:16px}
+}
