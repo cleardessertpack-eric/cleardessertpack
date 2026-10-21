@@ -6,7 +6,7 @@ const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 const templates = Object.fromEntries(['site-header', 'site-footer', 'inquiry-form', 'inquiry-form-compact'].map(name => [name, read(`partials/${name}.html`).trim()]));
 const pages = [...read('sitemap.xml').matchAll(/<loc>(.*?)<\/loc>/g)].map(([, url]) => new URL(url).pathname);
 const activeSection = route => {
-  if (['/clear-dessert-box-sizes', '/packaging-kits', '/wholesale-tiramisu-boxes', '/transparent-plastic-dessert-boxes'].includes(route)) return '/products';
+  if (['/clear-dessert-box-sizes', '/packaging-kits', '/wholesale-tiramisu-boxes', '/transparent-plastic-dessert-boxes', '/glass-baking-dishes'].includes(route)) return '/products';
   if (route === '/applications') return '/factory';
   if (route.startsWith('/how-to-') || route === '/custom-dessert-packaging-guide' || route === '/eco-friendly-dessert-containers-bulk') return '/resources';
   return route;
