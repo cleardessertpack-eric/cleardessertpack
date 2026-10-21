@@ -242,22 +242,18 @@
     .quality-list span:last-child{border-bottom:0}
 
 
-    /* Compact buyer guide, between factory and FAQ. */
-    .buying-guide-section{padding:28px 0 0}
-    .buying-guide{max-width:900px;margin:0 auto;border:1px solid var(--line);border-radius:14px;background:var(--cream);overflow:hidden}
-    .buying-guide-toggle{padding:22px 24px;gap:20px}
-    .buying-guide-toggle strong{display:block;font-size:1.08rem;line-height:1.4}
-    .buying-guide-subtitle{display:block;margin-top:6px;color:var(--ink-soft);font:400 .94rem/1.6 "DM Sans",sans-serif}
-    .buying-guide-toggle::after{flex-shrink:0}
-    .buying-guide-content{padding:0 24px 12px}
-    .buying-guide-content>p{padding:0 0 18px;margin:0;color:var(--ink-soft)}
-    #tiramisu-buying-guide .buying-guide-content details>summary::after{content:"+"}
-    #tiramisu-buying-guide .buying-guide-content details[open]>summary::after{content:"–"}
-    .buying-guide-content details:last-child{border-bottom:0}
-    .buying-guide-content details p{padding-right:4px}
+    /* Compact buying tips, between factory and FAQ. */
+    .buying-guide-section{padding:48px 0 16px}
+    .buying-guide{border-top:1px solid var(--line);padding-top:36px}
+    .buying-guide h2{font-size:clamp(1.45rem,2.4vw,2rem);line-height:1.25;margin:0 0 28px}
+    .buying-tips{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px}
+    .buying-tips h3{font-size:1.05rem;margin:0 0 10px}
+    .buying-tips p{margin:0;color:var(--ink-soft);line-height:1.7}
+    .buying-guide-link{margin:26px 0 0}
     @media(max-width:640px){
-      .buying-guide-toggle{padding:18px}
-      .buying-guide-content{padding:0 18px 8px}
+      .buying-guide-section{padding-top:32px}
+      .buying-guide{padding-top:28px}
+      .buying-tips{grid-template-columns:1fr;gap:22px}
     }
 
     /* FAQ */
@@ -605,7 +601,7 @@
 
         <div class="product-grid">
           <article class="product-card"><div class="product-image"><span class="tag">Best seller</span><img height="800" width="800" src="assets/img/products/hk-28188-large-clear-tiramisu-box-4000ml.webp" alt="HK-28188 large clear tiramisu box 4000ml" loading="lazy" /></div><div class="product-body"><h3>HK-28188 Large Tiramisu Box</h3><p>4000ml PS tray for wedding desserts, sharing tiramisu and catering orders.</p><div class="product-meta"><span>28 × 18 × 8 cm</span><a class="arrow-link" href="#inquiry" data-quote-sku="HK-28188">Quote →</a></div></div></article>
-          <article class="product-card"><div class="product-image"><span class="tag">Family size</span><img height="800" width="800" src="assets/img/products/hk-21157-clear-tiramisu-container-1800ml.webp" alt="HK-21157 clear tiramisu container 1800ml" loading="lazy" /></div><div class="product-body"><h3>HK-21157 Tiramisu Container</h3><p>1800ml clear PS format for family-size desserts and bakery takeaway.</p><div class="product-meta"><span>21 × 15 × 7 cm</span><a class="arrow-link" href="#inquiry" data-quote-sku="HK-21157">Quote →</a></div></div></article>
+          <article class="product-card"><div class="product-image"><span class="tag">Family size</span><img height="800" width="800" src="assets/img/products/hk-21157-clear-tiramisu-container-1800ml.webp" alt="HK-21157 clear tiramisu container 1800ml" loading="lazy" /></div><div class="product-body"><h3>HK-21157 Clear Tiramisu Container</h3><p>1800ml clear PS format for family-size desserts and bakery takeaway.</p><div class="product-meta"><span>21 × 15 × 7 cm</span><a class="arrow-link" href="#inquiry" data-quote-sku="HK-21157">Quote →</a></div></div></article>
           <article class="product-card"><div class="product-image"><span class="tag">PET material</span><img height="800" width="800" src="assets/img/products/e1300-clear-pet-dessert-box-1300ml.webp" alt="E1300 clear PET dessert box 1300ml" loading="lazy" /></div><div class="product-body"><h3>E1300 Clear PET Dessert Box</h3><p>1300ml retail-ready container for standard tiramisu and chilled desserts.</p><div class="product-meta"><span>18 × 13 × 6.4 cm</span><a class="arrow-link" href="#inquiry" data-quote-sku="E1300">Quote →</a></div></div></article>
           <article class="product-card"><div class="product-image"><span class="tag">Round</span><img height="1254" width="1254" src="assets/img/products/ssm-016-clear-round-dessert-container-600ml.webp" alt="SSM-016 round clear dessert container 500ml" loading="lazy" /></div><div class="product-body"><h3>SSM-016 Round Container</h3><p>500ml PS container for mousse, mini cakes and premium round tiramisu.</p><div class="product-meta"><span>Ø12.2 × 5.5 cm</span><a class="arrow-link" href="#inquiry" data-quote-sku="SSM-016">Quote →</a></div></div></article>
           <article class="product-card"><div class="product-image"><span class="tag">Single serve</span><img height="800" width="800" src="assets/img/products/ssm-004-clear-square-box-450ml.webp" alt="SSM-004 clear square dessert box 450ml" loading="lazy" /></div><div class="product-body"><h3>SSM-004 Clear Square Box</h3><p>450ml compact box for single-serve tiramisu and tasting portions.</p><div class="product-meta"><span>9.5 × 9.5 × 6.3 cm</span><a class="arrow-link" href="#inquiry" data-quote-sku="SSM-004">Quote →</a></div></div></article>
@@ -702,24 +698,17 @@
       </div>
     </section>
 
-    <section class="buying-guide-section" aria-label="Tiramisu packaging buying guide">
+    <section class="buying-guide-section" aria-labelledby="buying-guide-title">
       <div class="container">
-        <details class="buying-guide" id="tiramisu-buying-guide">
-          <summary class="buying-guide-toggle">
-            <span><strong>How to choose your tiramisu packaging</strong><span class="buying-guide-subtitle">Compare sizes, check samples and plan your bulk order.</span></span>
-          </summary>
-          <div class="buying-guide-content">
-          <p>Use these checks to choose packaging for tiramisu before placing a bulk order. Start with fit, then test the lid, branding and packed carton. Open each step for the checks to make with your sample.</p>
-            <p><a class="arrow-link" href="/wholesale-tiramisu-boxes">Wholesale Tiramisu Box Guide →</a></p>
-          <details><summary>Box size</summary><p>Start with the dessert you sell. Measure its length, width and height with the topping in place. Leave space above the cream so the lid does not touch it. A volume in ml is a useful guide, but it does not show how your slice will fit. Check the usable space inside the box as well as the outside size.</p><p>For a single portion, compare the small boxes in the range above. For a shared dessert, look at the larger trays. Fill a sample to your normal serving level. Check that a spoon can reach the corners and that the dessert is easy to serve. Keep a note of the model you tested so a repeat order uses the same pack.</p></details>
-          <details><summary>Lid fit</summary><p>A clear tiramisu container should let buyers see the layers without the cream touching the lid. Press the lid into place around the full rim. Lift the closed pack as you would at the counter. Check that it stays closed during normal handling. A lid that fits well is not proof that a box is leakproof.</p><p>Test a filled sample through your own storage and delivery process. Place it in the bag or outer box you plan to use. Check for lid movement, marks and crushed toppings at the end of the trial. If you stack packs, test the height and weight of the stack. Ask us to confirm the intended use and temperature limits of the selected material.</p></details>
-          <details><summary>Branding</summary><p>Choose where your logo and food label will sit before you order print. Keep part of the clear lid or side free so buyers can see the dessert. Measure the closed box for a sleeve. Allow for the lid edge and any tabs. Test a plain sleeve on the sample to check that it stays in place.</p><p>For tiramisu box packaging with a label, try the label on the actual box surface. Check the result under the conditions in which you store and sell the dessert. Review the artwork at its real print size. Make sure small text is easy to read. Confirm the final box model before approving the print file; a change of size can change the sleeve fit.</p></details>
-          <details><summary>Order cost</summary><p>Compare quotes for the same box, lid and pack count. Check whether the price includes both parts. Ask how many sets are in each carton and whether the lids are packed on their own. The price per box is only one part of the cost. Freight depends on the size and weight of the packed order.</p><p>Share the delivery postcode and tell us whether the order is for a trial or repeat stock. Confirm the quoted shipping terms and what charges they cover. Ask for the carton size and gross weight before you book freight. Check how many cartons you can store. Keep the approved sample and the final order details so you can compare the goods when they arrive.</p></details>
-          <details><summary>Model comparison</summary><p>The sizes on the product cards are a starting point for a sample request. Compare boxes of a similar shape first. For example, SSM-002 and SSM-012 both list a length of 11.8 cm and a width of 6 cm. The listed heights are 5.1 cm and 7 cm. If you need more room for layers or a topping, ask to test both. Do not choose on volume alone. Check the space left once the lid is closed.</p><p>For a wider dessert, compare the SSM-004 square box with a tray that suits your slice shape. SSM-004 lists 450 ml and 9.5 × 9.5 × 6.3 cm. SM-040 lists 1250 ml and 20 × 13.6 × 5.5 cm. These are different formats, so test the portion you plan to sell in each one. A wider box may need a different serving tool or shelf space.</p><p>For a large shared dessert, the range includes HK-28188 at 4000 ml and HK-034 at 4500 ml. Their listed sizes are 28 × 18 × 8 cm and 37 × 20 × 7.2 cm. Compare the footprint with your tray, shelf and carry bag. Ask us to confirm whether the listed dimensions are outside measurements. If a lid, base or insert is critical to the fit, include it in the sample trial.</p></details>
-          <details><summary>Delivery checks</summary><p>Before a bulk order, make a short record for each sample you approve. Note the box model, material, lid style and pack size. Add a photo of the empty box and one of the filled dessert. Record what you tested and what passed. Share any changes you need before approving the order. Keep the sample in a safe place so your team can use it as a reference.</p><p>When goods arrive, compare the carton labels with your order. Check the carton count and look for damage to the outer packs. Open cartons from more than one part of the shipment. Compare the box and lid with your approved sample. Look for marks, cracks or a change in fit. Count the contents against the agreed pack count. Note the carton labels if you find a problem.</p><p>Take clear photos of any issue before you move the goods into stock. Include a view of the carton label and a close view of the affected part. Tell us how many cartons or pieces you checked and how many were affected. This gives our team clear information to review. For repeat orders, use the same model reference and approved artwork. Confirm any change in size, lid, print or packing before placing the next order.</p></details>
-
+        <div class="buying-guide" id="tiramisu-buying-guide">
+          <h2 id="buying-guide-title">How to choose your tiramisu packaging</h2>
+          <div class="buying-tips">
+            <div><h3>Choose your size</h3><p>Match the box to your portion and leave room for toppings.</p></div>
+            <div><h3>Check the lid</h3><p>Test a filled sample for fit, stacking and handling.</p></div>
+            <div><h3>Plan your branding</h3><p>Choose sleeves or labels that keep your dessert visible.</p></div>
           </div>
-        </details>
+          <p class="buying-guide-link"><a class="arrow-link" href="/wholesale-tiramisu-boxes#sample-checks">Read the buying guide →</a></p>
+        </div>
       </div>
     </section>
 
