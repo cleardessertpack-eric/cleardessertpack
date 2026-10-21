@@ -20,8 +20,8 @@ document.addEventListener('DOMContentLoaded', function () {
     groups.forEach(group => {
       const original = originals.get(group);
       const cards = original.map((card, order) => ({ card, order }));
-      if (value === 'capacity-asc') cards.sort((a, b) => Number(a.card.dataset.capacity) - Number(b.card.dataset.capacity) || a.order - b.order);
-      if (value === 'capacity-desc') cards.sort((a, b) => Number(b.card.dataset.capacity) - Number(a.card.dataset.capacity) || a.order - b.order);
+      if (value === 'capacity-asc') cards.sort((a, b) => (Number(a.card.dataset.capacity) || Number.POSITIVE_INFINITY) - (Number(b.card.dataset.capacity) || Number.POSITIVE_INFINITY) || a.order - b.order);
+      if (value === 'capacity-desc') cards.sort((a, b) => (Number(b.card.dataset.capacity) || -1) - (Number(a.card.dataset.capacity) || -1) || a.order - b.order);
       if (value === 'name') cards.sort((a, b) => a.card.dataset.name.localeCompare(b.card.dataset.name));
       const grid = group.querySelector('.wholesale-grid');
       cards.forEach(item => grid.appendChild(item.card));
