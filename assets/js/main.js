@@ -249,7 +249,7 @@ document.addEventListener("DOMContentLoaded", function () {
       /^OGBD-/.test(sku) ? "Oval glass dish" : ["HK-034", "HK-30117", "HK-40117"].includes(sku) ? "Family / catering tray" :
       rectangles.includes(sku) ? "Rectangular tiramisu box" : "";
     if (item) item.value = sku;
-    if (select) select.value = product;
+    if (select) select.value = select.tagName === "INPUT" ? `${product || "Product"} · ${sku}` : product;
     if (message && (!message.value.trim() || message.dataset.prefilled === message.value)) {
       message.value = `Hi, I am interested in SKU: ${sku}. Please confirm dimensions, capacity, MOQ, carton packing and sample details.`;
       message.dataset.prefilled = message.value;
@@ -288,11 +288,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const params = new URLSearchParams(window.location.search);
     prefillSku(form, params.get("sku"));
-    if (!params.get("sku") && params.get("product")) {
-      const select = form.querySelector('[name="product"]');
-      const match = select && Array.from(select.options).find(option => option.value && option.value.toLowerCase().includes(params.get("product").toLowerCase()));
-      if (match) select.value = match.value;
-    }
+    const prefillProduct = () => {
+      if (params.get("sku")) return;
+      const field = form.querySelector('[name="product"]');
+      const product = (params.get("product") || "").trim().slice(0, 120);
+      const kit = (params.get("kit") || "").trim().slice(0, 80);
+      if (field?.tagName === "INPUT") field.value = product || (kit ? `Packaging kit: ${kit.replace(/-/g, " ")}` : "");
+      else if (field && product) {
+        const match = Array.from(field.options).find(option => option.value && option.value.toLowerCase().includes(product.toLowerCase()));
+        if (match) field.value = match.value;
+      }
+    };
+    prefillProduct();
     let formStarted = false;
     form.addEventListener("input", () => {
       if (formStarted) return;
@@ -363,6 +370,7 @@ document.addEventListener("DOMContentLoaded", function () {
         form.reset();
         formStarted = false;
         prefillSku(form, params.get("sku"));
+        prefillProduct();
         submissionId = createSubmissionId();
       } catch (error) {
         trackEvent("form_error", { form_id: form.id, error_type: "delivery" });

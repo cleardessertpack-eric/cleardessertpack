@@ -3,7 +3,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
-const templates = Object.fromEntries(['site-header', 'site-footer', 'inquiry-form', 'inquiry-form-compact'].map(name => [name, read(`partials/${name}.html`).trim()]));
+const templates = Object.fromEntries(['site-header', 'site-footer', 'inquiry-form', 'inquiry-form-compact', 'inquiry-form-contact'].map(name => [name, read(`partials/${name}.html`).trim()]));
 const pages = [...read('sitemap.xml').matchAll(/<loc>(.*?)<\/loc>/g)].map(([, url]) => new URL(url).pathname);
 const activeSection = route => {
   if (['/clear-dessert-box-sizes', '/packaging-kits', '/wholesale-tiramisu-boxes', '/transparent-plastic-dessert-boxes', '/glass-baking-dishes'].includes(route)) return '/products';
@@ -24,7 +24,7 @@ for (const route of pages) {
   const form = html.match(/<form\b[^>]*\bdata-inquiry-form[^>]*>[\s\S]*?<\/form>/);
   const formId = form ? (form[0].match(/\bid="([^"]+)"/)?.[1] || 'quoteForm') : null;
   if (form) {
-    html = replaceComponent(html, 'inquiry-form', /<form\b[^>]*\bdata-inquiry-form[^>]*>[\s\S]*?<\/form>/, templates[route === '/' ? 'inquiry-form-compact' : 'inquiry-form'].replaceAll('{{FORM_ID}}', formId));
+    html = replaceComponent(html, 'inquiry-form', /<form\b[^>]*\bdata-inquiry-form[^>]*>[\s\S]*?<\/form>/, templates[route === '/' ? 'inquiry-form-compact' : route === '/contact' ? 'inquiry-form-contact' : 'inquiry-form'].replaceAll('{{FORM_ID}}', formId));
     forms++;
   }
   let header = templates['site-header'].replaceAll('{{QUOTE_HREF}}', formId ? `#${formId}` : '/contact#contact-inquiry-form');
