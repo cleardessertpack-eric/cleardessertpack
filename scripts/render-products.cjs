@@ -12,6 +12,13 @@ for (const file of ['products-data.js', 'product-renderer.js']) {
   vm.runInContext(fs.readFileSync(path.join(root, 'assets/js', file), 'utf8'), context);
 }
 let html = fs.readFileSync(path.join(root, 'products.html'), 'utf8');
+// The redesigned catalogue already contains its cards in the HTML source.
+if (html.includes('<main class="product-index">')) {
+  const cards = (html.match(/class="wholesale-product" id=/g) || []).length;
+  if (cards !== 22) throw new Error(`Expected 22 static product cards, found ${cards}`);
+  console.log('Preserved 22 static cards in the products collection.');
+  process.exit(0);
+}
 for (const material of ['PS', 'PET']) {
   const id = `${material.toLowerCase()}-products-grid`;
   vm.runInContext(`ProductRenderer.renderProductGrid('${id}', {material: '${material}'});`, context);
