@@ -21,7 +21,7 @@ async function submit(contact, provider = { ok: true, status: 200, data: { id: '
   };
   try {
     await handler({ method: 'POST', headers: { origin: 'https://www.cleardessertpack.com' }, body: {
-      started_at: Date.now() - 5000, name: 'Routing regression test', contact, to: 'untrusted@example.com',
+      started_at: Date.now() - 5000, name: 'Routing regression test', contact, to: 'untrusted@example.com', cc: 'untrusted@example.com',
       message: '<script>unsafe</script>', landing_page: '/products', referrer: 'https://example.com', utm_source: 'source-fixture', utm_medium: 'campaign-fixture', utm_campaign: 'october-fixture',
     } }, res);
     return { res, sent };
@@ -34,17 +34,20 @@ async function submit(contact, provider = { ok: true, status: 200, data: { id: '
   }
 }
 
-test('legacy configuration and form data cannot redirect enquiries away from the sole inbox', async () => {
+test('legacy configuration and form data cannot redirect enquiries away from the primary inbox and required CC', async () => {
   const { res, sent } = await submit('buyer@example.com');
   assert.equal(res.statusCode, 200);
   assert.deepEqual(sent.to, ['cleardessertpack@gmail.com']);
+  assert.deepEqual(sent.cc, ['jinkuanglucy@163.com']);
   assert.equal(sent.reply_to, 'buyer@example.com');
+  assert.deepEqual(sent.cc, ['jinkuanglucy@163.com']);
   assert.ok(!sent.html.includes('<script>'));
 });
 
 test('WhatsApp-only enquiries have a safe reply address and follow-up instructions', async () => {
   const { sent } = await submit('+44 7700 900123');
   assert.equal(sent.reply_to, 'cleardessertpack@gmail.com');
+  assert.deepEqual(sent.cc, ['jinkuanglucy@163.com']);
   assert.match(sent.text, /No customer email was supplied/);
 });
 
@@ -75,6 +78,7 @@ test('RFQ notification preserves acquisition context without changing recipient'
   assert.match(sent.text, /Landing page: \/products/);
   assert.match(sent.text, /source-fixture \/ campaign-fixture \/ october-fixture/);
   assert.deepEqual(sent.to, ['cleardessertpack@gmail.com']);
+  assert.deepEqual(sent.cc, ['jinkuanglucy@163.com']);
 });
 
 test('invalid origins and absent or premature timestamps cannot reach the email provider', async () => {

@@ -3,8 +3,9 @@ const ALLOWED_ORIGINS = new Set([
   "https://cleardessertpack.com",
 ]);
 
-// The owner's sole inbox. A legacy environment variable must not redirect leads.
+// Fixed enquiry recipients. Legacy environment variables must not redirect leads.
 const INQUIRY_EMAIL = "cleardessertpack@gmail.com";
+const INQUIRY_CC_EMAIL = "jinkuanglucy@163.com";
 const INQUIRY_FROM = "Clear Dessert Pack <noreply@cleardessertpack.com>";
 
 const MAX_LENGTHS = {
@@ -158,6 +159,7 @@ module.exports = async function handler(req, res) {
   const email = {
     from,
     to: [to],
+    cc: [INQUIRY_CC_EMAIL],
     subject,
     html: `<div style="font-family:Arial,sans-serif;background:#f4f6f7;padding:28px"><div style="max-width:720px;margin:auto;background:#fff;border-radius:14px;overflow:hidden;border:1px solid #e2e7ea"><div style="background:#0f2637;color:#fff;padding:22px 24px"><div style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#ff9fa2;font-weight:700">Clear Dessert Pack</div><h1 style="font-size:22px;margin:7px 0 0">New website enquiry</h1></div><table role="presentation" style="width:100%;border-collapse:collapse;font-size:14px">${rows}</table><div style="padding:18px 24px;color:#74818a;font-size:12px">Submitted through cleardessertpack.com</div></div></div>`,
     text: plainText,
@@ -188,7 +190,7 @@ module.exports = async function handler(req, res) {
       return res.status(502).json({ error: "Email delivery failed" });
     }
 
-    console.info("Website enquiry accepted", { id: result.id, to: INQUIRY_EMAIL });
+    console.info("Website enquiry accepted", { id: result.id, to: INQUIRY_EMAIL, cc: INQUIRY_CC_EMAIL });
     return res.status(200).json({ ok: true, id: result.id });
   } catch (error) {
     console.error("Enquiry email error", error);

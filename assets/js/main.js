@@ -19,6 +19,7 @@
 
 document.addEventListener("DOMContentLoaded", function () {
   const PUBLIC_EMAIL = "cleardessertpack@gmail.com";
+  const INQUIRY_CC_EMAIL = "jinkuanglucy@163.com";
   const OBSOLETE_EMAIL = /\b(?:sales|enquiries)@cleardessertpack\.com/ig;
   const FORM_ENDPOINT = "/api/inquiry";
   // Session attribution contains no form values and does not identify visitors.
@@ -38,10 +39,19 @@ document.addEventListener("DOMContentLoaded", function () {
     return value;
   })();
 
-  // Keep one public enquiry mailbox across legacy and current pages.
+  function withInquiryCc(href) {
+    const mailto = new URL(href);
+    if (mailto.pathname.toLowerCase() !== PUBLIC_EMAIL) return href;
+    const cc = (mailto.searchParams.get("cc") || "").split(",").map(value => value.trim()).filter(Boolean);
+    if (!cc.some(value => value.toLowerCase() === INQUIRY_CC_EMAIL)) cc.push(INQUIRY_CC_EMAIL);
+    mailto.searchParams.set("cc", cc.join(","));
+    return mailto.href;
+  }
+
+  // Keep the public enquiry mailbox and required CC across legacy and current pages.
   document.querySelectorAll('a[href^="mailto:"]').forEach((link) => {
     const href = link.getAttribute("href") || "";
-    link.setAttribute("href", href.replace(OBSOLETE_EMAIL, PUBLIC_EMAIL));
+    link.setAttribute("href", withInquiryCc(href.replace(OBSOLETE_EMAIL, PUBLIC_EMAIL)));
     link.textContent = (link.textContent || "").replace(OBSOLETE_EMAIL, PUBLIC_EMAIL);
   });
 
@@ -224,7 +234,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "",
       "Thank you."
     ].join("\n");
-    return `mailto:${PUBLIC_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    return withInquiryCc(`mailto:${PUBLIC_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
   }
 
   function trackEvent(name, params) {
