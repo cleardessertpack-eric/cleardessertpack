@@ -11,7 +11,8 @@
   <text x="50" y="143" font-size="20" font-weight="700">Top view at the recorded level</text>
   <rect x="95" y="183" width="270" height="148" rx="27" fill="#eaf0f1" stroke="#162b35" stroke-width="3"/>
   <rect x="112" y="200" width="236" height="114" rx="18" fill="#fff" stroke="#64717a" stroke-width="2"/>
-  <path d="M123 256H337M230 211V303" stroke="#bd373a" stroke-width="2" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <path d="M123 256H337" stroke="#bd373a" stroke-width="2" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <path d="M230 211V303" stroke="#bd373a" stroke-width="2" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
   <text x="105" y="369" font-size="18">Clear inside length × width</text>
   <text x="50" y="397" font-size="16" fill="#53646e">For round packs, record the inside diameter.</text>
   <text x="492" y="143" font-size="20" font-weight="700">Side section with matching lid</text>
