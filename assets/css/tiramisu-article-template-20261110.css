@@ -25,6 +25,14 @@
 .cdp-article .guide-body,.cdp-article .guide-module{max-width:820px;margin-left:0;margin-right:0}
 .cdp-article .guide-body{font-size:14px;line-height:1.65;color:#333}
 .cdp-article .guide-body>h2:first-child{margin-top:0}
+.cdp-article .guide-body .article-image-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:28px 0}
+.cdp-article .guide-body .article-figure{min-width:0;margin:28px 0}
+.cdp-article .guide-body .article-image-pair .article-figure{margin:0}
+.cdp-article .guide-body .article-figure img{display:block;width:100%;height:auto;object-fit:contain;border-radius:8px;background:#080a0b}
+.cdp-article .guide-body .article-figure figcaption{padding-top:9px;font-size:12px;line-height:1.55;color:#64717a}
+.cdp-article .guide-body .comparison-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:28px 0}
+.cdp-article .guide-body .spec-card,.cdp-article .guide-body .tip-box,.cdp-article .guide-body .highlight-card{padding:20px;border:1px solid #e3e6e8;border-radius:8px;background:#f8f8f5;box-shadow:none;color:#333}
+.cdp-article .guide-body .math-block{overflow-wrap:anywhere}
 .cdp-article h3{margin:26px 0 14px;font-size:19px;line-height:1.35;color:#162b35;font-weight:700}
 .cdp-article ul,.cdp-article ol{margin:0 0 20px;padding-left:24px}
 .cdp-article li{margin-bottom:10px}
@@ -64,6 +72,7 @@
  .cdp-article .guide-header{margin-bottom:28px}
  .cdp-article .guide-hero{grid-template-columns:1fr;gap:24px;margin-bottom:32px}
  .cdp-article .guide-hero-photo{max-width:640px}
+ .cdp-article .guide-body .article-image-pair,.cdp-article .guide-body .comparison-grid{grid-template-columns:1fr}
  .cdp-article h2{font-size:22px}
  .cdp-article .guide-card-grid,.cdp-article .guide-related .guide-card-grid{grid-template-columns:1fr}
  .cdp-article .guide-rfq{padding:20px}

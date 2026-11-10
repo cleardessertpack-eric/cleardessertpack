@@ -1,4 +1,4 @@
-/* Only the two approved article links can prefill the existing contact form. */
+/* Approved buyer-guide links can prefill the existing contact form. */
 const applyArticleEnquiryContext = () => {
   if (window.location.pathname.replace(/\/$/, '') !== '/contact') return;
   const contexts = {
@@ -11,6 +11,31 @@ const applyArticleEnquiryContext = () => {
       product: 'Wholesale tiramisu container order',
       application: 'Wholesale tiramisu container procurement',
       fields: ['Body and matching lid SKU for each model', 'Quantity by SKU and unit (bodies / lids / complete sets)', 'Destination country and postcode', 'Required delivery window', 'Sample approval requirements']
+    },
+    'how-to-test-tiramisu-packaging-samples': {
+      product: 'Tiramisu packaging sample review',
+      application: 'Filled sample and lid fit approval',
+      fields: ['Container body and matching lid SKU', 'Finished dessert dimensions and filled weight', 'Storage, carrying and stack conditions', 'Sample quantity and destination postcode']
+    },
+    'eco-friendly-dessert-containers-bulk': {
+      product: 'Tiramisu container material review',
+      application: 'Model-specific environmental documentation',
+      fields: ['Container body and matching lid SKU', 'Environmental claim and document scope to verify', 'Order quantity and destination market', 'Intended dessert and handling conditions']
+    },
+    'how-to-choose-large-tiramisu-box': {
+      product: 'PS and PET tiramisu container comparison',
+      application: 'PS/PET container sample comparison',
+      fields: ['Candidate model and matching lid', 'Dessert size, topping height and filled weight', 'Storage and transport conditions', 'Quantity and destination postcode']
+    },
+    'custom-dessert-packaging-guide': {
+      product: 'Tiramisu box paper sleeve or logo label',
+      application: 'Branded tiramisu container quotation',
+      fields: ['Selected container and lid SKU', 'Sleeve or label design, dimensions and artwork', 'Quantity per design and packing process', 'Destination postcode and sample requirement']
+    },
+    'how-to-use-acrylic-cocoa-stencils': {
+      product: 'Tiramisu cocoa stencil and container',
+      application: 'Cocoa stencil with tiramisu container',
+      fields: ['Artwork and dessert surface dimensions', 'Selected body and matching lid', 'Stencil quantity and intended service process', 'Destination postcode and sample requirement']
     }
   };
   const slug = new URLSearchParams(window.location.search).get('guide');
