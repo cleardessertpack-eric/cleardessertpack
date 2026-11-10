@@ -40,7 +40,7 @@
 .cdp-article .measurement-scroll{overflow-x:auto;border:1px solid #e3e6e8;border-radius:8px;background:#fafbf9}
 .cdp-article .measurement-scroll img{display:block;width:100%;min-width:640px;height:auto}
 .cdp-article .measurement-figure figcaption{margin-top:10px;font-size:12px;line-height:1.6;color:#64717a}
-.cdp-article .guide-module{margin-top:36px}
+.cdp-article .guide-module{margin-top:36px;padding:0}
 .cdp-article .guide-module>h2{margin-top:0}
 .cdp-article .guide-references li{font-size:14px;line-height:1.65;margin-bottom:8px}
 .cdp-article .guide-card-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:20px}
