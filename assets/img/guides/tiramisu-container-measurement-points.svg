@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" role="img" aria-labelledby="title desc">
+ <title id="title">Tiramisu container measurement points</title>
+ <desc id="desc">Generic plan view identifies clear inside length and width at a recorded filling level. A side section distinguishes the inner base, filling level, tallest topping and the underside of the matching closed lid. No numerical dimensions or model geometry are implied.</desc>
+ <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto-start-reverse"><path d="M0 0L8 4L0 8Z" fill="#bd373a"/></marker></defs>
+ <rect width="1000" height="500" fill="#fafbf9"/>
+ <g fill="#162b35" font-family="Arial, sans-serif">
+  <text x="36" y="47" font-size="23" font-weight="700">Measure the usable space, not just the outside</text>
+  <text x="36" y="82" font-size="17" fill="#53646e">Record the body, matching lid and measurement level with every result.</text>
+  <rect x="28" y="108" width="422" height="310" rx="12" fill="#fff" stroke="#dce4e6"/>
+  <rect x="470" y="108" width="502" height="310" rx="12" fill="#fff" stroke="#dce4e6"/>
+  <text x="50" y="143" font-size="20" font-weight="700">Top view at the recorded level</text>
+  <rect x="95" y="183" width="270" height="148" rx="27" fill="#eaf0f1" stroke="#162b35" stroke-width="3"/>
+  <rect x="112" y="200" width="236" height="114" rx="18" fill="#fff" stroke="#64717a" stroke-width="2"/>
+  <path d="M123 256H337M230 211V303" stroke="#bd373a" stroke-width="2" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <text x="105" y="369" font-size="18">Clear inside length × width</text>
+  <text x="50" y="397" font-size="16" fill="#53646e">For round packs, record the inside diameter.</text>
+  <text x="492" y="143" font-size="20" font-weight="700">Side section with matching lid</text>
+  <path d="M535 205Q535 192 549 192H867Q881 192 881 205L871 213H545Z" fill="#eaf0f1" stroke="#162b35" stroke-width="3"/>
+  <path d="M548 218L576 340Q579 353 592 353H824Q837 353 840 340L868 218" fill="#fff" stroke="#162b35" stroke-width="3"/>
+  <path d="M566 286H850" stroke="#64717a" stroke-width="2" stroke-dasharray="7 5"/>
+  <path d="M596 286Q619 272 642 286Q667 274 687 286Q704 270 720 252Q736 229 752 252Q770 275 791 282L823 286" fill="none" stroke="#bd373a" stroke-width="3"/>
+  <path d="M735 220V239" stroke="#bd373a" stroke-width="2" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <path d="M883 198H922M753 231H922M852 286H922M840 353H922" stroke="#82939c" stroke-width="1.5"/>
+  <text x="620" y="177" font-size="16">Underside of the closed lid</text>
+  <text x="763" y="248" font-size="16" fill="#bd373a">Topping clearance</text>
+  <text x="601" y="313" font-size="16" fill="#53646e">Record the filling level</text>
+  <text x="667" y="380" font-size="17">Inner base</text>
+  <text x="492" y="403" font-size="16" fill="#53646e">Check closure without pressing the topping.</text>
+  <text x="36" y="460" font-size="17" fill="#53646e">Schematic only — not to scale. No model measurements or clearance values are implied.</text>
+ </g>
+</svg>
