@@ -1,5 +1,5 @@
 /* Only the two approved article links can prefill the existing contact form. */
-(() => {
+const applyArticleEnquiryContext = () => {
   if (window.location.pathname.replace(/\/$/, '') !== '/contact') return;
   const contexts = {
     'tiramisu-container-size-guide': {
@@ -30,4 +30,7 @@
     field.value = context.application;
     form.appendChild(field);
   }
-})();
+};
+// Run after the existing form's DOMContentLoaded initializer has set its fields.
+if (document.readyState === 'complete') applyArticleEnquiryContext();
+else document.addEventListener('DOMContentLoaded', applyArticleEnquiryContext, { once: true });
