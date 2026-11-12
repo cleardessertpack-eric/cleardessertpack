@@ -6,11 +6,11 @@ const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 const templates = Object.fromEntries(['site-header', 'site-footer', 'inquiry-form', 'inquiry-form-compact', 'inquiry-form-contact'].map(name => [name, read(`partials/${name}.html`).trim()]));
 const pages = [...read('sitemap.xml').matchAll(/<loc>(.*?)<\/loc>/g)].map(([, url]) => new URL(url).pathname);
 // These articles use one compact quotation action, with context passed to Contact.
-const compactArticleRoutes = new Set(['/tiramisu-container-size-guide', '/tiramisu-container-wholesale-buying-guide']);
+const compactArticleRoutes = new Set(["/tiramisu-container-size-guide", "/tiramisu-container-wholesale-buying-guide", "/glass-vs-plastic-tiramisu-containers", "/tiramisu-containers-refrigerated-display", "/tiramisu-container-lid-not-closing", "/stacking-filled-tiramisu-containers", "/tiramisu-containers-for-delivery", "/tiramisu-container-cost-per-set"]);
 const activeSection = route => {
   if (['/clear-dessert-box-sizes', '/packaging-kits', '/wholesale-tiramisu-boxes', '/transparent-plastic-dessert-boxes', '/glass-baking-dishes'].includes(route)) return '/products';
   if (route === '/applications') return '/factory';
-  if (route.startsWith('/how-to-') || ['/tiramisu-container-size-guide', '/tiramisu-container-wholesale-buying-guide'].includes(route) || route === '/custom-dessert-packaging-guide' || route === '/eco-friendly-dessert-containers-bulk') return '/resources';
+  if (compactArticleRoutes.has(route) || route.startsWith('/how-to-') || ['/tiramisu-container-size-guide', '/tiramisu-container-wholesale-buying-guide'].includes(route) || route === '/custom-dessert-packaging-guide' || route === '/eco-friendly-dessert-containers-bulk') return '/resources';
   return route;
 };
 function replaceComponent(html, name, legacy, replacement) {

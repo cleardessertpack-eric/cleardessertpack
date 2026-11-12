@@ -2,6 +2,68 @@
 const applyArticleEnquiryContext = () => {
   if (window.location.pathname.replace(/\/$/, '') !== '/contact') return;
   const contexts = {
+  "glass-vs-plastic-tiramisu-containers": {
+    "product": "Tiramisu containers — material selection",
+    "application": "Glass vs Plastic Tiramisu Containers: Choosing for Bakery Sales",
+    "fields": [
+      "Selected plastic or glass model and matching cover",
+      "Dessert dimensions and filled weight",
+      "Table service, takeaway or reuse process",
+      "Order quantity and counting unit",
+      "Destination country and postcode"
+    ]
+  },
+  "tiramisu-containers-refrigerated-display": {
+    "product": "Tiramisu containers — refrigerated display",
+    "application": "Tiramisu Containers for Refrigerated Display: Lid Fit and Condensation Checks",
+    "fields": [
+      "Body and matching lid reference",
+      "Dessert and topping height",
+      "Display and storage workflow",
+      "Quantity and destination postcode"
+    ]
+  },
+  "tiramisu-container-lid-not-closing": {
+    "product": "Tiramisu containers — lid troubleshooting",
+    "application": "Why Won’t Your Tiramisu Container Lid Close? A Troubleshooting Guide",
+    "fields": [
+      "Body and lid reference and order batch",
+      "Empty versus filled closure result",
+      "Affected quantity and photos",
+      "Dessert height and storage conditions"
+    ]
+  },
+  "stacking-filled-tiramisu-containers": {
+    "product": "Tiramisu containers — filled-pack stacking",
+    "application": "How to Check Filled Tiramisu Containers for Stacking",
+    "fields": [
+      "Body and matching lid reference",
+      "Filled mass per container",
+      "Stack arrangement, layers and duration",
+      "Quantity and destination postcode"
+    ]
+  },
+  "tiramisu-containers-for-delivery": {
+    "product": "Tiramisu containers — delivery packaging",
+    "application": "Tiramisu Containers for Delivery: A Filled-Pack Trial Guide",
+    "fields": [
+      "Body and lid reference",
+      "Dessert dimensions and filled weight",
+      "Carrier or outer packing and delivery workflow",
+      "Quantity and destination postcode"
+    ]
+  },
+  "tiramisu-container-cost-per-set": {
+    "product": "Tiramisu containers — cost comparison",
+    "application": "How to Compare Tiramisu Container Costs per Complete Set",
+    "fields": [
+      "Body and matching lid SKU",
+      "Quantity and counting unit",
+      "Current pieces or sets per carton",
+      "Destination and requested quote scope"
+    ]
+  }
+,
     'tiramisu-container-size-guide': {
       product: 'Tiramisu containers — size selection',
       application: 'Tiramisu container size selection',
