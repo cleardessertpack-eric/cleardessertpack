@@ -1,5 +1,7 @@
 # Clear Dessert Pack project instructions
 
+- For website changes requested by Eric, deploy to production by default after appropriate checks, then verify the live result. Eric explicitly confirmed this preference on 2026-11-11. Do not request deployment approval again for the same authorized scope; follow any later request to prepare a draft or preview only.
+
 - Use Lucy as the author of every article on cleardessertpack.com, including future articles. Keep the visible byline and Article/BlogPosting author consistent: Person named Lucy. Keep Clear Dessert Pack as publisher. Do not invent Lucy’s surname, credentials, job title, biography, profile URL or sameAs links.
 - After publishing or optimizing pages, provide each new or changed page separately for the user to review, with its exact URL, page type, changes, verification and any remaining gaps.
 - All future articles and authorized article optimizations use the layout and module order approved from https://kunyufencing.com/en/fence-articles/high-tensile-vs-low-carbon-woven-wire-fence. Reuse the two implemented tiramisu guides: left-aligned title/byline/date tags; desktop answer-left/image-right hero; 820px single-column body; optional nonduplicative FAQ and genuine references, up to three related products, one compact quotation action, then up to two related buyer guides. Retain Clear Dessert Pack branding and Lucy. Use the existing Contact form with verified article context; do not restore sidebars, oversized centered title/cover layouts or embedded large article forms.
